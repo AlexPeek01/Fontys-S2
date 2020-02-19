@@ -20,7 +20,6 @@ namespace Aritmiek_ContainerShip2
     /// </summary>
     public partial class MainWindow : Window
     {
-        int cooledContainerCount = 0;
         List<Container> sortedContainerList = new List<Container>();
         Ship ship;
         public MainWindow()
@@ -39,17 +38,18 @@ namespace Aritmiek_ContainerShip2
             if (isValuableCheckbox.IsChecked == true)
                 isChecked1 = true;
             if (isCooledCheckbox.IsChecked == true)
-            {
                 isChecked2 = true;
-                cooledContainerCount++;
+            if (!Domain.ContainerLimitReached(isChecked1, isChecked2, ship.length, ship.width, ship.height, Container.unsortedContainerList))
+            {
+                Domain.CreateContainer(int.Parse(ContainerWeightTextbox.Text), isChecked1, isChecked2);
             }
-            if (cooledContainerCount <= ship.width * ship.height && isCooledCheckbox.IsChecked == true)
+            /*if (cooledContainerCount <= ship.width * ship.height && isCooledCheckbox.IsChecked == true)
                 Domain.CreateContainer(int.Parse(ContainerWeightTextbox.Text), isChecked1, isChecked2);
             else if (isCooledCheckbox.IsChecked != true)
                 Domain.CreateContainer(int.Parse(ContainerWeightTextbox.Text), isChecked1, isChecked2);
             else
                 System.Windows.MessageBox.Show("Cooled container limit reached!");
-        }
+        */}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

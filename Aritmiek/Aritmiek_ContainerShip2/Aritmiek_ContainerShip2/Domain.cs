@@ -8,14 +8,16 @@ namespace Aritmiek_ContainerShip2
 {
     class Domain
     {
-        public static int centerLength = 0;
-        public static int centerHeight = 0;
-        public static int rightLength = 0;
-        public static int rightWidth = 0;
-        public static int rightHeight = 0;
-        public static int leftLength = 0;
-        public static int leftWidth = 0;
-        public static int leftHeight = 0;
+        private static int centerLength = 0;
+        private static int centerHeight = 0;
+        private static int rightLength = 0;
+        private static int rightWidth = 0;
+        private static int rightHeight = 0;
+        private static int leftLength = 0;
+        private static int leftWidth = 0;
+        private static int leftHeight = 0;
+        private static int cooledContainerCount = 0;
+
         public static void CreateContainer(int weight, bool isValuable, bool cooledContainer)
         {
             if (weight > 30000 || weight < 4000)
@@ -30,6 +32,7 @@ namespace Aritmiek_ContainerShip2
         }
         public static string CheckBalance(Container[,,] leftArray, Container[,,] rightArray, Container[,,] centerArray,Ship ship, Container d)
         {
+            int centerIsFull = 0;
             int centerContainerCount = 0;
             int leftWeight = 0;
             int rightWeight = 0;
@@ -51,19 +54,17 @@ namespace Aritmiek_ContainerShip2
                 if (c != null)
                     rightWeight += c.weight;
             }
-            if (centerContainerCount != centerArray.Length && ship.width % 2 != 0)
+            for(int i = 0; i < ship.length; i++)
             {
+                if (!CheckAccumulatedWeight(centerArray, i, 0, d, ship))
+                    centerIsFull++;
+            }
+            if (centerContainerCount != centerArray.Length && ship.width % 2 != 0 && centerIsFull != ship.length)
                 return "center";
-            }
             else if(leftWeight >= rightWeight)
-            {
                 return "right";
-            }
             else
-            {
                 return "left";
-            }
-
         }
         public static bool CheckAccumulatedWeight(Container[,,] array, int x, int y, Container containerToPlace, Ship ship)
         {
@@ -73,9 +74,7 @@ namespace Aritmiek_ContainerShip2
             for(int z = 1; z < ship.height; z++)
             {
                 if(array[x,y,z] != null)
-                {
                     accumulatedWeight += array[x, y, z].weight;
-                }
             }
             accumulatedWeight += containerToPlace.weight;
             if (accumulatedWeight > 120000)
@@ -83,12 +82,33 @@ namespace Aritmiek_ContainerShip2
             else
                 return true;
         }
+        public static bool ContainerLimitReached(bool isValuable, bool isCooled, int length, int width, int height, List<Container> containerList)
+        {
+            if (isCooled)
+                cooledContainerCount++;
+            if (length * width * height == containerList.Count)
+            {
+                System.Windows.MessageBox.Show("Container limit reached!");
+                return true;
+            }
+            else if (cooledContainerCount - 1 == length * width)
+            {
+                System.Windows.MessageBox.Show("Cooled container limit reached!");
+                return true;
+            }
+            else
+                return false;
+        }
         public static List<Container> SortContainer(List<Container> unsortedContainerList)
         {
             var sortedContainerList = unsortedContainerList.OrderByDescending(s => s.cooledContainer).ThenByDescending(s => s.weight);
             return sortedContainerList.ToList<Container>();
         }
-        
+        public static void UnplacableContainerHandler(Container c)
+        {
+            System.Windows.MessageBox.Show("No more room for this container");
+            Container.unplaceableContainerList.Add(c);
+        }
         public static void PlaceContainer(List<Container> containerList, Ship ship)
         {
             foreach (Container c in containerList)
@@ -109,8 +129,7 @@ namespace Aritmiek_ContainerShip2
                     }
                     else
                     {
-                        System.Windows.MessageBox.Show("No more room for this container");
-                        Container.unplaceableContainerList.Add(c);
+                        UnplacableContainerHandler(c);
                     }
                 }
                 else if (c.cooledContainer == false && !Container.unplaceableContainerList.Contains(c) && c.isValuable == false)
@@ -129,14 +148,12 @@ namespace Aritmiek_ContainerShip2
                     }
                     else
                     {
-                        System.Windows.MessageBox.Show("No more room for this container");
-                        Container.unplaceableContainerList.Add(c);
+                        UnplacableContainerHandler(c);
                     }
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show("No more room for this container");
-                    Container.unplaceableContainerList.Add(c);
+                    UnplacableContainerHandler(c);
                 }
             }
         }
@@ -149,7 +166,7 @@ namespace Aritmiek_ContainerShip2
                 if(rightLength < ship.length - 1)
                     rightLength++;
                 ship.rightSideArray[rightLength, rightWidth, rightHeight] = c;
-                if(rightHeight < ship.height)
+                if (rightHeight < ship.height)
                     rightHeight++;
             }
             else if (rightHeight < ship.height && accumulatedWeight)
@@ -167,8 +184,7 @@ namespace Aritmiek_ContainerShip2
             }   
             else
             {
-                System.Windows.MessageBox.Show("No more room for this container");
-                Container.unplaceableContainerList.Add(c);
+                UnplacableContainerHandler(c);
             }
         }
             public static void PlaceCenter(Ship ship, Container c)
@@ -190,8 +206,7 @@ namespace Aritmiek_ContainerShip2
             }
             else
             {
-                System.Windows.MessageBox.Show("No more room for this container");
-                Container.unplaceableContainerList.Add(c);
+                UnplacableContainerHandler(c);
             }
         }
         public static void PlaceLeftSide(Ship ship, Container c)
@@ -221,8 +236,7 @@ namespace Aritmiek_ContainerShip2
             }
             else
             {
-                System.Windows.MessageBox.Show("No more room for this container");
-                Container.unplaceableContainerList.Add(c);
+                UnplacableContainerHandler(c);
             }
         }
     }
