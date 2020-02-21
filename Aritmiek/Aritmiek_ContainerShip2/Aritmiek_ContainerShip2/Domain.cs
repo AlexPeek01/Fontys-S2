@@ -32,10 +32,11 @@ namespace Aritmiek_ContainerShip2
         }
         public static string CheckBalance(Container[,,] leftArray, Container[,,] rightArray, Container[,,] centerArray,Ship ship, Container d)
         {
-            int centerIsFull = 0;
             int centerContainerCount = 0;
             int leftWeight = 0;
             int rightWeight = 0;
+            int centerIsFull = 0;
+
             if(ship.width % 2 != 0)
             {
                 foreach (Container c in centerArray)
@@ -80,7 +81,7 @@ namespace Aritmiek_ContainerShip2
             if (accumulatedWeight > 120000)
                 return false;
             else
-                return true;
+                return true; 
         }
         public static bool ContainerLimitReached(bool isValuable, bool isCooled, int length, int width, int height, List<Container> containerList)
         {
