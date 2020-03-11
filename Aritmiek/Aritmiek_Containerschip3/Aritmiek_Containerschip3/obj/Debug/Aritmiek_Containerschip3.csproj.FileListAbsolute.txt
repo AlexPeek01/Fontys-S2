@@ -1,0 +1,14 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\bin\Debug\Aritmiek_Containerschip3.exe.config
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\bin\Debug\Aritmiek_Containerschip3.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\bin\Debug\Aritmiek_Containerschip3.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\Aritmiek_Containerschip3.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\MainWindow.g.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\App.g.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\Aritmiek_Containerschip3_MarkupCompile.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\Aritmiek_Containerschip3_MarkupCompile.lref
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\MainWindow.baml
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\Aritmiek_Containerschip3.g.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\Aritmiek_Containerschip3.Properties.Resources.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\Aritmiek_Containerschip3.csproj.GenerateResource.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\Aritmiek_Containerschip3.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Aritmiek\Aritmiek_Containerschip3\Aritmiek_Containerschip3\obj\Debug\Aritmiek_Containerschip3.pdb
