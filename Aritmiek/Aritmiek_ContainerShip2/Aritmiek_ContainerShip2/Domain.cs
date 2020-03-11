@@ -60,7 +60,7 @@ namespace Aritmiek_ContainerShip2
                 if (!CheckAccumulatedWeight(centerArray, i, 0, d, ship))
                     centerIsFull++;
             }
-            if (centerContainerCount != centerArray.Length && ship.width % 2 != 0 && centerIsFull != ship.length)
+            if (centerContainerCount != centerArray.Length && ship.width % 2 != 0/* && centerIsFull != ship.length*/)
                 return "center";
             else if(leftWeight >= rightWeight)
                 return "right";
@@ -105,6 +105,7 @@ namespace Aritmiek_ContainerShip2
             var sortedContainerList = unsortedContainerList.OrderByDescending(s => s.cooledContainer).ThenByDescending(s => s.weight);
             return sortedContainerList.ToList<Container>();
         }
+        //eerst hele onderste laag
         public static void UnplacableContainerHandler(Container c)
         {
             System.Windows.MessageBox.Show("No more room for this container");
@@ -160,7 +161,33 @@ namespace Aritmiek_ContainerShip2
         }
         public static void PlaceRightSide(Ship ship, Container c)
         {
-            bool accumulatedWeight = CheckAccumulatedWeight(ship.rightSideArray, rightLength, rightWidth, c, ship);
+            if (rightLength < ship.length && rightHeight < ship.height && rightWidth < ship.width / 2)
+            {
+                ship.rightSideArray[rightLength, rightWidth, rightHeight] = c;
+                rightLength++;
+            }
+            else if (rightLength >= ship.length && rightHeight < ship.height && rightWidth < ship.width / 2)
+            {
+                rightLength = 0;
+                if(rightWidth < ship.width / 2 - 1)
+                    rightWidth++;
+                ship.rightSideArray[rightLength, rightWidth, rightHeight] = c;
+                if (rightWidth < ship.width / 2)
+                    rightWidth++;
+            }
+            else if (rightLength >= ship.length && rightHeight < ship.height && rightWidth >= ship.width / 2)
+            {
+                rightLength = 0;
+                rightWidth = 0;
+                rightHeight++;
+                ship.rightSideArray[rightLength, rightWidth, rightHeight] = c;
+            }
+            else
+            {
+                UnplacableContainerHandler(c);
+            }
+
+            /*bool accumulatedWeight = CheckAccumulatedWeight(ship.rightSideArray, rightLength, rightWidth, c, ship);
             if (!accumulatedWeight && rightHeight < ship.height && rightLength < ship.length || rightHeight >= ship.height && rightLength < ship.length)
             {
                 rightHeight = 0;
@@ -170,11 +197,6 @@ namespace Aritmiek_ContainerShip2
                 if (rightHeight < ship.height)
                     rightHeight++;
             }
-            else if (rightHeight < ship.height && accumulatedWeight)
-            {
-                ship.rightSideArray[rightLength, rightWidth, rightHeight] = c;
-                rightHeight++;
-            }
             else if (rightHeight >= ship.height && rightLength >= ship.length && rightWidth < ship.width / 2)
             {
                 rightHeight = 0;
@@ -182,36 +204,83 @@ namespace Aritmiek_ContainerShip2
                 if (rightWidth <= ship.width / 2)
                     rightWidth++;
                 ship.rightSideArray[rightLength, rightWidth, rightHeight] = c;
-            }   
+            }
+            else if (rightHeight < ship.height && accumulatedWeight)
+            {
+                ship.rightSideArray[rightLength, rightWidth, rightHeight] = c;
+                rightHeight++;
+            }
+            else
+            {
+                UnplacableContainerHandler(c);
+            }*/
+        }
+            public static void PlaceCenter(Ship ship, Container c)
+            {
+            if (centerLength < ship.length && centerHeight < ship.height)
+            {
+                ship.centerArray[centerLength, 0, centerHeight] = c;
+                centerLength++;
+            }
+            else if (centerLength >= ship.length && centerHeight < ship.height)
+            {
+                centerLength = 0;
+                centerHeight++;
+                ship.centerArray[centerLength, 0, centerHeight] = c;
+            }
             else
             {
                 UnplacableContainerHandler(c);
             }
-        }
-            public static void PlaceCenter(Ship ship, Container c)
-        {
-            bool accumulatedWeight = CheckAccumulatedWeight(ship.centerArray, centerLength, 0, c, ship);
-            if (!accumulatedWeight && centerLength < ship.length || centerHeight >= ship.height && centerLength < ship.length)
+            /*
+            if (centerLength == ship.length - 1)
+                centerLength = 0;
+            if (centerHeight < ship.height && accumulatedWeight)
+            {
+                ship.centerArray[centerLength, 0, centerHeight] = c;
+                centerHeight++;
+            }
+            else if (!accumulatedWeight && centerLength < ship.length || centerHeight >= ship.height && centerLength < ship.length)
             {
                 centerHeight = 0;
                 if (centerLength < ship.length - 1)
                     centerLength++;
                 ship.centerArray[centerLength, 0, centerHeight] = c;
-                if(centerHeight < ship.height)
+                if (centerHeight < ship.height)
                     centerHeight++;
-            }
-            else if (centerHeight < ship.height && accumulatedWeight)
-            {
-                ship.centerArray[centerLength, 0, centerHeight] = c;
-                centerHeight++;
             }
             else
             {
                 UnplacableContainerHandler(c);
-            }
+            }*/
         }
         public static void PlaceLeftSide(Ship ship, Container c)
         {
+            if (leftLength < ship.length && leftHeight < ship.height && leftWidth < ship.width / 2)
+            {
+                ship.leftSideArray[leftLength, leftWidth, leftHeight] = c;
+                leftLength++;
+            }
+            else if (leftLength >= ship.length && leftHeight < ship.height && leftWidth < ship.width / 2)
+            {
+                leftLength = 0;
+                if (leftWidth < ship.width / 2 - 1)
+                    leftWidth++;
+                ship.leftSideArray[leftLength, leftWidth, leftHeight] = c;
+                if (leftWidth < ship.width / 2)
+                    leftWidth++;
+            }
+            else if (leftLength >= ship.length && leftHeight < ship.height && leftWidth >= ship.width / 2)
+            {
+                leftLength = 0;
+                leftWidth = 0;
+                leftHeight++;
+                ship.leftSideArray[leftLength, leftWidth, leftHeight] = c;
+            }
+            else
+            {
+                UnplacableContainerHandler(c);
+            }/*
             bool accumulatedWeight = CheckAccumulatedWeight(ship.leftSideArray, leftLength, leftWidth, c, ship);
             if (!accumulatedWeight && leftHeight < ship.height && leftLength < ship.length || leftHeight >= ship.height && leftLength < ship.length)
             {
@@ -222,11 +291,6 @@ namespace Aritmiek_ContainerShip2
                 if(leftHeight < ship.height)
                 leftHeight++;
             }
-            else if (leftHeight < ship.height && accumulatedWeight && leftLength < ship.length)
-            {
-                ship.leftSideArray[leftLength, 0, leftHeight] = c;
-                leftHeight++;
-            }
             else if (leftHeight >= ship.height && leftLength >= ship.length && leftWidth < ship.width / 2)
             {
                 leftHeight = 0;
@@ -235,10 +299,15 @@ namespace Aritmiek_ContainerShip2
                     leftWidth++;
                 ship.leftSideArray[leftLength, leftWidth, leftHeight] = c;
             }
+            else if (leftHeight < ship.height && accumulatedWeight && leftLength < ship.length)
+            {
+                ship.leftSideArray[leftLength, 0, leftHeight] = c;
+                leftHeight++;
+            }
             else
             {
                 UnplacableContainerHandler(c);
-            }
+            }*/
         }
     }
 }
