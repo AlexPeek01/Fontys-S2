@@ -24,56 +24,57 @@ namespace Arithmetic_Casus_CircusAnimals
         {
             InitializeComponent();
         }
-        private void AddLionBTN_Click(object sender, RoutedEventArgs e)
-        {
-            Domain.CreateAnimal(true, 3, "lion", false);
-        }
-
-        private void AddElephantBTN_Click(object sender, RoutedEventArgs e)
-        {
-            Domain.CreateAnimal(false, 5, "elephant", false);
-        }
-
-        private void AddMonkeyBTN_Click(object sender, RoutedEventArgs e)
-        {
-            Domain.CreateAnimal(false, 1, "monkey", false);
-        }
-
-        private void AddTigerBTN_Click(object sender, RoutedEventArgs e)
-        {
-            Domain.CreateAnimal(true, 3, "tiger", false);
-        }
-
-        private void AddZebraBTN_Click(object sender, RoutedEventArgs e)
-        {
-            Domain.CreateAnimal(false, 3, "zebra", false);
-        }
-
-        private void AddLlamaBTN_Click(object sender, RoutedEventArgs e)
-        {
-            Domain.CreateAnimal(false, 3, "llama", false);
-        }
-
-        private void AddCamelBTN_Click(object sender, RoutedEventArgs e)
-        {
-            Domain.CreateAnimal(false, 3, "camel", false);
-        }
+        
 
         private void OrderBTN_Click(object sender, RoutedEventArgs e)
         {
             string animalString = "";
-            Domain.PlaceAnimalInWagon();
+            Logic_layer.PlaceAnimalInWagon();
             foreach (Wagon w in Wagon.wagonList)
             {
                 DisplayBox.Text += "Wagon: " + w.wagonId.ToString() + " Contains:" + '\n';
                 for (int i = 0; i < w.animalsInWagon.Count(); i++)
-                {
-                    animalString += w.animalsInWagon[i].animalName + '\n';
-                }
+                    animalString += "   - " +  w.animalsInWagon[i].animalName + '\n';
                 DisplayBox.Text += animalString + '\n';
                 animalString = "";
             }
-            efficiencyLabel.Content = "Space efficiency: " + Domain.CalculateEfficiency().ToString() + "%";
+            efficiencyLabel.Content = "Space efficiency: " + Math.Round(Logic_layer.CalculateEfficiency(), 3).ToString() + "%";
+        }
+
+        private void SmallHerbBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_layer.CreateAnimal(false, 1, "Small_Herbivore", false);
+            SmallHerbBtn.Content = (Convert.ToInt32(SmallHerbBtn.Content) + 1).ToString();
+        }
+
+        private void SmallCarnBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_layer.CreateAnimal(true, 1, "Small_Carnivore", false);
+            SmallCarnBtn.Content = (Convert.ToInt32(SmallCarnBtn.Content) + 1).ToString();
+        }
+
+        private void MediumHerbBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_layer.CreateAnimal(false, 3, "Medium_Herbivore", false);
+            MediumHerbBtn.Content = (Convert.ToInt32(MediumHerbBtn.Content) + 1).ToString();
+        }
+
+        private void MediumCarnBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_layer.CreateAnimal(true, 3, "Medium_Carnivore", false);
+            MediumCarnBtn.Content = (Convert.ToInt32(MediumCarnBtn.Content) + 1).ToString();
+        }
+
+        private void LargeHerbBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_layer.CreateAnimal(false, 5, "Large_Herbivore", false);
+            LargeHerbBtn.Content = (Convert.ToInt32(LargeHerbBtn.Content) + 1).ToString();
+        }
+
+        private void LargeCarnBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Logic_layer.CreateAnimal(true, 5, "Large_Carnivore", false);
+            LargeCarnBtn.Content = (Convert.ToInt32(LargeCarnBtn.Content) + 1).ToString();
         }
     }
 }
