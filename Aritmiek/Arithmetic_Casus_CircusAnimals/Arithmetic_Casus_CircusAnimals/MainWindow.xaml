@@ -5,24 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmetic_Casus_CircusAnimals"
         mc:Ignorable="d"
-        Title="MainWindow" Height="365.934" Width="634.401">
-    <Grid>
-        <Label x:Name="Lion" Content="Lion" HorizontalAlignment="Left" Margin="54,16,0,0" VerticalAlignment="Top" Width="87" Height="38"/>
-        <Label x:Name="Elephant" Content="Elephant" HorizontalAlignment="Left" Margin="54,62,0,0" VerticalAlignment="Top" Width="87" Height="38"/>
-        <Label x:Name="Monkey" Content="Monkey" HorizontalAlignment="Left" Margin="54,107,0,0" VerticalAlignment="Top" Width="87" Height="38"/>
-        <Label x:Name="Tiger" Content="Tiger" HorizontalAlignment="Left" Margin="54,152,0,0" VerticalAlignment="Top" Width="87" Height="37"/>
-        <Label x:Name="Zebra" Content="Zebra" HorizontalAlignment="Left" Margin="54,197,0,0" VerticalAlignment="Top" Width="87" Height="38"/>
-        <Label x:Name="Llama" Content="Llama" HorizontalAlignment="Left" Margin="54,242,0,0" VerticalAlignment="Top" Width="87" Height="38"/>
-        <Label x:Name="Camel" Content="Camel" HorizontalAlignment="Left" Margin="54,287,0,0" VerticalAlignment="Top" Width="87" Height="38"/>
-        <Button x:Name="AddLionBTN" Content="+" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top" Width="36" Height="37" Click="AddLionBTN_Click"/>
-        <Button x:Name="AddElephantBTN" Content="+" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="36" Height="36" Click="AddElephantBTN_Click"/>
-        <Button x:Name="AddMonkeyBTN" Content="+" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="36" Height="36" Click="AddMonkeyBTN_Click"/>
-        <Button x:Name="AddTigerBTN" Content="+" HorizontalAlignment="Left" Margin="10,147,0,0" VerticalAlignment="Top" Width="36" Height="36" Click="AddTigerBTN_Click"/>
-        <Button x:Name="AddZebraBTN" Content="+" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Width="36" Height="37" Click="AddZebraBTN_Click"/>
-        <Button x:Name="AddLlamaBTN" Content="+" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="36" Height="37" Click="AddLlamaBTN_Click"/>
-        <Button x:Name="AddCamelBTN" Content="+" HorizontalAlignment="Left" Margin="10,282,0,0" VerticalAlignment="Top" Width="36" Height="37" Click="AddCamelBTN_Click"/>
-        <Button x:Name="OrderBTN" Content="Order animals" HorizontalAlignment="Left" Margin="146,11,0,0" VerticalAlignment="Top" Width="102" Height="43" Click="OrderBTN_Click"/>
-        <TextBox x:Name="DisplayBox" HorizontalAlignment="Left" Height="308" Margin="253,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="235"/>
-        <Label x:Name="efficiencyLabel" Content="Efficiency: " HorizontalAlignment="Left" Margin="493,11,0,0" VerticalAlignment="Top"/>
+        Title="MainWindow" Height="365.934" Width="580.221">
+    <Grid Background="#FF00C6E2">
+        <Label x:Name="Lion" Content="Large Carnivore" HorizontalAlignment="Left" Margin="58,19,0,0" VerticalAlignment="Top" Width="121" Height="43"/>
+        <Label x:Name="Elephant" Content="Large Herbivore" HorizontalAlignment="Left" Margin="58,71,0,0" VerticalAlignment="Top" Width="111" Height="43"/>
+        <Label x:Name="Monkey" Content="Medium Carnivore" HorizontalAlignment="Left" Margin="58,123,0,0" VerticalAlignment="Top" Width="131" Height="43"/>
+        <Label x:Name="Tiger" Content="Medium Herbivore" HorizontalAlignment="Left" Margin="58,179,0,0" VerticalAlignment="Top" Width="131" Height="42"/>
+        <Label x:Name="Zebra" Content="Small Carnivore" HorizontalAlignment="Left" Margin="58,230,0,0" VerticalAlignment="Top" Width="121" Height="43"/>
+        <Label x:Name="Llama" Content="Small Herbivore" HorizontalAlignment="Left" Margin="58,282,0,0" VerticalAlignment="Top" Width="121" Height="43"/>
+        <Button x:Name="LargeCarnBtn" Content="0" HorizontalAlignment="Left" Margin="11,19,0,0" VerticalAlignment="Top" Width="41" Height="42" Click="LargeCarnBtn_Click" Background="White"/>
+        <Button x:Name="LargeHerbBtn" Content="0" HorizontalAlignment="Left" Margin="11,70,0,0" VerticalAlignment="Top" Width="41" Height="41" Click="LargeHerbBtn_Click" Background="White"/>
+        <Button x:Name="MediumCarnBtn" Content="0" HorizontalAlignment="Left" Margin="11,120,0,0" VerticalAlignment="Top" Width="41" Height="41" Click="MediumCarnBtn_Click" Background="White"/>
+        <Button x:Name="MediumHerbBtn" Content="0" HorizontalAlignment="Left" Margin="11,173,0,0" VerticalAlignment="Top" Width="41" Height="41" Click="MediumHerbBtn_Click" Background="White"/>
+        <Button x:Name="SmallCarnBtn" Content="0" HorizontalAlignment="Left" Margin="11,223,0,0" VerticalAlignment="Top" Width="41" Height="42" Click="SmallCarnBtn_Click" Background="White"/>
+        <Button x:Name="SmallHerbBtn" Content="0" HorizontalAlignment="Left" Margin="11,275,0,0" VerticalAlignment="Top" Width="41" Height="42" Click="SmallHerbBtn_Click" Background="White"/>
+        <Button x:Name="OrderBTN" Content="Order animals" HorizontalAlignment="Left" Margin="427,253,-0.4,0" VerticalAlignment="Top" Width="147" Height="83" Click="OrderBTN_Click" Background="White"/>
+        <TextBox x:Name="DisplayBox" HorizontalAlignment="Left" Height="336" Margin="184,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="243" Background="White"/>
+        <Label x:Name="efficiencyLabel" Content="Efficiency: " HorizontalAlignment="Left" Margin="428,1,-1.4,0" VerticalAlignment="Top" Background="White" Width="147"/>
     </Grid>
 </Window>
