@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmetic_Casus_CircusAnimals"
         mc:Ignorable="d"
-        Title="MainWindow" Height="365.934" Width="580.221">
-    <Grid Background="#FF00C6E2">
+        Title="MainWindow" Height="365.934" Width="590.141">
+    <Grid Background="#FF00AFE2">
         <Label x:Name="Lion" Content="Large Carnivore" HorizontalAlignment="Left" Margin="58,19,0,0" VerticalAlignment="Top" Width="121" Height="43"/>
         <Label x:Name="Elephant" Content="Large Herbivore" HorizontalAlignment="Left" Margin="58,71,0,0" VerticalAlignment="Top" Width="111" Height="43"/>
         <Label x:Name="Monkey" Content="Medium Carnivore" HorizontalAlignment="Left" Margin="58,123,0,0" VerticalAlignment="Top" Width="131" Height="43"/>
@@ -19,8 +19,8 @@
         <Button x:Name="MediumHerbBtn" Content="0" HorizontalAlignment="Left" Margin="11,173,0,0" VerticalAlignment="Top" Width="41" Height="41" Click="MediumHerbBtn_Click" Background="White"/>
         <Button x:Name="SmallCarnBtn" Content="0" HorizontalAlignment="Left" Margin="11,223,0,0" VerticalAlignment="Top" Width="41" Height="42" Click="SmallCarnBtn_Click" Background="White"/>
         <Button x:Name="SmallHerbBtn" Content="0" HorizontalAlignment="Left" Margin="11,275,0,0" VerticalAlignment="Top" Width="41" Height="42" Click="SmallHerbBtn_Click" Background="White"/>
-        <Button x:Name="OrderBTN" Content="Order animals" HorizontalAlignment="Left" Margin="427,253,-0.4,0" VerticalAlignment="Top" Width="147" Height="83" Click="OrderBTN_Click" Background="White"/>
+        <Button x:Name="OrderBTN" Content="Order animals" HorizontalAlignment="Left" Margin="427,253,0,-1" VerticalAlignment="Top" Width="155" Height="83" Click="OrderBTN_Click" Background="White"/>
         <TextBox x:Name="DisplayBox" HorizontalAlignment="Left" Height="336" Margin="184,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="243" Background="White"/>
-        <Label x:Name="efficiencyLabel" Content="Efficiency: " HorizontalAlignment="Left" Margin="428,1,-1.4,0" VerticalAlignment="Top" Background="White" Width="147"/>
+        <Label x:Name="efficiencyLabel" Content="Efficiency: " HorizontalAlignment="Left" Margin="428,-1,0,0" VerticalAlignment="Top" Background="White" Width="154"/>
     </Grid>
 </Window>

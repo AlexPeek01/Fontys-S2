@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexp\\OneDrive\\Bureaublad\\FHICT\\S2\\Software\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\Favours_App.csproj": {}
+    "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\Favours_App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexp\\OneDrive\\Bureaublad\\FHICT\\S2\\Software\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\Favours_App.csproj": {
+    "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\Favours_App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexp\\OneDrive\\Bureaublad\\FHICT\\S2\\Software\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\Favours_App.csproj",
+        "projectUniqueName": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\Favours_App.csproj",
         "projectName": "Favours_App",
-        "projectPath": "C:\\Users\\alexp\\OneDrive\\Bureaublad\\FHICT\\S2\\Software\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\Favours_App.csproj",
-        "packagesPath": "C:\\Users\\alexp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexp\\OneDrive\\Bureaublad\\FHICT\\S2\\Software\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\obj\\",
+        "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\Favours_App.csproj",
+        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours_App\\Favours_App\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\alexp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -60,6 +55,10 @@
               "version": "[3.1.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.1, )"
             }
