@@ -11,7 +11,7 @@ namespace Arithmetic_Casus_CircusAnimals
         public static List<Animal> SortList(List<Animal> aList)
         {
             var sorted = from animal in aList
-                         orderby animal.Carnivore descending
+                         orderby animal._carnivore descending
                          select animal;
             return sorted.ToList<Animal>();
         }
@@ -20,7 +20,7 @@ namespace Arithmetic_Casus_CircusAnimals
         {
             double totalSpaceAvailable = 0;
             foreach (Wagon w in Wagon.wagonList)
-                totalSpaceAvailable += (10 - w.spaceAvailable);
+                totalSpaceAvailable += (10 - w._spaceAvailable);
             return (totalSpaceAvailable / (Wagon.wagonList.Count * 10)) * 100;
         }
     }
