@@ -1,0 +1,6 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\RaadHetGetal\bin\Debug\RaadHetGetal.exe.config
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\RaadHetGetal\bin\Debug\RaadHetGetal.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\RaadHetGetal\bin\Debug\RaadHetGetal.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\RaadHetGetal\obj\Debug\RaadHetGetal.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\RaadHetGetal\obj\Debug\RaadHetGetal.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\RaadHetGetal\obj\Debug\RaadHetGetal.pdb

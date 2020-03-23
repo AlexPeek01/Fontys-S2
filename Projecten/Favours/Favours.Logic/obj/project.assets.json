@@ -1,0 +1,88 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Favours.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Favours.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Favours.Data.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Favours.Data/1.0.0": {
+      "type": "project",
+      "path": "../Favours.Data/Favours.Data.csproj",
+      "msbuildProject": "../Favours.Data/Favours.Data.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Favours.Data >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Alex\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours\\Favours.Logic\\Favours.Logic.csproj",
+      "projectName": "Favours.Logic",
+      "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours\\Favours.Logic\\Favours.Logic.csproj",
+      "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours\\Favours.Logic\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours\\Favours.Data\\Favours.Data.csproj": {
+              "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\Favours\\Favours.Data\\Favours.Data.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
