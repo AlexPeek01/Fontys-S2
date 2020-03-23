@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arithmetic_Casus_CircusAnim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arithmetic_Casus_CircusAnimalsUnitTests", "Arithmetic_Casus_CircusAnimalsUnitTests\Arithmetic_Casus_CircusAnimalsUnitTests.csproj", "{D56259C7-38C4-4612-BEF3-EC1B0F8470EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "LogicLayer\LogicLayer.csproj", "{B70FF665-1D99-47E0-8346-8501EBBB9CE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{6C648C70-1044-4A18-8BA1-2F63FE0BC23D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D56259C7-38C4-4612-BEF3-EC1B0F8470EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D56259C7-38C4-4612-BEF3-EC1B0F8470EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D56259C7-38C4-4612-BEF3-EC1B0F8470EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70FF665-1D99-47E0-8346-8501EBBB9CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70FF665-1D99-47E0-8346-8501EBBB9CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70FF665-1D99-47E0-8346-8501EBBB9CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70FF665-1D99-47E0-8346-8501EBBB9CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C648C70-1044-4A18-8BA1-2F63FE0BC23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C648C70-1044-4A18-8BA1-2F63FE0BC23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C648C70-1044-4A18-8BA1-2F63FE0BC23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C648C70-1044-4A18-8BA1-2F63FE0BC23D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

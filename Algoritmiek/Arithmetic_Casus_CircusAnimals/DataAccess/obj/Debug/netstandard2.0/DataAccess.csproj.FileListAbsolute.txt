@@ -1,0 +1,8 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\DataAccess\obj\Debug\netstandard2.0\DataAccess.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\DataAccess\bin\Debug\netstandard2.0\DataAccess.deps.json
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\DataAccess\bin\Debug\netstandard2.0\DataAccess.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\DataAccess\bin\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb

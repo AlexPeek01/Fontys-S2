@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Arithmetic_Casus_CircusAnimals
 {
     /// <summary>
@@ -28,9 +29,9 @@ namespace Arithmetic_Casus_CircusAnimals
          
         private void OrderBTN_Click(object sender, RoutedEventArgs e)
         {
-            Train.CreateTrain(DAL.MySQLManager.GetTrainCount());
+            Train.CreateTrain(Train.GetTrainCount());
             string animalString = "";
-            Wagon.PlaceAnimalsInWagon(MainLogic.SortList(Animal.oldAnimalList), DAL.MySQLManager.GetTrainCount());
+            Wagon.PlaceAnimalsInWagon(MainLogic.SortList(Animal.oldAnimalList), Train.GetTrainCount());
             foreach (Wagon w in Wagon.wagonList)
             {
                 DisplayBox.Text += "Wagon: " + w._wagonId.ToString() + " Contains:" + '\n';
