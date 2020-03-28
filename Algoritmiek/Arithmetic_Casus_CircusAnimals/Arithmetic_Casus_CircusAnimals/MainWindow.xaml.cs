@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Arithmetic_Casus_CircusAnimals;
+using LogicLayer;
 
 namespace Arithmetic_Casus_CircusAnimals
 {
@@ -25,23 +26,31 @@ namespace Arithmetic_Casus_CircusAnimals
         {
             InitializeComponent();
         }
-        
-         
+        private void ResetValues()
+        {
+            Animal.oldAnimalList.Clear();
+            SmallHerbBtn.Content = "0";
+            SmallCarnBtn.Content = "0";
+            MediumHerbBtn.Content = "0";
+            MediumCarnBtn.Content = "0";
+            LargeHerbBtn.Content = "0";
+            LargeCarnBtn.Content = "0";
+        }
         private void OrderBTN_Click(object sender, RoutedEventArgs e)
         {
-            Train.CreateTrain(Train.GetTrainCount());
+            DisplayBox.Text = "";
             string animalString = "";
-            Wagon.PlaceAnimalsInWagon(MainLogic.SortList(Animal.oldAnimalList), Train.GetTrainCount());
-            foreach (Wagon w in Wagon.wagonList)
+            Train train = Algoritmiek.PlaceAnimalsInWagon(MainLogic.SortList(Animal.oldAnimalList));
+            foreach (Wagon w in train.wagonsInTrain) 
             {
                 DisplayBox.Text += "Wagon: " + w._wagonId.ToString() + " Contains:" + '\n';
-                for (int i = 0; i < w.animalsInWagon.Count(); i++)
-                    animalString += "   - " +  w.animalsInWagon[i]._animalName + '\n';
+                for (int i = 0; i < w._animalList.Count(); i++)
+                    animalString += "   - " +  w._animalList[i]._animalName + '\n';
                 DisplayBox.Text += animalString + '\n';
                 animalString = "";
             }
-            efficiencyLabel.Content = "Space efficiency: " + Math.Round(MainLogic.CalculateEfficiency(), 3).ToString() + "%";
-            Wagon.wagonList.Clear();
+            efficiencyLabel.Content = "Space efficiency: " + Math.Round(MainLogic.CalculateEfficiency(train), 3).ToString() + "%";
+            ResetValues();
         }
         private void SmallHerbBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Arithmetic_Casus_CircusAnimals.DataAccess;
 
-namespace Arithmetic_Casus_CircusAnimals
+namespace LogicLayer
 {
     public class Wagon
     {
         ///////////////////////////Fields
-        public static List<Wagon> wagonList = new List<Wagon>();
         private int wagonId;
         private int spaceAvailable;
-        public List<Animal> animalsInWagon;
+        private List<Animal> animalsInWagon;
 
         ///////////////////////////Constructor
         public Wagon(int _wagonId, int _spaceAvailable)
@@ -34,51 +33,23 @@ namespace Arithmetic_Casus_CircusAnimals
             get { return spaceAvailable; }
             set { spaceAvailable = value; }
         }
+        public List<Animal> _animalList
+        {
+            get { return animalsInWagon; }
+        }
 
         ///////////////////////////Methods
-        public static void AddAnimalToWagon(int i, Wagon wagon, List<Animal> list, int trainId)
+        public static void AddAnimalToWagon(Animal animal, Wagon wagon)
         {
-            wagon.animalsInWagon.Add(list[i]);
-            wagon.spaceAvailable -= list[i]._size;
-            MySQLManager.MySqlQuery(wagon.wagonId, list[i]._animalName, trainId);
+            wagon.animalsInWagon.Add(animal);
+            wagon.spaceAvailable -= animal._size;
         }
-
-        public static void PlaceAnimalsInWagon(List<Animal> sortedAnimalList, int trainId)
+        public static void CreateWagon(Animal animal, Train train)
         {
-            for (int i = 0; i < sortedAnimalList.Count(); i++)
-            {
-                if (sortedAnimalList[i]._carnivore == true)
-                {
-                    Wagon wagon = new Wagon(wagonList.Count, 10);
-                    AddAnimalToWagon(i, wagon, sortedAnimalList, trainId);
-                    wagonList.Add(wagon);
-                }
-                else if (sortedAnimalList[i]._carnivore == false)
-                {
-                    bool wagonNotFound = true;
-                    foreach (Wagon w in wagonList)
-                    {
-                        if (w.animalsInWagon[0]._carnivore == true && w.spaceAvailable >= sortedAnimalList[i]._size && w.animalsInWagon[0]._size < sortedAnimalList[i]._size)
-                        {
-                            AddAnimalToWagon(i, w, sortedAnimalList, trainId);
-                            wagonNotFound = false;
-                            break;
-                        }
-                        else if (w.animalsInWagon[0]._carnivore == false && w.spaceAvailable >= sortedAnimalList[i]._size)
-                        {
-                            AddAnimalToWagon(i, w, sortedAnimalList, trainId);
-                            wagonNotFound = false;
-                            break;
-                        }
-                    }
-                    if (wagonNotFound == true)
-                    {
-                        Wagon wagon = new Wagon(wagonList.Count, 10);
-                        wagonList.Add(wagon);
-                        AddAnimalToWagon(i, wagon, sortedAnimalList, trainId);
-                    }
-                }
-            }
+            Wagon wagon = new Wagon(train.wagonsInTrain.Count, 10);
+            Wagon.AddAnimalToWagon(animal, wagon);
+            train.wagonsInTrain.Add(wagon);
         }
+        
     }
 }

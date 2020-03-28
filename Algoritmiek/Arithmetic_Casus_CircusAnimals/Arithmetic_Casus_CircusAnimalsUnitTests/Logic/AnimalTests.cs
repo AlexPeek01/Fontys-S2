@@ -11,24 +11,21 @@ namespace Arithmetic_Casus_CircusAnimals.Tests
     [TestClass()]
     public class AnimalTests
     {
-        List<Animal> animalList;
         [TestInitialize]
         public void TestInitialize()
         {
-            animalList = new List<Animal>();
+            Animal.oldAnimalList.Clear();
         }
         [TestMethod()]
         public void CreateNoAnimalTest()
         {
-            Assert.AreEqual(0, animalList.Count);
+            Assert.AreEqual(0, Animal.oldAnimalList.Count);
         }
         [TestMethod()]
-        public void CreateOneAnimalTest()
+        public void CreateAnimalTest()
         {
-            Animal animal = new Animal(true, 3, "LargeHerbivore");
-            animalList.Add(animal);
-            Assert.AreEqual(1, animalList.Count);
+            Animal.CreateAnimal(true, 2, "MediumCarnivore");
+            Assert.AreEqual(Animal.oldAnimalList.Count, 1);
         }
-        
     }
 }

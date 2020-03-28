@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Arithmetic_Casus_CircusAnimals.DataAccess;
 
-namespace Arithmetic_Casus_CircusAnimals
+namespace LogicLayer
 {
     public class Train
     {
-        private List<Wagon> wagonsInTrain;
+        public List<Wagon> wagonsInTrain;
         private int trainId { get; set; }
         public Train(int _trainId)
         {
@@ -21,10 +21,15 @@ namespace Arithmetic_Casus_CircusAnimals
             get { return trainId; }
             set { trainId = value; }
         }
-
-        public static void CreateTrain(int _trainId)
+        public void SaveTrainToDb(Train train)
         {
-            Train train = new Train(_trainId);
+            foreach(Wagon w in train.wagonsInTrain)
+            {
+                foreach(Animal a in w._animalList)
+                {
+                    MySQLManager.MySqlQuery(w._wagonId, a._animalName, train.trainId);
+                }
+            }
         }
         public static int GetTrainCount()
         {

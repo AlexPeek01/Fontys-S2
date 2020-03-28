@@ -22,3 +22,7 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimalsUnitTests\obj\Debug\Arithmetic_Casus_CircusAnimalsUnitTests.csproj.CopyComplete
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimalsUnitTests\obj\Debug\Arithmetic_Casus_CircusAnimalsUnitTests.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimalsUnitTests\obj\Debug\Arithmetic_Casus_CircusAnimalsUnitTests.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimalsUnitTests\bin\Debug\DataAccess.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimalsUnitTests\bin\Debug\LogicLayer.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimalsUnitTests\bin\Debug\DataAccess.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimalsUnitTests\bin\Debug\LogicLayer.pdb
