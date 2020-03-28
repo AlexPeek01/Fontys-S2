@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Arithmetic_Casus_CircusAnimals
+namespace LogicLayer
 {
     public class MainLogic
     {
@@ -16,12 +16,13 @@ namespace Arithmetic_Casus_CircusAnimals
             return sorted.ToList<Animal>();
         }
         
-        public static double CalculateEfficiency()
+        public static double CalculateEfficiency(Train train)
         {
             double totalSpaceAvailable = 0;
-            foreach (Wagon w in Wagon.wagonList)
+            foreach (Wagon w in train.wagonsInTrain)
                 totalSpaceAvailable += (10 - w._spaceAvailable);
-            return (totalSpaceAvailable / (Wagon.wagonList.Count * 10)) * 100;
+            return (totalSpaceAvailable / (train.wagonsInTrain.Count * 10)) * 100;
         }
+
     }
 }

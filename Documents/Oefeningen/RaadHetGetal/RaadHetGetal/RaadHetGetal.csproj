@@ -43,18 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckGuess.cs" />
-    <Compile Include="GokRandom.cs" />
-    <Compile Include="GokRandomMaarNietDubbel.cs" />
-    <Compile Include="HalveerMogelijkeOplossingen.cs" />
-    <Compile Include="DoorloopMogelijkeOplossingen.cs" />
-    <Compile Include="Oplossing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Business Logic\Business Logic.csproj">
+      <Project>{f4497581-ba81-4024-9ef6-3caf8ef483a2}</Project>
+      <Name>Business Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

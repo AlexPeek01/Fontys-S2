@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Logic\AnimalTests.cs" />
+    <Compile Include="Logic\Wagon.cs" />
     <Compile Include="Logic\WagonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,6 +68,14 @@
     <ProjectReference Include="..\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimals.csproj">
       <Project>{F412F8EE-06BB-47BE-BDCE-DD22B5A626D8}</Project>
       <Name>Arithmetic_Casus_CircusAnimals</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{6c648c70-1044-4a18-8ba1-2f63fe0bc23d}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogicLayer\LogicLayer.csproj">
+      <Project>{b70ff665-1d99-47e0-8346-8501ebbb9ce5}</Project>
+      <Name>LogicLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
