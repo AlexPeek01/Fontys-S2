@@ -9,7 +9,7 @@ namespace LogicLayer
 {
     public class Train
     {
-        public List<Wagon> wagonsInTrain;
+        private List<Wagon> wagonsInTrain;
         private int trainId { get; set; }
         public Train(int _trainId)
         {
@@ -20,6 +20,10 @@ namespace LogicLayer
         {
             get { return trainId; }
             set { trainId = value; }
+        }
+        public List<Wagon> _wagonsInTrain
+        {
+            get { return wagonsInTrain; }
         }
         public void SaveTrainToDb(Train train)
         {

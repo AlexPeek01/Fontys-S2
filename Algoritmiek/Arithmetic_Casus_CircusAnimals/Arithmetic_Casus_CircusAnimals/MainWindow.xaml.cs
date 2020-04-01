@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Arithmetic_Casus_CircusAnimals;
 using LogicLayer;
 
@@ -22,26 +24,23 @@ namespace Arithmetic_Casus_CircusAnimals
     /// </summary>
     public partial class MainWindow : Window
     {
+        Train train;
+        Stopwatch stopWatch;
         public MainWindow()
         {
             InitializeComponent();
+            stopWatch = new Stopwatch();
         }
-        private void ResetValues()
-        {
-            Animal.oldAnimalList.Clear();
-            SmallHerbBtn.Content = "0";
-            SmallCarnBtn.Content = "0";
-            MediumHerbBtn.Content = "0";
-            MediumCarnBtn.Content = "0";
-            LargeHerbBtn.Content = "0";
-            LargeCarnBtn.Content = "0";
-        }
+
         private void OrderBTN_Click(object sender, RoutedEventArgs e)
         {
+            stopWatch.Start();
+            train = Algoritmiek.PlaceAnimalsInTrain(MainLogic.SortList(CreateAnimals()));
+            stopWatch.Stop();
             DisplayBox.Text = "";
             string animalString = "";
-            Train train = Algoritmiek.PlaceAnimalsInWagon(MainLogic.SortList(Animal.oldAnimalList));
-            foreach (Wagon w in train.wagonsInTrain) 
+            string time = stopWatch.Elapsed.ToString();
+            foreach (Wagon w in train._wagonsInTrain) 
             {
                 DisplayBox.Text += "Wagon: " + w._wagonId.ToString() + " Contains:" + '\n';
                 for (int i = 0; i < w._animalList.Count(); i++)
@@ -49,43 +48,43 @@ namespace Arithmetic_Casus_CircusAnimals
                 DisplayBox.Text += animalString + '\n';
                 animalString = "";
             }
-            efficiencyLabel.Content = "Space efficiency: " + Math.Round(MainLogic.CalculateEfficiency(train), 3).ToString() + "%";
-            ResetValues();
+            efficiencyLabel.Content = "Space efficiency: " + Math.Round(MainLogic.CalculateEfficiency(train), 1).ToString() + "%";
         }
-        private void SmallHerbBtn_Click(object sender, RoutedEventArgs e)
+        public List<Animal> CreateAnimals()
         {
-            Animal.CreateAnimal(false, 1, "Small_Herbivore");
-            SmallHerbBtn.Content = (Convert.ToInt32(SmallHerbBtn.Content) + 1).ToString();
+            List<Animal> animalList = new List<Animal>();
+            for(int i = 0; i < Int32.Parse(LCTextBox.Text); i++)
+            {
+                animalList.Add(Animal.CreateAnimal(true, 5, "Large_Carnivore"));
+            }
+            for (int i = 0; i < Int32.Parse(LHTextBox.Text); i++)
+            {
+                animalList.Add(Animal.CreateAnimal(false, 5, "Large_Herbivore"));
+            }
+            for (int i = 0; i < Int32.Parse(MCTextBox.Text); i++)
+            {
+                animalList.Add(Animal.CreateAnimal(true, 3, "Medium_Carnivore"));
+            }
+            for (int i = 0; i < Int32.Parse(MHTextBox.Text); i++)
+            {
+                animalList.Add(Animal.CreateAnimal(false, 3, "Medium_Herbivore"));
+            }
+            for (int i = 0; i < Int32.Parse(SCTextBox.Text); i++)
+            {
+                animalList.Add(Animal.CreateAnimal(true, 1, "Small_Carnivore"));
+            }
+            for (int i = 0; i < Int32.Parse(SHTextBox.Text); i++)
+            {
+                animalList.Add(Animal.CreateAnimal(false, 1, "Small_Herbivore"));
+            }
+            return animalList;
+
         }
 
-        private void SmallCarnBtn_Click(object sender, RoutedEventArgs e)
+        private void SaveBTN_Click(object sender, RoutedEventArgs e)
         {
-            Animal.CreateAnimal(true, 1, "Small_Carnivore");
-            SmallCarnBtn.Content = (Convert.ToInt32(SmallCarnBtn.Content) + 1).ToString();
-        }
-
-        private void MediumHerbBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Animal.CreateAnimal(false, 3, "Medium_Herbivore");
-            MediumHerbBtn.Content = (Convert.ToInt32(MediumHerbBtn.Content) + 1).ToString();
-        }
-
-        private void MediumCarnBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Animal.CreateAnimal(true, 3, "Medium_Carnivore");
-            MediumCarnBtn.Content = (Convert.ToInt32(MediumCarnBtn.Content) + 1).ToString();
-        }
-
-        private void LargeHerbBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Animal.CreateAnimal(false, 5, "Large_Herbivore");
-            LargeHerbBtn.Content = (Convert.ToInt32(LargeHerbBtn.Content) + 1).ToString();
-        }
-
-        private void LargeCarnBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Animal.CreateAnimal(true, 5, "Large_Carnivore");
-            LargeCarnBtn.Content = (Convert.ToInt32(LargeCarnBtn.Content) + 1).ToString();
+            if(train!=null)
+                train.SaveTrainToDb(train);
         }
     }
 }

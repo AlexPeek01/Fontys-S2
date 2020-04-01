@@ -39,9 +39,10 @@ namespace LogicLayer
         }
 
         ///////////////////////////Methods
-        public static void CreateAnimal(bool isCarnivore, int size, string animalName)
+        public static Animal CreateAnimal(bool isCarnivore, int size, string animalName)
         {
             Animal animal = new Animal(isCarnivore, size, animalName);
+            return animal;
             oldAnimalList.Add(animal);
         }
         
