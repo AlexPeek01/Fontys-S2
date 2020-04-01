@@ -22,11 +22,6 @@ namespace Arithmetic_Casus_CircusAnimals.Tests
         {
             Assert.AreEqual(0, Animal.oldAnimalList.Count);
         }
-        [TestMethod()]
-        public void CreateAnimalTest()
-        {
-            Animal.CreateAnimal(true, 2, "MediumCarnivore");
-            Assert.AreEqual(Animal.oldAnimalList.Count, 1);
-        }
+
     }
 }
