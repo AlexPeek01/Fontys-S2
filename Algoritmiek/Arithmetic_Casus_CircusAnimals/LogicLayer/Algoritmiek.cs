@@ -9,16 +9,18 @@ namespace LogicLayer
 {
     public class Algoritmiek
     {
-        public static bool CheckMeasurements(Animal animal, Wagon w)
+        public static bool CheckWagon(Animal animal, Wagon w)
         {
+            //Checks if the first animal in the wagon is a carnivore, if the animal still fits in the wagon and if the animal is bigger than the carnivore
             if (w._animalList[0]._carnivore && w._spaceAvailable >= animal._size && w._animalList[0]._size < animal._size)
                 return false;
+            //Checks if the first animal in the wagon is a herbivore and if the animal still fits in the wagon
             else if (!w._animalList[0]._carnivore && w._spaceAvailable >= animal._size)
                 return false;
             else
                 return true;
         }
-        public static Train PlaceAnimalsInWagon(List<Animal> sortedAnimalList)
+        public static Train PlaceAnimalsInTrain(List<Animal> sortedAnimalList)
         {
             Train train = new Train(Train.GetTrainCount());
             foreach (Animal a in sortedAnimalList)
@@ -28,9 +30,9 @@ namespace LogicLayer
                 else
                 {
                     bool wagonNotFound = true;
-                    foreach (Wagon w in train.wagonsInTrain)
+                    foreach (Wagon w in train._wagonsInTrain)
                     {
-                        wagonNotFound = CheckMeasurements(a, w);
+                        wagonNotFound = CheckWagon(a, w);
                         if (!wagonNotFound)
                         {
                             Wagon.AddAnimalToWagon(a, w);
@@ -41,7 +43,6 @@ namespace LogicLayer
                         Wagon.CreateWagon(a, train);
                 }
             }
-            train.SaveTrainToDb(train);
             return train;
         }
     }

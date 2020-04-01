@@ -46,9 +46,9 @@ namespace LogicLayer
         }
         public static void CreateWagon(Animal animal, Train train)
         {
-            Wagon wagon = new Wagon(train.wagonsInTrain.Count, 10);
+            Wagon wagon = new Wagon(train._wagonsInTrain.Count, 10);
             Wagon.AddAnimalToWagon(animal, wagon);
-            train.wagonsInTrain.Add(wagon);
+            train._wagonsInTrain.Add(wagon);
         }
         
     }

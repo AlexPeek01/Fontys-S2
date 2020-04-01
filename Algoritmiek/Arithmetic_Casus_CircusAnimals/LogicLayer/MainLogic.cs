@@ -19,9 +19,9 @@ namespace LogicLayer
         public static double CalculateEfficiency(Train train)
         {
             double totalSpaceAvailable = 0;
-            foreach (Wagon w in train.wagonsInTrain)
+            foreach (Wagon w in train._wagonsInTrain)
                 totalSpaceAvailable += (10 - w._spaceAvailable);
-            return (totalSpaceAvailable / (train.wagonsInTrain.Count * 10)) * 100;
+            return (totalSpaceAvailable / (train._wagonsInTrain.Count * 10)) * 100;
         }
 
     }
