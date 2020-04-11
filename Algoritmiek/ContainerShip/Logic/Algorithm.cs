@@ -23,19 +23,19 @@ namespace Logic
             {
                 int optimalPosition = CheckOptimalPosition(containerArray, ship);
 
-                for (int l = 0; l <= ship.Length - 1; l++)
+                for (int l = ship.Length - 1; l >= 0; l--)
                 {
-                    if (c.Cooled)
+                    if (c.cooled)
                         l = 0;
                     for (int h = 0; h <= ship.Height - 1; h++)
                     {
                         for (int w = startingPosition - 1; w <= optimalPosition - 1; w++)
                         {
-                            if (!c.Placed && CheckUnderForValuable(containerArray, l, w, h, ship) && CheckEmptyPosition(containerArray, l, w, h) && CheckSpacesAround(containerArray, l, w, h, ship) && NotFloating(containerArray, l, w, h) && CheckWeightOnTop(containerArray, l, w, h))
+                            if (!c.placed && CheckUnderForValuable(containerArray, l, w, h, ship, c) && CheckValuableState(containerArray, l, w, h) && CheckEmptyPosition(containerArray, l, w, h) && NotFloating(containerArray, l, w, h) && CheckWeightOnTop(containerArray, l, w, h))
                             {
                                 containerArray[l, w, h] = c;
                                 AddWeight(w, c, ship);
-                                c.Placed = true;
+                                c.placed = true;
                                 break;
                             }
                             else
@@ -44,8 +44,7 @@ namespace Logic
                             }
                         }
                     }
-                    if (c.Cooled)
-                        l = ship.Length - 1;
+
                 }
             }
 
@@ -62,100 +61,85 @@ namespace Logic
             Console.WriteLine(i);
             return containerArray;
         }
+        public static bool CheckUnderForValuable(Container[,,] ca, int length, int width, int height, Ship ship, Container c)
+        {
+            //if (height == 0 && !c.valuable)
+            //{
+            //    return true;
+            //}
+            //else if (height > 0)
+            //{
+            //    Container thisPos = ca[length, width, height];
+            //    Container posMinusOne = ca[length, width, height - 1];
+            //    if (posMinusOne != null && posMinusOne.valuable)
+            //    {
+            //        return false;
+            //    }
+            //    else
+            //    {
+            //        return true;
+            //    }
+            //}
+            //else
+            //{
+            //    foreach(Container d in ship.ContainerList)
+            //    {
+            //        int i = 0;
+            //        int j = 0;
+            //        if (d != null)
+            //            i++;
+            //        if (d.valuable)
+            //            j++;
+            //        if (i == j)
+            //        {
+            //            return true;
+            //        }
+            //        else
+            //        {
+            //            return false;
+            //        }
+            //    }
+            //    return false;
+            //}
+            return true;
+        }
+        public static bool CheckValuableState(Container[,,] ca, int length, int width, int height)
+        {
+            if (length > 0 && length < ca.GetLength(0) - 1)
+            {
+                Container thisPos = ca[length, width, height];
+                Container posPlusOne = ca[length + 1, width, height];
+                Container posMinusOne = ca[length - 1, width, height];
+                if (posPlusOne != null && posPlusOne.valuableBlocked || posMinusOne != null && posMinusOne.valuableBlocked)
+                {
+                    return false;
+                }
+                else
+                {
+                    if (posPlusOne != null && posPlusOne.valuable)
+                    {
+                        posPlusOne.valuableBlocked = true;
+                    }
+                    if (posMinusOne != null && posMinusOne.valuable)
+                    {
+                        posMinusOne.valuableBlocked = true;
+                    }
+                    return true;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
         public static bool NotOnTheEdge(int length, Ship ship)
         {
             return (length > 1 && length < ship.Length - 1);
         }
 
         //Fix this monstrosity underneath
-        public static bool CheckUnderForValuable(Container[,,] ca, int length, int width, int height, Ship ship)
-        {
-            if (height > 0 && ca[length, width, height - 1] != null)
-            {
-                if (ca[length, width, height - 1].Valuable)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            else if ()
-            {
 
-            }
-            
-            
-        }
-        public static bool CheckSpacesAround(Container[,,] ca, int length, int width, int height, Ship ship)
-        {
-            bool inFront = false;
-            bool behind = false;
-            bool inFrontVal = false;
-            bool behindVal = false;
-            if (NotOnTheEdge(length, ship))
-            {
-                if (ca[length + 1, width, height] != null && ca[length + 1, width, height].Valuable)
-                {
-                    inFrontVal = true;
-                    if(ca[length + 2, width, height] == null)
-                    {
-                        inFront = true;
-                    }
-                }
-                else
-                {
-                    inFront = true;
-                }
-                if (ca[length - 1, width, height] != null && ca[length - 1, width, height].Valuable)
-                {
-                    behindVal = true;
-                    if (ca[length - 2, width, height] == null)
-                    {
-                        behind = true;
-                    }
-                }
-                else
-                {
-                    behind = true;
-                }
-                
-            }
-            else
-            {
-                if(length < ship.Length / 2)
-                {
-                    if (ca[length + 1, width, height] != null && ca[length + 1, width, height].Valuable)
-                    {
-                        inFrontVal = true;
-                        if (ca[length + 2, width, height] == null)
-                        {
-                            inFront = true;
-                        }
-                    }
-                }
-                else
-                {
-                    if (ca[length - 1, width, height] != null && ca[length - 1, width, height].Valuable)
-                    {
-                        behindVal = true;
-                        if (ca[length - 2, width, height] == null)
-                        {
-                            behind = true;
-                        }
-                    }
-                }
-            }
-            if (inFront && behind || !inFrontVal && !behindVal)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+ 
         public static bool SpaceForValuable(Container[,,] ca, int length, int width, int height)
         {
             return (ca[length + 1, width, height] == null || ca[length - 1, width, height] == null);
@@ -169,7 +153,7 @@ namespace Logic
             int weightOnTop = 0;
             for (int i = 0; i < height; i++)
             {
-                weightOnTop += ca[length, width, i].Weight;
+                weightOnTop += ca[length, width, i].weight;
             }
             return weightOnTop < 120000;
         }
@@ -210,11 +194,11 @@ namespace Logic
         {
             if (width >= ship.Width / 2)
             {
-                ship.RightSideWeight += c.Weight;
+                ship.RightSideWeight += c.weight;
             }
             else if (width < ship.Width / 2 + 1)
             {
-                ship.LeftSideWeight += c.Weight;
+                ship.LeftSideWeight += c.weight;
             }
         }
     }
