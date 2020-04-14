@@ -1,0 +1,15 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Logic.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Logic.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\obj\Debug\UnitTests.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\obj\Debug\UnitTests.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\UnitTests\obj\Debug\UnitTests.pdb

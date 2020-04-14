@@ -10,6 +10,7 @@ namespace LogicLayer
     {
         public static List<Animal> SortList(List<Animal> aList)
         {
+            //Zet de carnivoren vooraan in de lijst.
             var sorted = from animal in aList
                          orderby animal._carnivore descending
                          select animal;
@@ -18,6 +19,7 @@ namespace LogicLayer
         
         public static double CalculateEfficiency(Train train)
         {
+            //Berekent hoe efficient de ruimte gebruikt is.
             double totalSpaceAvailable = 0;
             foreach (Wagon w in train._wagonsInTrain)
                 totalSpaceAvailable += (10 - w._spaceAvailable);

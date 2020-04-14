@@ -10,6 +10,8 @@ namespace Favours.Models
         private int networkId { get; set; }
         private string networkName { get; set; }
         private List<EventModel> eventList { get; set; }
+        private List<CategorieModel> categoryList { get; set; }
+        private List<UserModel> userList { get; set; }
         public NetworkModel(int _networkId, string _networkName)
         {
             this.networkId = _networkId;
