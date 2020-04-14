@@ -15,7 +15,7 @@ namespace Favours.Models
 
         public UserModel(int _networkId, string _networkName)
         {
-            this.networkId = _networkId;
+            this.userId = _networkId;
             this.networkName = _networkName;
             userList = new List<UserModel>();
             categoryList = new List<CategorieModel>();

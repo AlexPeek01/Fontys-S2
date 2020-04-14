@@ -43,7 +43,6 @@ namespace LogicLayer
         {
             Animal animal = new Animal(isCarnivore, size, animalName);
             return animal;
-            oldAnimalList.Add(animal);
         }
         
     }

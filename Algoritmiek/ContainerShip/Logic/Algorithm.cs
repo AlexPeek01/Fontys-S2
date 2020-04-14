@@ -6,15 +6,6 @@ namespace Logic
 {
     public class Algorithm
     {
-
-        /*
-        Eerst gekoeld
-        Dan de normale
-        Als laatste waardevolle
-        Balanschecken
-        min 50% van gewicht benut checken
-        Gewicht bovenop container checken
-         */
         private static int startingPosition = 0;
         public static Container[,,] placeContainerArray(Ship ship)
         {
@@ -22,7 +13,6 @@ namespace Logic
             foreach (Container c in ship.ContainerList)
             {
                 int optimalPosition = CheckOptimalPosition(containerArray, ship);
-
                 for (int l = ship.Length - 1; l >= 0; l--)
                 {
                     if (c.cooled)
@@ -31,78 +21,34 @@ namespace Logic
                     {
                         for (int w = startingPosition - 1; w <= optimalPosition - 1; w++)
                         {
-                            if (!c.placed && CheckUnderForValuable(containerArray, l, w, h, ship, c) && CheckValuableState(containerArray, l, w, h) && CheckEmptyPosition(containerArray, l, w, h) && NotFloating(containerArray, l, w, h) && CheckWeightOnTop(containerArray, l, w, h))
+                            if (RunChecks(c, containerArray, l, w, h, ship))
                             {
                                 containerArray[l, w, h] = c;
                                 AddWeight(w, c, ship);
                                 c.placed = true;
                                 break;
                             }
-                            else
-                            {
-                                continue;
-                            }
                         }
                     }
 
                 }
             }
-
-            //////////////////////////////////////////////////////////////
-
-            int i = 0;
-            foreach (Container c in containerArray)
-            {
-                if (c != null)
-                {
-                    i++;
-                }
-            }
-            Console.WriteLine(i);
             return containerArray;
         }
-        public static bool CheckUnderForValuable(Container[,,] ca, int length, int width, int height, Ship ship, Container c)
+        public static bool RunChecks(Container c, Container[,,] containerArray, int l, int w, int h, Ship ship)
         {
-            //if (height == 0 && !c.valuable)
-            //{
-            //    return true;
-            //}
-            //else if (height > 0)
-            //{
-            //    Container thisPos = ca[length, width, height];
-            //    Container posMinusOne = ca[length, width, height - 1];
-            //    if (posMinusOne != null && posMinusOne.valuable)
-            //    {
-            //        return false;
-            //    }
-            //    else
-            //    {
-            //        return true;
-            //    }
-            //}
-            //else
-            //{
-            //    foreach(Container d in ship.ContainerList)
-            //    {
-            //        int i = 0;
-            //        int j = 0;
-            //        if (d != null)
-            //            i++;
-            //        if (d.valuable)
-            //            j++;
-            //        if (i == j)
-            //        {
-            //            return true;
-            //        }
-            //        else
-            //        {
-            //            return false;
-            //        }
-            //    }
-            //    return false;
-            //}
-            return true;
+            if(!c.placed 
+                && CheckValuableState(containerArray, l, w, h) 
+                && CheckEmptyPosition(containerArray, l, w, h) 
+                && NotFloating(containerArray, l, w, h) 
+                && CheckWeightOnTop(containerArray, l, w, h)
+                && SpaceForValuable(containerArray, l, w, h, ship))
+            {
+                return true;
+            }
+            return false;
         }
+        //Sumting goes wrong here
         public static bool CheckValuableState(Container[,,] ca, int length, int width, int height)
         {
             if (length > 0 && length < ca.GetLength(0) - 1)
@@ -134,15 +80,20 @@ namespace Logic
         }
         public static bool NotOnTheEdge(int length, Ship ship)
         {
-            return (length > 1 && length < ship.Length - 1);
+            return (length > 0 && length < ship.Length);
         }
 
         //Fix this monstrosity underneath
-
- 
-        public static bool SpaceForValuable(Container[,,] ca, int length, int width, int height)
+        public static bool SpaceForValuable(Container[,,] ca, int length, int width, int height, Ship ship)
         {
-            return (ca[length + 1, width, height] == null || ca[length - 1, width, height] == null);
+            if (NotOnTheEdge(length, ship))
+            {
+                return (ca[length + 1, width, height] == null || ca[length - 1, width, height] == null);
+            }
+            else
+            {
+                return true;
+            }
         }
         public static bool NotFloating(Container[,,] ca, int length, int width, int height)
         {
