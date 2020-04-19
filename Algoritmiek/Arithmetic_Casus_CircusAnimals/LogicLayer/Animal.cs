@@ -9,7 +9,6 @@ namespace LogicLayer
     public class Animal
     {
         ///////////////////////////Fields
-        public static List<Animal> oldAnimalList = new List<Animal>();
         private bool carnivore;
         private int size;
         private string animalName;

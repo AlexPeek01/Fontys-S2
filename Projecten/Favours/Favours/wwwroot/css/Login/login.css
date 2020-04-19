@@ -36,6 +36,9 @@
         box-sizing: border-box;
         font-size: 14px;
     }
+        .form input:hover, .form input:active, .form input:focus {
+            box-shadow: rgb(91, 91, 91) 1px 1px;
+        }
 
     .form button {
         font-family: "Roboto", sans-serif;
@@ -53,7 +56,7 @@
     }
 
         .form button:hover, .form button:active, .form button:focus {
-            box-shadow: rgb(222, 56, 19) 5px 5px;
+            box-shadow: rgb(91, 91, 91) 1px 1px;
         }
 
     .form .message {

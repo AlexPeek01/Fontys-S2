@@ -39,5 +39,11 @@ namespace LogicLayer
         {
             return MySQLManager.GetTrainCount();
         }
+        public void CreateWagon(Animal animal, Train train)
+        {
+            Wagon wagon = new Wagon(train._wagonsInTrain.Count, 10);
+            wagon.AddAnimalToWagon(animal, wagon);
+            train._wagonsInTrain.Add(wagon);
+        }
     }
 }
