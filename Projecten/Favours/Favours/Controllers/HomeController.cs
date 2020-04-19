@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Favours.Models;
 using Favours.Logic;
+using Favours.Data;
 
 namespace Favours.Controllers
 {
@@ -21,8 +22,7 @@ namespace Favours.Controllers
 
         public IActionResult Index()
         {
-            UserLogic userLogic = new UserLogic();
-            String s = userLogic.getUserByName("Alex");
+            Network nm = new Network("Testnaam");
             return View();
         }
 

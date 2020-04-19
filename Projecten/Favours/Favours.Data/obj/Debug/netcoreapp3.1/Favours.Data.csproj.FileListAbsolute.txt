@@ -1,0 +1,8 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours.Data\bin\Debug\netcoreapp3.1\Favours.Data.deps.json
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours.Data\bin\Debug\netcoreapp3.1\Favours.Data.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours.Data\bin\Debug\netcoreapp3.1\Favours.Data.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours.Data\obj\Debug\netcoreapp3.1\Favours.Data.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours.Data\obj\Debug\netcoreapp3.1\Favours.Data.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours.Data\obj\Debug\netcoreapp3.1\Favours.Data.AssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours.Data\obj\Debug\netcoreapp3.1\Favours.Data.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours.Data\obj\Debug\netcoreapp3.1\Favours.Data.pdb

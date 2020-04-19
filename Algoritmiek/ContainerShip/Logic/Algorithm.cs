@@ -37,12 +37,13 @@ namespace Logic
         }
         public static bool RunChecks(Container c, Container[,,] containerArray, int l, int w, int h, Ship ship)
         {
-            if(!c.placed 
-                && CheckValuableState(containerArray, l, w, h) 
-                && CheckEmptyPosition(containerArray, l, w, h) 
-                && NotFloating(containerArray, l, w, h) 
+            if (!c.placed
+                && CheckValuableState(containerArray, l, w, h)
+                && CheckEmptyPosition(containerArray, l, w, h)
+                && NotFloating(containerArray, l, w, h)
                 && CheckWeightOnTop(containerArray, l, w, h)
-                && SpaceForValuable(containerArray, l, w, h, ship))
+                && SpaceForValuable(containerArray, l, w, h, ship)
+                )
             {
                 return true;
             }
@@ -53,7 +54,6 @@ namespace Logic
         {
             if (length > 0 && length < ca.GetLength(0) - 1)
             {
-                Container thisPos = ca[length, width, height];
                 Container posPlusOne = ca[length + 1, width, height];
                 Container posMinusOne = ca[length - 1, width, height];
                 if (posPlusOne != null && posPlusOne.valuableBlocked || posMinusOne != null && posMinusOne.valuableBlocked)
@@ -78,15 +78,11 @@ namespace Logic
                 return true;
             }
         }
-        public static bool NotOnTheEdge(int length, Ship ship)
-        {
-            return (length > 0 && length < ship.Length);
-        }
 
         //Fix this monstrosity underneath
         public static bool SpaceForValuable(Container[,,] ca, int length, int width, int height, Ship ship)
         {
-            if (NotOnTheEdge(length, ship))
+            if (length > 1 && length < ship.Length - 1)
             {
                 return (ca[length + 1, width, height] == null || ca[length - 1, width, height] == null);
             }

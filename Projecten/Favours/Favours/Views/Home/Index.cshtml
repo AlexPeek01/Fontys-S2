@@ -1,7 +1,13 @@
-﻿@model Favours.Model.User
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>user.id</p>
-</div>
+@{
+    string[] netwerken = ViewData["Netwerk"] as string[];
+    string[] netwerknaam = ViewData["netwerknaam"] as string[];
+}
+<body>
+
+</body>
+
