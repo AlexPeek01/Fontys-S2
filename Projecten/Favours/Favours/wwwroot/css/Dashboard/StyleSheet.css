@@ -1,0 +1,20 @@
+﻿body {
+}
+.card {
+    max-width: 50vw;
+    width: 48vw;
+}
+.card-body {
+    max-width: 50vw;
+    width: 48vw;
+}
+.card-deck{
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vw;
+}
+.netwerk-afbeelding{
+    width: 50px;
+    height: 50px;
+    margin-right: 1vw;
+}
