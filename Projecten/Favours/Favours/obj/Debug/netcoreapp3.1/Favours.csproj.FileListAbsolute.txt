@@ -109,9 +109,7 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcor
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Favours.csproj.CopyComplete
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Favours.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Favours.pdb
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Razor\Views\Netwerk\Index.cshtml.g.cs
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout2.cshtml.g.cs
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Favours.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
@@ -127,5 +125,10 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcor
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Razor\Views\Authenticatie\Login.cshtml.g.cs
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutWithoutNav.cshtml.g.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Favours.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Razor\Views\Network\Index.cshtml.g.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Razor\Views\Authentication\Login.cshtml.g.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\Favours\Favours\obj\Debug\netcoreapp3.1\Razor\Views\Authentication\Register.cshtml.g.cs

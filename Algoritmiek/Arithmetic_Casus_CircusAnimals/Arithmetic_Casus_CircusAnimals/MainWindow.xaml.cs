@@ -34,17 +34,18 @@ namespace Arithmetic_Casus_CircusAnimals
 
         private void OrderBTN_Click(object sender, RoutedEventArgs e)
         {
+            Algoritmiek run = new Algoritmiek();
             stopWatch.Start();
-            train = Algoritmiek.PlaceAnimalsInTrain(MainLogic.SortList(CreateAnimals()));
+            train = run.PlaceAnimalsInTrain(CreateAnimals());
             stopWatch.Stop();
             DisplayBox.Text = "";
             string animalString = "";
             string time = stopWatch.Elapsed.ToString();
-            foreach (Wagon w in train._wagonsInTrain) 
+            foreach (Wagon w in train._wagonsInTrain)
             {
                 DisplayBox.Text += "Wagon: " + w._wagonId.ToString() + " Contains:" + '\n';
                 for (int i = 0; i < w._animalList.Count(); i++)
-                    animalString += "   - " +  w._animalList[i]._animalName + '\n';
+                    animalString += "   - " + w._animalList[i]._animalName + '\n';
                 DisplayBox.Text += animalString + '\n';
                 animalString = "";
             }
@@ -53,7 +54,7 @@ namespace Arithmetic_Casus_CircusAnimals
         public List<Animal> CreateAnimals()
         {
             List<Animal> animalList = new List<Animal>();
-            for(int i = 0; i < Int32.Parse(LCTextBox.Text); i++)
+            for (int i = 0; i < Int32.Parse(LCTextBox.Text); i++)
             {
                 animalList.Add(Animal.CreateAnimal(true, 5, "Large_Carnivore"));
             }
@@ -83,7 +84,7 @@ namespace Arithmetic_Casus_CircusAnimals
 
         private void SaveBTN_Click(object sender, RoutedEventArgs e)
         {
-            if(train!=null)
+            if (train != null)
                 train.SaveTrainToDb(train);
         }
     }

@@ -15,12 +15,10 @@ namespace Arithmetic_Casus_CircusAnimals.Tests
         [TestInitialize]
         public void TestInitialize()
         {
-            Animal.oldAnimalList.Clear();
         }
         [TestMethod()]
         public void CreateNoAnimalTest()
         {
-            Assert.AreEqual(0, Animal.oldAnimalList.Count);
         }
 
     }

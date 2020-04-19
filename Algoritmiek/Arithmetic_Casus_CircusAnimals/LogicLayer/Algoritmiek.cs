@@ -9,7 +9,11 @@ namespace LogicLayer
 {
     public class Algoritmiek
     {
-        public static bool CheckWagon(Animal animal, Wagon w)
+        public Algoritmiek()
+        {
+
+        }
+        public bool CheckWagon(Animal animal, Wagon w)
         {
             /*Checkt of het eerste dier in de wagon een carnivoor is, of er ruimte is voor het dier dat je wilt plaatsen en ofdat het dier
             dat je wilt plaatsen groter is dan de carnivoor.*/
@@ -21,13 +25,14 @@ namespace LogicLayer
             else
                 return true;
         }
-        public static Train PlaceAnimalsInTrain(List<Animal> sortedAnimalList)
+        public Train PlaceAnimalsInTrain(List<Animal> animalList)
         {
+            List<Animal> sortedAnimalList = MainLogic.SortList(animalList);
             Train train = new Train(Train.GetTrainCount());
             foreach (Animal a in sortedAnimalList)
             {
                 if (a._carnivore)                   
-                    Wagon.CreateWagon(a, train);        //Als het dier dat geplaatst moet worden een carnivoor is maak een nieuwe wagon aan.
+                    train.CreateWagon(a, train);        //Als het dier dat geplaatst moet worden een carnivoor is maak een nieuwe wagon aan.
                 else
                 {
                     bool wagonNotFound = true;
@@ -36,12 +41,12 @@ namespace LogicLayer
                         wagonNotFound = CheckWagon(a, w);      //Checkt of een wagen geschikt is voor het dier dat je wilt plaatsen.
                         if (!wagonNotFound)
                         {
-                            Wagon.AddAnimalToWagon(a, w);      //Als er een wagon beschikbaar is wordt het dier aan die wagon toegevoegd.
+                            w.AddAnimalToWagon(a, w);      //Als er een wagon beschikbaar is wordt het dier aan die wagon toegevoegd.
                             break;
                         }
                     }
                     if (wagonNotFound)
-                        Wagon.CreateWagon(a, train);        //Als er geen wagon beschikbaar is wordt er een nieuwe wagon aangemaakt.
+                        train.CreateWagon(a, train);        //Als er geen wagon beschikbaar is wordt er een nieuwe wagon aangemaakt.
                 }
             }
             return train;

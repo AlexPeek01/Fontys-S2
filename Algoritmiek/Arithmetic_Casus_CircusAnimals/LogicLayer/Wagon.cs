@@ -39,17 +39,12 @@ namespace LogicLayer
         }
 
         ///////////////////////////Methods
-        public static void AddAnimalToWagon(Animal animal, Wagon wagon)
+        public void AddAnimalToWagon(Animal animal, Wagon wagon)
         {
             wagon.animalsInWagon.Add(animal);
             wagon.spaceAvailable -= animal._size;
         }
-        public static void CreateWagon(Animal animal, Train train)
-        {
-            Wagon wagon = new Wagon(train._wagonsInTrain.Count, 10);
-            Wagon.AddAnimalToWagon(animal, wagon);
-            train._wagonsInTrain.Add(wagon);
-        }
+        
         
     }
 }

@@ -1,0 +1,24 @@
+﻿@model Favours.Models.NewUserModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LayoutWithoutNav.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Login/login.css">
+</head>
+<center>
+    <div class="login-page">
+        <div class="form">
+            <div style="color: dimgrey;"></div>
+            <h2 class="login-title">Register</h2>
+            <form asp-action="Register" asp-controller="Authentication" method="post" class="login-form">
+                <div class="editor-field"><input class="text-box single-line" asp-for="Email" type="email" value="" placeholder="E-mail"></div>
+                <div class="editor-field"><input class="text-box single-line password" asp-for="Password" type="password" placeholder="Password"></div>
+                <input type="submit" value="Register" style="background-color: #0088ce; color: white;">
+            </form>
+        </div>
+    </div>
+</center>
+
