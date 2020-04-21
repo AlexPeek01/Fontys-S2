@@ -34,7 +34,7 @@ namespace Arithmetic_Casus_CircusAnimals
 
         private void OrderBTN_Click(object sender, RoutedEventArgs e)
         {
-            Algoritmiek run = new Algoritmiek();
+            Algorithm run = new Algorithm();
             stopWatch.Start();
             train = run.PlaceAnimalsInTrain(CreateAnimals());
             stopWatch.Stop();

@@ -1,8 +1,0 @@
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\Business Logic\bin\Debug\netstandard2.0\Business Logic.deps.json
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\Business Logic\bin\Debug\netstandard2.0\Business Logic.dll
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\Business Logic\bin\Debug\netstandard2.0\Business Logic.pdb
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\Business Logic\obj\Debug\netstandard2.0\Business Logic.csprojAssemblyReference.cache
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\Business Logic\obj\Debug\netstandard2.0\Business Logic.AssemblyInfoInputs.cache
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\Business Logic\obj\Debug\netstandard2.0\Business Logic.AssemblyInfo.cs
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\Business Logic\obj\Debug\netstandard2.0\Business Logic.dll
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Documents\Oefeningen\RaadHetGetal\Business Logic\obj\Debug\netstandard2.0\Business Logic.pdb

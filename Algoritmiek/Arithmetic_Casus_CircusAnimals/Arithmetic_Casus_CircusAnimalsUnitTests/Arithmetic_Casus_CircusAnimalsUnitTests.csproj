@@ -56,10 +56,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Logic\AlgoritmiekTests.cs" />
-    <Compile Include="Logic\AnimalTests.cs" />
     <Compile Include="Logic\WagonSafetyTests.cs" />
-    <Compile Include="Logic\WagonTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

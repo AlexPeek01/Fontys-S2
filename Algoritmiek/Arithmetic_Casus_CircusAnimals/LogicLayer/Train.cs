@@ -19,11 +19,12 @@ namespace LogicLayer
         public int _trainId
         {
             get { return trainId; }
-            set { trainId = value; }
+            private set { trainId = value; }
         }
         public List<Wagon> _wagonsInTrain
         {
             get { return wagonsInTrain; }
+            private set { }
         }
         public void SaveTrainToDb(Train train)
         {
@@ -39,11 +40,11 @@ namespace LogicLayer
         {
             return MySQLManager.GetTrainCount();
         }
-        public void CreateWagon(Animal animal, Train train)
+        public void CreateWagon(Animal animal)
         {
-            Wagon wagon = new Wagon(train._wagonsInTrain.Count, 10);
-            wagon.AddAnimalToWagon(animal, wagon);
-            train._wagonsInTrain.Add(wagon);
+            Wagon wagon = new Wagon(_wagonsInTrain.Count, 10);
+            wagon.AddAnimalToWagon(animal);
+            _wagonsInTrain.Add(wagon);
         }
     }
 }
