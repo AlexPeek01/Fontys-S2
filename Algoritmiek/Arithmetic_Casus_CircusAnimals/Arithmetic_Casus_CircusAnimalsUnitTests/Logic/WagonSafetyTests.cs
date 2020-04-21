@@ -15,6 +15,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
         {
             animalList = new List<Animal>();
             Random random = new Random();
+            #region CreateAnimals
             for (int i = 0; i < random.Next(0, 25); i++)
             {
                 Animal animal = new Animal(true, 5, "LC");
@@ -45,13 +46,13 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
                 Animal animal = new Animal(false, 1, "SH");
                 animalList.Add(animal);
             }
-            Algoritmiek run = new Algoritmiek();
+            #endregion
+            Algorithm run = new Algorithm();
             testTrain = run.PlaceAnimalsInTrain(animalList);
         }
         [TestMethod]
         public void CarnivoreNotWithOtherCarnivores()   //Checks if each container doesn't have too many carnivores.
         {
-            
             foreach (Wagon testWagon in testTrain._wagonsInTrain)
             {
                 int i = 0;
@@ -110,6 +111,29 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
                 }
                 Assert.IsTrue(usedSpace <= wagonSize);
             }
+        }
+        [TestMethod]
+        public void OptimalWagonUse() //Checks if the number of wagons is as small as it can be.
+        {
+            //Arrange sets up the animalList.
+            #region Arrange
+            List<Animal> animalList = new List<Animal>();
+            Animal testAnimal1 = new Animal(true, 5 , "LC");
+            Animal testAnimal2 = new Animal(true, 3, "MC");
+            Animal testAnimal3 = new Animal(true, 1, "SC");
+            Animal testAnimal4 = new Animal(false, 5, "LH");
+            Animal testAnimal5 = new Animal(false, 3, "MH");
+            Animal testAnimal6 = new Animal(false, 1, "SH");
+            animalList.Add(testAnimal1);
+            animalList.Add(testAnimal2);
+            animalList.Add(testAnimal3);
+            animalList.Add(testAnimal4);
+            animalList.Add(testAnimal5);
+            animalList.Add(testAnimal6);
+            #endregion  //Setup the animalList         //Sets up the animalList.
+            Algorithm run = new Algorithm();
+            testTrain = run.PlaceAnimalsInTrain(animalList);
+            Assert.AreEqual(testTrain._wagonsInTrain.Count, 4); //The expected number of wagons is 4.
         }
     }
 }

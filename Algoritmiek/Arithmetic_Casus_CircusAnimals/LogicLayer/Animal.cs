@@ -24,17 +24,17 @@ namespace LogicLayer
         public bool _carnivore
         {
             get { return carnivore; }
-            set { carnivore = value; }
+            private set { carnivore = value; }
         }
         public int _size
         {
             get { return size; }
-            set { size = value; }
+            private set { size = value; }
         }
         public string _animalName
         {
             get { return animalName; }
-            set { animalName = value; }
+            private set { animalName = value; }
         }
 
         ///////////////////////////Methods
