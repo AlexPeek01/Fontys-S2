@@ -7,11 +7,11 @@ namespace Favours.Logic
 {
     public class Category
     {
-        private int categorieId { get; set; }
-        private string categorieNaam { get; set; }
-        public Category(string _categorieNaam)
+        private int categoryId;
+        private string categoryName;
+        public Category(string _categoryName)
         {
-            this.categorieNaam = _categorieNaam;
+            this.categoryName = _categoryName;
         }
     }
 }

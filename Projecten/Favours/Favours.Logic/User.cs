@@ -7,24 +7,21 @@ namespace Favours.Logic
 {
     public class User
     {
-        private int gebruikersId { get; set; }
-        private string gebruikersnaam { get; set; }
-        private string wachtwoord { get; set; }
-        private string voornaam { get; set; }
-        private string tussenvoegsel { get; set; }
-        private string achternaam { get; set; }
-        private string emailadress { get; set; }
-        private string telefoonnr { get; set; }
-        private List<Event> eventList;
+        private int userId;
+        private string email;
+        private string password;
+        private string firstName;
+        private string insertion;
+        private string lastName;
+        private string phone;
+        private List<Service> eventList;
         private List<Network> networkList;
-        
-
-        public User(string _gebruikersnaam, string _wachtwoord)
+        public User(string _email, string _password)
         {
-            eventList = new List<Event>();
+            eventList = new List<Service>();
             networkList = new List<Network>();
-            this.gebruikersnaam = _gebruikersnaam;
-            this.wachtwoord = _wachtwoord;
+            this.email = _email;
+            this.password = _password;
         }
     }
 }
