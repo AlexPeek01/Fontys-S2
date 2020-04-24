@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Arithmetic_Casus_CircusAnimals.DataAccess
 {
-    public class MySQLManager
+    public class MySQLContext
     {
         private const string connectionString = "server=localhost;database=s2-algoritmiek-circusanimals;uid=root;pwd=;";
         public static void MySqlQuery(int wagonId, string animalType, int trainId)

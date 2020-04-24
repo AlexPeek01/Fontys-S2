@@ -25,67 +25,61 @@ namespace Arithmetic_Casus_CircusAnimals
     public partial class MainWindow : Window
     {
         Train train;
-        Stopwatch stopWatch;
         public MainWindow()
         {
             InitializeComponent();
-            stopWatch = new Stopwatch();
         }
 
         private void OrderBTN_Click(object sender, RoutedEventArgs e)
         {
+            MainLogic logic = new MainLogic();
             Algorithm run = new Algorithm();
-            stopWatch.Start();
             train = run.PlaceAnimalsInTrain(CreateAnimals());
-            stopWatch.Stop();
-            DisplayBox.Text = "";
-            string animalString = "";
-            string time = stopWatch.Elapsed.ToString();
-            foreach (Wagon w in train._wagonsInTrain)
-            {
-                DisplayBox.Text += "Wagon: " + w._wagonId.ToString() + " Contains:" + '\n';
-                for (int i = 0; i < w._animalList.Count(); i++)
-                    animalString += "   - " + w._animalList[i]._animalName + '\n';
-                DisplayBox.Text += animalString + '\n';
-                animalString = "";
-            }
-            efficiencyLabel.Content = "Space efficiency: " + Math.Round(MainLogic.CalculateEfficiency(train), 1).ToString() + "%";
+            DisplayBox.Text = logic.CreateOutputString(train);
+            efficiencyLabel.Content = "Space efficiency: " + Math.Round(logic.CalculateEfficiency(train), 1).ToString() + "%";
         }
-        public List<Animal> CreateAnimals()
+        private List<Animal> CreateAnimals()
         {
+            #region CreateAnimals
             List<Animal> animalList = new List<Animal>();
             for (int i = 0; i < Int32.Parse(LCTextBox.Text); i++)
             {
-                animalList.Add(Animal.CreateAnimal(true, 5, "Large_Carnivore"));
+                Animal animal = new Animal(true, Animal.size.Large, "Large_Carnivore");
+                animalList.Add(animal);
             }
             for (int i = 0; i < Int32.Parse(LHTextBox.Text); i++)
             {
-                animalList.Add(Animal.CreateAnimal(false, 5, "Large_Herbivore"));
+                Animal animal = new Animal(false, Animal.size.Large, "Large_Herbivore");
+                animalList.Add(animal);
             }
             for (int i = 0; i < Int32.Parse(MCTextBox.Text); i++)
             {
-                animalList.Add(Animal.CreateAnimal(true, 3, "Medium_Carnivore"));
+                Animal animal = new Animal(true, Animal.size.Medium, "Medium_Carnivore");
+                animalList.Add(animal);
             }
             for (int i = 0; i < Int32.Parse(MHTextBox.Text); i++)
             {
-                animalList.Add(Animal.CreateAnimal(false, 3, "Medium_Herbivore"));
+                Animal animal = new Animal(false, Animal.size.Medium, "Medium_Herbivore");
+                animalList.Add(animal);
             }
             for (int i = 0; i < Int32.Parse(SCTextBox.Text); i++)
             {
-                animalList.Add(Animal.CreateAnimal(true, 1, "Small_Carnivore"));
+                Animal animal = new Animal(true, Animal.size.Small, "Small_Carnivore");
+                animalList.Add(animal);
             }
             for (int i = 0; i < Int32.Parse(SHTextBox.Text); i++)
             {
-                animalList.Add(Animal.CreateAnimal(false, 1, "Small_Herbivore"));
+                Animal animal = new Animal(false, Animal.size.Small, "Small_Herbivore");
+                animalList.Add(animal);
             }
+            #endregion
             return animalList;
-
         }
 
         private void SaveBTN_Click(object sender, RoutedEventArgs e)
         {
             if (train != null)
-                train.SaveTrainToDb(train);
+                train.SaveTrainToDb();
         }
     }
 }
