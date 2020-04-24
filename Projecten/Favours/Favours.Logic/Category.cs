@@ -13,5 +13,17 @@ namespace Favours.Logic
         {
             this.categoryName = _categoryName;
         }
+        public int GetCategoryID()
+        {
+            return categoryId;
+        }
+        public string GetCategoryName()
+        {
+            return categoryName;
+        }
+        public void SetCategoryName(string categoryname)
+        {
+            this.categoryName = categoryname;
+        }
     }
 }

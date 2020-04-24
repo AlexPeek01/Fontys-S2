@@ -22,5 +22,37 @@ namespace Favours.Logic
             categoryList = new List<Category>();
             eventList = new List<Service>();
         }
+        public int GetNetworkID()
+        {
+            return networkId;
+        }
+        public string GetNetworkName()
+        {
+            return networkName;
+        }
+        public void SetNetworkName(string networkName)
+        {
+            this.networkName = networkName;
+        }
+        public void SetPassword(string password)
+        {
+            this.password = password;
+        }
+        public int GetMemberLimit()
+        {
+            return memberLimit;
+        }
+        public void SetMemberLimit(int limit)
+        {
+            this.memberLimit = limit;
+        }
+        public bool GetVisibility()
+        {
+            return visibility;
+        }
+        public void SetVisibility(bool visibility)
+        {
+            this.visibility = visibility;
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace LogicLayer
 {
     public class Algorithm
     {
-        public Algorithm(){}
+        public Algorithm() { }
         /// <summary>
         /// Het algoritme dat alle checks doet.
         /// </summary>
@@ -20,12 +20,19 @@ namespace LogicLayer
             Train train = new Train();
             foreach (Animal animal in sortedAnimalList)
             {
-                if (animal.CheckForCarnivore(train))
+                if (animal.carnivore)
+                {
+                    Wagon wagon = train.CreateWagon();
+                    wagon.AddAnimalToWagon(animal);
                     continue;
+                }
                 else if (train.CheckForViableWagon(animal))
                     continue;
                 else
-                    train.CreateWagon(animal);        
+                {
+                    Wagon wagon = train.CreateWagon();
+                    wagon.AddAnimalToWagon(animal);
+                }
             }
             return train;
         }

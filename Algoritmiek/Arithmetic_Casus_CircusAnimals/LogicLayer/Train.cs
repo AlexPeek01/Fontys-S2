@@ -33,11 +33,11 @@ namespace LogicLayer
         /// Als er geen wagon beschikbaar is wordt er een nieuwe wagon aangemaakt.
         /// </summary>
         /// <param name="animal"></param>
-        public void CreateWagon(Animal animal)
+        public Wagon CreateWagon()
         {
             Wagon wagon = new Wagon(wagonsInTrain.Count, 10);
-            wagon.AddAnimalToWagon(animal);
             wagonsInTrain.Add(wagon);
+            return wagon;
         }
         /// <summary>
         /// Als er een wagon veilig is, wordt het dier aan die wagon toegevoegd.
