@@ -20,21 +20,30 @@ namespace LogicLayer
             Train train = new Train();
             foreach (Animal animal in sortedAnimalList)
             {
-                if (animal.carnivore)
-                {
-                    Wagon wagon = train.CreateWagon();
-                    wagon.AddAnimalToWagon(animal);
-                    continue;
-                }
-                else if (train.CheckForViableWagon(animal))
-                    continue;
-                else
-                {
-                    Wagon wagon = train.CreateWagon();
-                    wagon.AddAnimalToWagon(animal);
-                }
+                FindOptimalWagon(train, animal);
             }
             return train;
+        }
+        public void FindOptimalWagon(Train train, Animal animal)
+        {
+            
+            if (animal.carnivore)
+            {
+                Wagon wagon = train.CreateWagon();
+                wagon.AddAnimalToWagon(animal);
+                return;
+            }
+            Wagon viableWagon = train.CheckForViableWagon(animal);
+            if (viableWagon!=null)
+            {
+                viableWagon.AddAnimalToWagon(animal);
+                return;
+            }
+            else
+            {
+                Wagon wagon = train.CreateWagon();
+                wagon.AddAnimalToWagon(animal);
+            }
         }
     }
 }

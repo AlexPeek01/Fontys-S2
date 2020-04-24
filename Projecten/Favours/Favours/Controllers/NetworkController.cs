@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Favours.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Managers;
 
 namespace Favours.Controllers
 {
@@ -13,8 +13,8 @@ namespace Favours.Controllers
         public IActionResult Index()
         {
             int UserID = Convert.ToInt32(HttpContext.Session.GetInt32("UserID"));
-            List<string> usersNetworks = SQLConnection.ExecuteSearchQuery($"Select NetworkID From UserNetworkConnection Where UserID='{UserID}'");
-            List<string> networkData = SQLConnection.ExecuteSearchQuery($"Select * From Netwerken");
+            List<string> usersNetworks = UserManager.GetNetworksByUserID(UserID);
+            List<string> networkData = NetworkManager.GetNetworkData();
 
             string[] networkName = new string[networkData.Count/5];
             string[] networkImage = new string[networkData.Count / 5];

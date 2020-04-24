@@ -1,8 +1,8 @@
-﻿using Favours.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Managers;
 
 namespace Favours.Models
 {
@@ -19,7 +19,7 @@ namespace Favours.Models
 
         private static string GetAuthCode(string UserID)
         {
-            List<string> authCode = SQLConnection.ExecuteSearchQuery($"SELECT AuthCode FROM Users WHERE UserID = '{UserID}'");
+            List<string> authCode = SessionManager.GetAuthCodeByUserID(UserID);
             if (authCode.Count == 0)
             {
                 return "0";
@@ -32,7 +32,7 @@ namespace Favours.Models
 
         private static string GetUserID(string email)
         {
-            List<string> userID = SQLConnection.ExecuteSearchQuery($"SELECT UserID FROM Users WHERE Email = '{email}'");
+            List<string> userID = UserManager.GetUserDataByEmail(email);
             if (userID.Count == 0)
             {
                 return "0";

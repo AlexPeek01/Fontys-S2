@@ -45,17 +45,16 @@ namespace LogicLayer
         /// <param name="train"></param>
         /// <param name="animal"></param>
         /// <returns></returns>
-        public bool CheckForViableWagon(Animal animal)
+        public Wagon CheckForViableWagon(Animal animal)
         {
             foreach (Wagon wagon in wagonsInTrain)
             {
                 if (!wagon.CheckWagon(animal))
                 {
-                    wagon.AddAnimalToWagon(animal);
-                    return true;
+                    return wagon;
                 }
             }
-            return false;
+            return null;
         }
     }
 }

@@ -14,6 +14,6 @@ namespace Favours.Models
 
         [Required]
         [DataType(DataType.Password)]
-        public string Wachtwoord { get; set; }
+        public string Password { get; set; }
     }
 }

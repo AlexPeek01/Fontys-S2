@@ -24,9 +24,10 @@
     ".NETCoreApp,Version=v3.1": {
       "Favours/1.0.0": {
         "dependencies": {
-          "Favours.Logic": "1.0.0",
+          "Managers": "1.0.0",
           "Microsoft.AspNetCore.Session": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.1",
+          "Models": "1.0.0",
           "bootstrap": "4.4.1",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -1977,30 +1978,20 @@
           "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "Favours.Data/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Session": "2.2.0",
-          "MySql.Data": "8.0.19",
-          "bootstrap": "4.4.1"
-        },
+      "Models/1.0.0": {
         "runtime": {
-          "Favours.Data.dll": {}
+          "Models.dll": {}
         },
         "compile": {
-          "Favours.Data.dll": {}
+          "Models.dll": {}
         }
       },
-      "Favours.Logic/1.0.0": {
-        "dependencies": {
-          "Favours.Data": "1.0.0",
-          "Microsoft.AspNetCore.Session": "2.2.0",
-          "bootstrap": "4.4.1"
-        },
+      "DAL.Reference/1.0.0.0": {
         "runtime": {
-          "Favours.Logic.dll": {}
-        },
-        "compile": {
-          "Favours.Logic.dll": {}
+          "DAL.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -3694,6 +3685,22 @@
           "WindowsBase.dll": {}
         },
         "compileOnly": true
+      },
+      "DAL/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Session": "2.2.0",
+          "MySql.Data": "8.0.19",
+          "bootstrap": "4.4.1"
+        },
+        "compileOnly": true
+      },
+      "Managers/1.0.0": {
+        "dependencies": {
+          "DAL": "1.0.0",
+          "Microsoft.AspNetCore.Session": "2.2.0",
+          "bootstrap": "4.4.1"
+        },
+        "compileOnly": true
       }
     }
   },
@@ -4760,13 +4767,13 @@
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
     },
-    "Favours.Data/1.0.0": {
+    "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Favours.Logic/1.0.0": {
-      "type": "project",
+    "DAL.Reference/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     },
@@ -6177,6 +6184,16 @@
     },
     "WindowsBase/4.0.0.0": {
       "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Managers/1.0.0": {
+      "type": "project",
       "serviceable": false,
       "sha512": ""
     }

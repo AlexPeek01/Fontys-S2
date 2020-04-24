@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Netwerken";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Dashboard/StyleSheet.css" />
+</head>
+<body>
+    @{
+        string[] netwerknaam = ViewData["netwerknaam"] as string[];
+        string[] netwerkafbeelding = ViewData["netwerkafbeelding"] as string[];
+        string[] netwerkbeschrijving = ViewData["netwerkbeschrijving"] as string[];
+        for (int i = 0; i < netwerknaam.Length; i++)
+        {
+            <div class="card-deck">
+
+                <div class="card">
+
+                    <div class="card-header bg-dark text-light">
+                        @netwerknaam[i]
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3">Descirption: </span>
+                            </div>
+                            <p class="form-control card-text">@netwerkbeschrijving[i]</p>
+                        </div>
+                        <div class="group-picture">
+                            <img class="netwerk-afbeelding" src="data:image/png;base64, @netwerkafbeelding[i]" />
+                        </div>
+                        <a href="#" class="btn btn-primary btn-dark">Go somewhere</a>
+                    </div>
+                </div>
+                @{if (i + 1 < netwerknaam.Length)
+                    {
+                        <div class="card">
+
+                            <div class="card-header bg-dark text-light">
+                                @netwerknaam[i + 1]
+                            </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon3">Descirption: </span>
+                                    </div>
+                                    <p class="form-control card-text">@netwerkbeschrijving[i + 1]</p>
+                                </div>
+                                <div class="group-picture">
+                                    <img class="netwerk-afbeelding" src="data:image/png;base64, @netwerkafbeelding[i+1]" />
+                                </div>
+                                <a href="#" class="btn btn-primary btn-dark">Go somewhere</a>
+                            </div>
+                        </div>
+                    }
+                    i++;
+                }
+            </div>
+        }
+    }
+</body>
+
