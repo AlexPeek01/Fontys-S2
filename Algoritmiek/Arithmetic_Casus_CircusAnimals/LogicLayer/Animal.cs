@@ -23,20 +23,5 @@ namespace LogicLayer
             this.animalSize = Convert.ToInt32(_size);
             this.animalName = _animalName;
         }
-        /// <summary>
-        /// Als het dier dat geplaatst moet worden een carnivoor is, wordt er een nieuwe wagon aangemaakt.
-        /// </summary>
-        /// <param name="animal"></param>
-        /// <param name="train"></param>
-        /// <returns></returns>
-        public bool CheckForCarnivore(Train train)
-        {
-            if (carnivore)
-            {
-                train.CreateWagon(this);
-                return true;
-            }
-            return false;
-        }
     }
 }

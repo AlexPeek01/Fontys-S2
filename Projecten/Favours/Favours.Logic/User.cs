@@ -23,5 +23,53 @@ namespace Favours.Logic
             this.email = _email;
             this.password = _password;
         }
+        public int GetUserID()
+        {
+            return userId;
+        }
+        public void SetPassword(string password)
+        {
+            this.password = password;
+        }
+        public string GetFirstName()
+        {
+            return firstName;
+        }
+        public void SetFirstName(string firstName)
+        {
+            this.firstName = firstName;
+        }
+        public string GetInsertion()
+        {
+            return insertion;
+        }
+        public void SetInsertion(string insertion)
+        {
+            this.insertion = insertion;
+        }
+        public string GetLastName()
+        {
+            return lastName;
+        }
+        public void SetLastName(string lastName)
+        {
+            this.lastName = lastName;
+        }
+        public string GetEmail()
+        {
+            return email;
+        }
+        public void SetEmail(string email)
+        {
+            this.email = email;
+        }
+        public string GetPhone()
+        {
+            return phone;
+        }
+        public void SetPhone(string phone)
+        {
+            this.phone = phone;
+        }
     }
 }
