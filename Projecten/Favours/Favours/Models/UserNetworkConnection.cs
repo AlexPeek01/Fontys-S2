@@ -1,5 +1,4 @@
-﻿using Favours.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,9 +14,6 @@ namespace Favours.Models
             UserID = _userId;
             NetworkID = _networkId;
         }
-        public void UploadNewConnection(int _userId, int _networkId)
-        {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES('{_networkId}', '{_userId}')");
-        }
+        
     }
 }

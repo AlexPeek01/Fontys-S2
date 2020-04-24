@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Favours.Models;
-using Favours.Logic;
-using Favours.Data;
+using Models;
 
 namespace Favours.Controllers
 {

@@ -1,0 +1,26 @@
+﻿body {
+}
+.card {
+    max-width: 50vw;
+    width: 48vw;
+    background-color: #0088ce;
+    color: lightgrey;
+}
+.card-body {
+    max-width: 50vw;
+    width: 48vw;
+}
+.card-deck{
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vw;
+}
+.netwerk-afbeelding {
+    width: 150px;
+    height: 100px;
+    margin-right: 1vw;
+    border-color: black;
+    border-width: 100px;
+    border-radius: 3px;
+    float: right;
+}

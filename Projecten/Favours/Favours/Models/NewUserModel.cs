@@ -1,5 +1,4 @@
-﻿using Favours.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -26,9 +25,6 @@ namespace Favours.Models
         {
 
         }
-        public void InsertUserInDatabase(NewUserModel newUser)
-        {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Users (Email,Password,AuthCode) VALUES ('{newUser.Email}','{newUser.Password}','{newUser.AuthCode}')");
-        }
+        
     }
 }

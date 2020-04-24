@@ -7,8 +7,9 @@ using System.Security.Cryptography;
 using Favours.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
-using Favours.Data;
 using Microsoft.AspNetCore.Http;
+using Managers;
+using Models;
 
 namespace Favours.Controllers
 {
@@ -27,8 +28,8 @@ namespace Favours.Controllers
         public IActionResult Login(LoginModel lm)
         {
             string authCode = CreateSessionCookie.getAuthToken(lm.Email);
-            List<string> userData = SQLConnection.ExecuteSearchQuery($"Select UserID,Email,Password From Users Where Email='{lm.Email.ToLower()}'");
-            string password = getHashSha256(lm.Wachtwoord);
+            List<string> userData = UserManager.GetUserDataByEmail(lm.Email);
+            string password = getHashSha256(lm.Password);
             if (password == userData.ToArray()[2])
             {
                 HttpContext.Session.SetString("UserInfo", authCode);
@@ -46,9 +47,9 @@ namespace Favours.Controllers
         public IActionResult Register(NewUserModel newUser)
         {
             newUser.Password = getHashSha256(newUser.Password);
-            Logic.AuthenticationCode authCode = new Logic.AuthenticationCode();
+            AuthCodeModel authCode = new AuthCodeModel();
             newUser.AuthCode = authCode.GenerateAuthToken();
-            newUser.InsertUserInDatabase(newUser);
+            UserManager.InsertNewUserIntoDatabase(newUser.Email, newUser.Password, newUser.AuthCode);
             return RedirectToAction("Login","Authentication");
         }
         private string getHashSha256(string text)
