@@ -8,41 +8,35 @@ namespace LogicLayer
 {
     public class Animal
     {
-        ///////////////////////////Fields
-        private bool carnivore;
-        private int size;
-        private string animalName;
-
-        ///////////////////////////Constructor
-        public Animal(bool _carnivore, int _size, string _animalName)
+        public enum size : ushort
+        {
+            Large = 5,
+            Medium = 3,
+            Small = 1
+        }
+        public int animalSize { get; private set; }
+        public bool carnivore { get; private set; }
+        public string animalName { get; private set; }
+        public Animal(bool _carnivore, size _size, string _animalName)
         {
             this.carnivore = _carnivore;
-            this.size = _size;
+            this.animalSize = Convert.ToInt32(_size);
             this.animalName = _animalName;
         }
-        ///////////////////////////Get/Set
-        public bool _carnivore
+        /// <summary>
+        /// Als het dier dat geplaatst moet worden een carnivoor is, wordt er een nieuwe wagon aangemaakt.
+        /// </summary>
+        /// <param name="animal"></param>
+        /// <param name="train"></param>
+        /// <returns></returns>
+        public bool CheckForCarnivore(Train train)
         {
-            get { return carnivore; }
-            private set { carnivore = value; }
+            if (carnivore)
+            {
+                train.CreateWagon(this);
+                return true;
+            }
+            return false;
         }
-        public int _size
-        {
-            get { return size; }
-            private set { size = value; }
-        }
-        public string _animalName
-        {
-            get { return animalName; }
-            private set { animalName = value; }
-        }
-
-        ///////////////////////////Methods
-        public static Animal CreateAnimal(bool isCarnivore, int size, string animalName)
-        {
-            Animal animal = new Animal(isCarnivore, size, animalName);
-            return animal;
-        }
-        
     }
 }

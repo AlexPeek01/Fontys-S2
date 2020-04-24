@@ -9,42 +9,53 @@ namespace LogicLayer
 {
     public class Train
     {
-        private List<Wagon> wagonsInTrain;
-        private int trainId { get; set; }
-        public Train(int _trainId)
+        public List<Wagon> wagonsInTrain { get; private set; }
+        public int trainId { get; private set; }
+        public Train()
         {
             wagonsInTrain = new List<Wagon>();
-            this.trainId = _trainId;
         }
-        public int _trainId
+        /// <summary>
+        /// Slaat de trein op in de database
+        /// </summary>
+        public void SaveTrainToDb()
         {
-            get { return trainId; }
-            private set { trainId = value; }
-        }
-        public List<Wagon> _wagonsInTrain
-        {
-            get { return wagonsInTrain; }
-            private set { }
-        }
-        public void SaveTrainToDb(Train train)
-        {
-            foreach(Wagon w in train.wagonsInTrain)
+            trainId = MySQLContext.GetTrainCount();
+            foreach (Wagon w in wagonsInTrain)
             {
-                foreach(Animal a in w._animalList)
+                foreach(Animal a in w.animalsInWagon)
                 {
-                    MySQLManager.MySqlQuery(w._wagonId, a._animalName, train.trainId);
+                    MySQLContext.MySqlQuery(w.wagonId, a.animalName, trainId);
                 }
             }
         }
-        public static int GetTrainCount()
-        {
-            return MySQLManager.GetTrainCount();
-        }
+        /// <summary>
+        /// Als er geen wagon beschikbaar is wordt er een nieuwe wagon aangemaakt.
+        /// </summary>
+        /// <param name="animal"></param>
         public void CreateWagon(Animal animal)
         {
-            Wagon wagon = new Wagon(_wagonsInTrain.Count, 10);
+            Wagon wagon = new Wagon(wagonsInTrain.Count, 10);
             wagon.AddAnimalToWagon(animal);
-            _wagonsInTrain.Add(wagon);
+            wagonsInTrain.Add(wagon);
+        }
+        /// <summary>
+        /// Als er een wagon veilig is, wordt het dier aan die wagon toegevoegd.
+        /// </summary>
+        /// <param name="train"></param>
+        /// <param name="animal"></param>
+        /// <returns></returns>
+        public bool CheckForViableWagon(Animal animal)
+        {
+            foreach (Wagon wagon in wagonsInTrain)
+            {
+                if (!wagon.CheckWagon(animal))
+                {
+                    wagon.AddAnimalToWagon(animal);
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

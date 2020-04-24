@@ -9,51 +9,36 @@ namespace LogicLayer
 {
     public class Wagon
     {
-        ///////////////////////////Fields
-        private int wagonId;
-        private int spaceAvailable;
-        private List<Animal> animalsInWagon;
+        public int wagonId { get; private set; }
+        public int spaceAvailable { get; private set; }
+        public bool carnivoreInWagon { get; private set; }
+        public List<Animal> animalsInWagon { get; private set; }
 
-        ///////////////////////////Constructor
         public Wagon(int _wagonId, int _spaceAvailable)
         {
             this.wagonId = _wagonId;
             this.spaceAvailable = _spaceAvailable;
             animalsInWagon = new List<Animal>();
         }
-
-        ///////////////////////////Get/Set
-        public int _wagonId
-        {
-            get { return wagonId; }
-            private set { wagonId = value; }
-        }
-        public int _spaceAvailable
-        {
-            get { return spaceAvailable; }
-            private set { spaceAvailable = value; }
-        }
-        public List<Animal> _animalList
-        {
-            get { return animalsInWagon; }
-            private set { }
-        }
-
-
-        ///////////////////////////Methods
+        /// <summary>
+        /// Voegt een dier toe aan een wagon en verminderd de ruimte beschikbaar.
+        /// </summary>
+        /// <param name="animal"></param>
         public void AddAnimalToWagon(Animal animal)
         {
             animalsInWagon.Add(animal);
-            spaceAvailable -= animal._size;
+            spaceAvailable -= animal.animalSize;
         }
+        /// <summary>
+        /// Controleert of een wagon veilig is om een bepaalde herbivoor in te plaatsen.
+        /// </summary>
+        /// <param name="animal"></param>
+        /// <returns></returns>
         public bool CheckWagon(Animal animal)
         {
-            /*Checkt of het eerste dier in de wagon een carnivoor is, of er ruimte is voor het dier dat je wilt plaatsen en ofdat het dier
-            dat je wilt plaatsen groter is dan de carnivoor.*/
-            if (_animalList[0]._carnivore && _spaceAvailable >= animal._size && _animalList[0]._size < animal._size)
+            if (animalsInWagon[0].carnivore && spaceAvailable >= animal.animalSize && animalsInWagon[0].animalSize < animal.animalSize)
                 return false;
-            //Checkt of het eerste dier in de wagon een herbivoor is en of er ruimte is voor het dier dat je wilt plaatsen.
-            else if (!_animalList[0]._carnivore && _spaceAvailable >= animal._size)
+            else if (!animalsInWagon[0].carnivore && spaceAvailable >= animal.animalSize)
                 return false;
             else
                 return true;
