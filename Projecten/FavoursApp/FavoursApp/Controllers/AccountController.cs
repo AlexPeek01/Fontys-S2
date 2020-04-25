@@ -39,7 +39,7 @@ namespace FavoursApp.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, false);
-                    FavoursNetworkManager.InsertNewProfileData(user.Id);
+                    FavoursUserManager.InsertNewProfileData(user.Id);
                     return RedirectToAction("Index", "Network");
                 }
                 else

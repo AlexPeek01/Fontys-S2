@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,13 +12,17 @@ namespace Managers
         {
             return SQLConnection.ExecuteSearchQuery($"Select NetworkID From UserNetworkConnection Where UserID='{UserID}'");
         }
-        public static List<string> GetNetworkData(string networkId)
+        public static Network GetNetworkData(string networkId)
         {
-            return SQLConnection.ExecuteSearchQuery($"Select * From Netwerken Where NetwerkID='{networkId}'");
+            List<string> networkData = SQLConnection.ExecuteSearchQuery($"Select * From Netwerken Where NetwerkID='{networkId}'");
+            Network network = new Network(networkData[1], Convert.ToInt32(networkData[7]), Convert.ToBoolean(networkData[5]));
+            //TODO find a way to keep the ID set private.
+            network.ID = networkData[0];
+            network.Image = networkData[3];
+            network.Description = networkData[4];
+            network.UserCount = Convert.ToInt32(SQLConnection.ExecuteSearchQuery($"Select Count(UserID) From UserNetworkConnection Where NetworkID='{networkId}'")[0]);
+            return network;
         }
-        public static void InsertNewProfileData(string id)
-        {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Users (Id) VALUES('{id}')");
-        }
+
     }
 }

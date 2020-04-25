@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FavoursApp.Models;
 using Managers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-
+using Models;
 
 namespace FavoursApp.Controllers
 {
@@ -23,24 +24,23 @@ namespace FavoursApp.Controllers
         {
             var user = await userManager.GetUserAsync(HttpContext.User);
             List<string> usersNetworks = FavoursNetworkManager.GetNetworkIDsByUserID(user.Id);
-            List<string> networkData;
-            List<string> networkName = new List<string>();
-            List<string> networkImage = new List<string>();
-            List<string> networkDescription = new List<string>();
+            Network[] networkData;
+            List<Network> networks = new List<Network>();
             foreach (string networkid in usersNetworks)
             {
-                networkData = FavoursNetworkManager.GetNetworkData(networkid);
-                networkName.Add(networkData[1]);
-                networkImage.Add(networkData[3]);
-                networkDescription.Add(networkData[4]);
+                networks.Add(FavoursNetworkManager.GetNetworkData(networkid));
             }
-            string[] networkNameArray = networkName.ToArray();
-            string[] networkImageArray = networkImage.ToArray();
-            string[] networkDescriptionArray = networkDescription.ToArray();
-            ViewData["netwerknaam"] = networkNameArray;
-            ViewData["netwerkafbeelding"] = networkImageArray;
-            ViewData["netwerkbeschrijving"] = networkDescriptionArray;
+            networkData = networks.ToArray();
+            return View(networkData);
+        }
+        [HttpGet]
+        public IActionResult Page(string id)
+        {
             return View();
+        }
+        public void CreateNetwork(CreateNetworkModel model)
+        {
+
         }
     }
 }

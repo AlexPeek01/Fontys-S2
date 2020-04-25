@@ -1647,6 +1647,16 @@
         "runtime": {
           "bin/placeholder/DAL.dll": {}
         }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
       }
     }
   },
@@ -5785,11 +5795,17 @@
       "type": "project",
       "path": "../DAL/DAL.csproj",
       "msbuildProject": "../DAL/DAL.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "DAL >= 1.0.0"
+      "DAL >= 1.0.0",
+      "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5820,6 +5836,9 @@
           "projectReferences": {
             "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\DAL\\DAL.csproj": {
               "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\DAL\\DAL.csproj"
+            },
+            "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Models\\Models.csproj"
             }
           }
         }

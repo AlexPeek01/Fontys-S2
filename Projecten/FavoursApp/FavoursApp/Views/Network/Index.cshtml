@@ -1,4 +1,5 @@
-﻿
+﻿@model Models.Network[]
+
 @{
     ViewData["Title"] = "Netwerken";
     Layout = "~/Views/Shared/_Layout2.cshtml";
@@ -6,59 +7,94 @@
 
 <head>
     <link rel="stylesheet" href="~/css/Dashboard/StyleSheet.css" />
+    <script src="~/js/NetworkJS.js"></script>
 </head>
 <body>
+    <div>
+        <a onclick="OpenCreateNetworkModal()" class="btn btn-primary btn-dark create-button">Create network</a>
+    </div>
     @{
-        string[] netwerknaam = ViewData["netwerknaam"] as string[];
-        string[] netwerkafbeelding = ViewData["netwerkafbeelding"] as string[];
-        string[] netwerkbeschrijving = ViewData["netwerkbeschrijving"] as string[];
-        for (int i = 0; i < netwerknaam.Length; i++)
+        foreach (var @network in Model)
         {
-            <div class="card-deck">
+            <div class="box">
+                <div class="card-deck">
 
-                <div class="card">
+                    <div class="card">
 
-                    <div class="card-header bg-dark text-light">
-                        @netwerknaam[i]
-                    </div>
-                    <div class="card-body">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon3">Descirption: </span>
+                        <div class="card-header bg-dark text-light">
+                            @network.NetworkName
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">Description: </span>
+                                </div>
+                                <p class="form-control card-text">@network.Description</p>
                             </div>
-                            <p class="form-control card-text">@netwerkbeschrijving[i]</p>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon3">Members: </span>
+                                </div>
+                                <p class="form-control card-text">@network.UserCount / @network.Memberlimit</p>
+                            </div>
+                            <div class="group-picture">
+                                <img class="netwerk-afbeelding" src="data:image/png;base64, @network.Image" />
+                            </div>
+                            <a href="@Url.Action("Page", "Network", new { id = network.ID })" class="btn btn-primary btn-dark enter-button">Enter</a>
                         </div>
-                        <div class="group-picture">
-                            <img class="netwerk-afbeelding" src="data:image/png;base64, @netwerkafbeelding[i]" />
-                        </div>
-                        <a href="#" class="btn btn-primary btn-dark">Go somewhere</a>
                     </div>
                 </div>
-                @{if (i + 1 < netwerknaam.Length)
-                    {
-                        <div class="card">
 
-                            <div class="card-header bg-dark text-light">
-                                @netwerknaam[i + 1]
-                            </div>
-                            <div class="card-body">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon3">Descirption: </span>
-                                    </div>
-                                    <p class="form-control card-text">@netwerkbeschrijving[i + 1]</p>
-                                </div>
-                                <div class="group-picture">
-                                    <img class="netwerk-afbeelding" src="data:image/png;base64, @netwerkafbeelding[i+1]" />
-                                </div>
-                                <a href="#" class="btn btn-primary btn-dark">Go somewhere</a>
-                            </div>
-                        </div>
-                    }
-                    i++;
-                }
             </div>
         }
     }
+    <div id="myModal" class="modal">
+        <div class="card-header bg-dark text-white" style="border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;">New network:</div>
+        <div class="modal-content">
+            <span onclick="CloseModal()" class="close">&times;</span>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Network name: </span>
+                </div>
+                <input id="titleField" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Description: </span>
+                </div>
+                <input id="descriptionField" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Password: </span>
+                </div>
+                <input id="passwordField" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Image: </span>
+                </div>
+                <button id="imagebuttonField" style="display:block;" class="form-control image-button" onclick="document.getElementById('getFile').click()">Choose file</button>
+                <input onchange="GetFileName()" type='file' id="getFile" style="display:none">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Member limit: </span>
+                </div>
+                <input type="number" id="memberlimitField" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Visibility: </span>
+                </div>
+                <select class="form-control" id="fullDayField">
+
+                    <option selected value="0">Private</option>
+                    <option value="1">Public</option>
+                </select>
+            </div>
+            <input id="submitButton" onClick="CreateNetwork()" value="Create" class="btn btn-outline-secondary bg-dark text-white additional-buttons" />
+        </div>
+    </div>
 </body>
 
