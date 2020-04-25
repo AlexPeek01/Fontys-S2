@@ -2940,13 +2940,24 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "DAL": "1.0.0"
+          "DAL": "1.0.0",
+          "Models": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Managers.dll": {}
         },
         "runtime": {
           "bin/placeholder/Managers.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
         }
       }
     }
@@ -9380,6 +9391,11 @@
       "type": "project",
       "path": "../Managers/Managers.csproj",
       "msbuildProject": "../Managers/Managers.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {

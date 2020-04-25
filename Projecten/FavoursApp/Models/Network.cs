@@ -6,52 +6,65 @@ namespace Models
 {
     public class Network
     {
-        private int networkId;
+        private string id;
         private string networkName;
+        private string description;
         private string password;
+        private string image;
+        private int userCount;
         private int memberLimit;
-        private bool visibility;
+        private bool visible;
         private List<Service> eventList;
         private List<Category> categoryList;
         private List<User> userList;
-        public Network(string _networkName)
+        public Network(string _networkName, int _memberLimit, bool _visible)
         {
             this.networkName = _networkName;
+            this.memberLimit = _memberLimit;
+            this.visible = _visible;
             userList = new List<User>();
             categoryList = new List<Category>();
             eventList = new List<Service>();
         }
-        public int GetNetworkID()
+        public string ID
         {
-            return networkId;
+            get { return id; }
+            set { id = value; }
         }
-        public string GetNetworkName()
+        public string NetworkName
         {
-            return networkName;
+            get { return networkName; }
+            set { networkName = value; }
         }
-        public void SetNetworkName(string networkName)
+        public string Description
         {
-            this.networkName = networkName;
+            get { return description; }
+            set { description = value; }
         }
-        public void SetPassword(string password)
+        public string Password
         {
-            this.password = password;
+            get { return password; }
+            set { password = value; }
         }
-        public int GetMemberLimit()
+        public string Image
         {
-            return memberLimit;
+            get { return image; }
+            set { image = value; }
         }
-        public void SetMemberLimit(int limit)
+        public int UserCount
         {
-            this.memberLimit = limit;
+            get { return userCount; }
+            set { userCount = value; }
         }
-        public bool GetVisibility()
+        public int Memberlimit
         {
-            return visibility;
+            get { return memberLimit; }
+            set { memberLimit = value; }
         }
-        public void SetVisibility(bool visibility)
+        public bool Visible
         {
-            this.visibility = visibility;
+            get { return visible; }
+            set { visible = value; }
         }
     }
 }

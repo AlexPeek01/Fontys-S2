@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v3.1": {
       "Managers/1.0.0": {
         "dependencies": {
-          "DAL": "1.0.0"
+          "DAL": "1.0.0",
+          "Models": "1.0.0"
         },
         "runtime": {
           "Managers.dll": {}
@@ -1018,6 +1019,11 @@
         "runtime": {
           "DAL.dll": {}
         }
+      },
+      "Models/1.0.0": {
+        "runtime": {
+          "Models.dll": {}
+        }
       }
     }
   },
@@ -1700,6 +1706,11 @@
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
     },
     "DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Models/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
