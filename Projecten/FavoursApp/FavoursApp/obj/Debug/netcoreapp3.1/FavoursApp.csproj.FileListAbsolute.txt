@@ -156,8 +156,6 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\FavoursApp.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\FavoursApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
@@ -180,3 +178,12 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Models.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Models.pdb
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\Razor\Views\Network\Page.cshtml.g.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\FavoursApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\FavoursApp.MvcApplicationPartsAssemblyInfo.cache

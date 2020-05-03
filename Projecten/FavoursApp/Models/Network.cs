@@ -13,15 +13,14 @@ namespace Models
         private string image;
         private int userCount;
         private int memberLimit;
-        private bool visible;
+        private int visible;
         private List<Service> eventList;
         private List<Category> categoryList;
         private List<User> userList;
-        public Network(string _networkName, int _memberLimit, bool _visible)
+        public Network(string _networkName, int _memberLimit)
         {
             this.networkName = _networkName;
             this.memberLimit = _memberLimit;
-            this.visible = _visible;
             userList = new List<User>();
             categoryList = new List<Category>();
             eventList = new List<Service>();
@@ -61,7 +60,7 @@ namespace Models
             get { return memberLimit; }
             set { memberLimit = value; }
         }
-        public bool Visible
+        public int Visible
         {
             get { return visible; }
             set { visible = value; }
