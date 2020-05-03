@@ -67,6 +67,11 @@
             // NC_Box
             // 
             this.NC_Box.Location = new System.Drawing.Point(12, 37);
+            this.NC_Box.Maximum = new decimal(new int[] {
+            2500,
+            0,
+            0,
+            0});
             this.NC_Box.Name = "NC_Box";
             this.NC_Box.Size = new System.Drawing.Size(120, 20);
             this.NC_Box.TabIndex = 1;
@@ -92,6 +97,11 @@
             // CC_Box
             // 
             this.CC_Box.Location = new System.Drawing.Point(12, 89);
+            this.CC_Box.Maximum = new decimal(new int[] {
+            2500,
+            0,
+            0,
+            0});
             this.CC_Box.Name = "CC_Box";
             this.CC_Box.Size = new System.Drawing.Size(120, 20);
             this.CC_Box.TabIndex = 3;
@@ -108,6 +118,11 @@
             // VC_Box
             // 
             this.VC_Box.Location = new System.Drawing.Point(148, 37);
+            this.VC_Box.Maximum = new decimal(new int[] {
+            2500,
+            0,
+            0,
+            0});
             this.VC_Box.Name = "VC_Box";
             this.VC_Box.Size = new System.Drawing.Size(120, 20);
             this.VC_Box.TabIndex = 5;
@@ -124,6 +139,11 @@
             // VCC_Box
             // 
             this.VCC_Box.Location = new System.Drawing.Point(148, 89);
+            this.VCC_Box.Maximum = new decimal(new int[] {
+            2500,
+            0,
+            0,
+            0});
             this.VCC_Box.Name = "VCC_Box";
             this.VCC_Box.Size = new System.Drawing.Size(120, 20);
             this.VCC_Box.TabIndex = 7;

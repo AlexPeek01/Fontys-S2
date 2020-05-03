@@ -13,6 +13,7 @@ namespace Logic
         private int height;
         private int leftSideWeight = 0;
         private int rightSideWeight = 0;
+        public int centerWeight = 0;
 
         public Ship(int _length, int _width, int _height, int _leftSideWeight, int _rightSideWeight)
         {
@@ -31,17 +32,14 @@ namespace Logic
         public int Length
         {
             get { return length; }
-            set { length = value; }
         }
         public int Width
         {
             get { return width; }
-            set { width = value; }
         }
         public int Height
         {
             get { return height; }
-            set { height = value; }
         }
         public int LeftSideWeight
         {

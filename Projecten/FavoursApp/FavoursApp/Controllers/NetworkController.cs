@@ -38,9 +38,33 @@ namespace FavoursApp.Controllers
         {
             return View();
         }
-        public void CreateNetwork(CreateNetworkModel model)
+        public void ShowCreatedEvent()
         {
 
+        }
+        [HttpGet]
+        public IActionResult CreateNetwork()
+        {
+            return RedirectToAction("Index", "Network");
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateNetwork(CreateNetworkModel model2)
+        {
+            var user = await userManager.GetUserAsync(HttpContext.User);
+            model2.id = IdentificationManager.GetUniqueKey();
+            if (ModelState.IsValid)
+            {
+                Network newNetwork = new Network(model2.name, model2.memberLimit);
+                newNetwork.ID = model2.id;
+                newNetwork.Description = model2.description;
+                newNetwork.Image = model2.image.Split("base64,")[1];
+                newNetwork.Password = model2.password;
+                newNetwork.UserCount = 1;
+                FavoursNetworkManager.InsertNewNetworkData(newNetwork, user.Id);
+                return RedirectToAction("Page", "Network", newNetwork.ID);
+            }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            return RedirectToAction("Index");
         }
     }
 }

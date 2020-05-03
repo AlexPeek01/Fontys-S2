@@ -5,10 +5,13 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/Dashboard/StyleSheet.css" />
-    <script src="~/js/NetworkJS.js"></script>
-</head>
+    <head>
+        <link rel="stylesheet" href="~/css/Dashboard/StyleSheet.css" />
+        <script src="~/js/NetworkJS.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
 <body>
     <div>
         <a onclick="OpenCreateNetworkModal()" class="btn btn-primary btn-dark create-button">Create network</a>
@@ -48,52 +51,68 @@
             </div>
         }
     }
+    @{CreateNetworkModel model2 = new CreateNetworkModel(); }
     <div id="myModal" class="modal">
         <div class="card-header bg-dark text-white" style="border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;">New network:</div>
         <div class="modal-content">
             <span onclick="CloseModal()" class="close">&times;</span>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">Network name: </span>
+            <form id="modalForm" asp-controller="Network" asp-action="CreateNetwork" method="post">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Network name: </span>
+                    </div>
+                    <input asp-for="@model2.name" id="titleField" class="form-control" />
                 </div>
-                <input id="titleField" class="form-control" />
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">Description: </span>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Description: </span>
+                    </div>
+                    <input asp-for="@model2.description" id="descriptionField" class="form-control" />
                 </div>
-                <input id="descriptionField" class="form-control" />
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">Password: </span>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Password: </span>
+                    </div>
+                    <input asp-for="@model2.password" id="passwordField" class="form-control" />
                 </div>
-                <input id="passwordField" class="form-control" />
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">Image: </span>
-                </div>
-                <button id="imagebuttonField" style="display:block;" class="form-control image-button" onclick="document.getElementById('getFile').click()">Choose file</button>
-                <input onchange="GetFileName()" type='file' id="getFile" style="display:none">
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">Member limit: </span>
-                </div>
-                <input type="number" id="memberlimitField" class="form-control" />
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon3">Visibility: </span>
-                </div>
-                <select class="form-control" id="fullDayField">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Image: </span>
+                    </div>
+                    <button type="button" id="imagebuttonField" style="display:block;" class="form-control image-button" onclick="document.getElementById('getFile').click()">Choose file</button>
+                    <input type="hidden" asp-for="@model2.image" id="image-box" value="....." />
+                    <input maxlength="4096" type='file' id="getFile" style="display:none">
+                    <script>
+                        const inpFile = document.getElementById("getFile");
+                        const reader = new FileReader();
+                        inpFile.addEventListener("change", function () {
+                            const file = this.files[0];
+                            if (file) {
+                                reader.readAsDataURL(file);
+                                reader.onload = function () { document.getElementById("image-box").value = reader.result }
 
-                    <option selected value="0">Private</option>
-                    <option value="1">Public</option>
-                </select>
-            </div>
-            <input id="submitButton" onClick="CreateNetwork()" value="Create" class="btn btn-outline-secondary bg-dark text-white additional-buttons" />
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Member limit: </span>
+                    </div>
+                    <input asp-for="@model2.memberLimit" type="number" id="memberlimitField" class="form-control" />
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Visibility: </span>
+                    </div>
+                    <select asp-for="@model2.visible" class="form-control" id="visibilityField">
+
+                        <option selected value="0">Private</option>
+                        <option value="1">Public</option>
+                    </select>
+                </div>
+                <input id="submitButton" type="submit" onclick="thingy(@model2)" value="Create"  class="btn btn-outline-secondary bg-dark text-white additional-buttons" />
+            </form>
         </div>
     </div>
 </body>

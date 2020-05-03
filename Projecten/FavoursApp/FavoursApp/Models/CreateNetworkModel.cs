@@ -13,6 +13,6 @@ namespace FavoursApp.Models
         public string password { get; set; }
         public string image { get; set; }
         public int memberLimit { get; set; }
-        public bool visible { get; set; }
+        public int visible { get; set; }
     }
 }
