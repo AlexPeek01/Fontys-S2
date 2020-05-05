@@ -4723,6 +4723,9 @@ input[type=button].btn-block {
     padding: 1.25rem;
 }
 
+.sb-sidenav-menu {
+}
+
 .card-title {
     margin-bottom: 0.75rem;
 }
@@ -8261,7 +8264,9 @@ button.bg-dark:focus {
 .py-2 {
     padding-bottom: 0.5rem !important;
 }
-
+#layoutSidenav_content{
+    margin-left: 0vw !important;
+}
 .pl-2,
 .px-2 {
     padding-left: 0.5rem !important;
@@ -10586,16 +10591,13 @@ body {
         min-width: 0;
     }
 
+
+
 #layoutSidenav {
     display: flex;
 }
 
     #layoutSidenav #layoutSidenav_nav {
-        flex-basis: 225px;
-        flex-shrink: 0;
-        transition: transform 0.15s ease-in-out;
-        z-index: 1038;
-        transform: translateX(-225px);
     }
 
     #layoutSidenav #layoutSidenav_content {
@@ -10656,7 +10658,6 @@ body {
 
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
     width: 225px;
-    height: 100vh;
     z-index: 1038;
 }
 
@@ -10783,7 +10784,9 @@ body {
     }
 
     .sb-sidenav-dark .sb-sidenav-menu .nav-link {
-        color: rgba(255, 255, 255, 0.5);
+        background-color: #343a40;
+        margin-top: 3px;
+        color: white;
     }
 
         .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
@@ -10796,6 +10799,7 @@ body {
 
         .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
             color: #fff;
+            background-color: unset;
         }
 
         .sb-sidenav-dark .sb-sidenav-menu .nav-link.active {

@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Netwerken";
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
     <head>
@@ -21,30 +21,27 @@
         {
             <div class="box">
                 <div class="card-deck">
-
                     <div class="card">
-
-                        <div class="card-header bg-dark text-light">
-                            @network.NetworkName
-                        </div>
-                        <div class="card-body">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Description: </span>
-                                </div>
-                                <p class="form-control card-text">@network.Description</p>
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon3">Members: </span>
-                                </div>
-                                <p class="form-control card-text">@network.UserCount / @network.Memberlimit</p>
-                            </div>
-                            <div class="group-picture">
+                            <div class="card-header bg-dark text-light">
                                 <img class="netwerk-afbeelding" src="data:image/png;base64, @network.Image" />
+                                @network.NetworkName
                             </div>
-                            <a href="@Url.Action("Page", "Network", new { id = network.ID })" class="btn btn-primary btn-dark enter-button">Enter</a>
-                        </div>
+                            <div class="card-body">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon3">Description: </span>
+                                    </div>
+                                    <p class="form-control card-text">@network.Description</p>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon3">Members: </span>
+                                    </div>
+                                    <p class="form-control card-text">@network.UserCount / @network.Memberlimit</p>
+                                </div>
+
+                                <a href="@Url.Action("nw", "Network", new { id = network.ID })" class="btn btn-primary btn-dark enter-button">Enter</a>
+                            </div>
                     </div>
                 </div>
 
