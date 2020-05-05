@@ -34,9 +34,10 @@ namespace FavoursApp.Controllers
             return View(networkData);
         }
         [HttpGet]
-        public IActionResult Page(string id)
+        public IActionResult nw(string id)
         {
-            return View();
+            Network network = FavoursNetworkManager.GetNetworkData(id);
+            return View(network);
         }
         public void ShowCreatedEvent()
         {
@@ -61,7 +62,7 @@ namespace FavoursApp.Controllers
                 newNetwork.Password = model2.password;
                 newNetwork.UserCount = 1;
                 FavoursNetworkManager.InsertNewNetworkData(newNetwork, user.Id);
-                return RedirectToAction("Page", "Network", newNetwork.ID);
+                return RedirectToAction("nw", "Network", newNetwork.ID);
             }
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             return RedirectToAction("Index");
