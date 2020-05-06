@@ -48,7 +48,7 @@
             </div>
         }
     }
-    @{CreateNetworkModel model2 = new CreateNetworkModel(); }
+    @{Models.Network model2 = new Models.Network(); }
     <div id="myModal" class="modal">
         <div class="card-header bg-dark text-white" style="border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;">New network:</div>
         <div class="modal-content">
@@ -58,26 +58,26 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Network name: </span>
                     </div>
-                    <input asp-for="@model2.name" id="titleField" class="form-control" />
+                    <input asp-for="@model2.NetworkName" id="titleField" class="form-control" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Description: </span>
                     </div>
-                    <input asp-for="@model2.description" id="descriptionField" class="form-control" />
+                    <input asp-for="@model2.Description" id="descriptionField" class="form-control" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Password: </span>
                     </div>
-                    <input asp-for="@model2.password" id="passwordField" class="form-control" />
+                    <input asp-for="@model2.Password" id="passwordField" class="form-control" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Image: </span>
                     </div>
                     <button type="button" id="imagebuttonField" style="display:block;" class="form-control image-button" onclick="document.getElementById('getFile').click()">Choose file</button>
-                    <input type="hidden" asp-for="@model2.image" id="image-box" value="....." />
+                    <input type="hidden" asp-for="@model2.Image" id="image-box" value="....." />
                     <input maxlength="4096" type='file' id="getFile" style="display:none">
                     <script>
                         const inpFile = document.getElementById("getFile");
@@ -96,19 +96,19 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Member limit: </span>
                     </div>
-                    <input asp-for="@model2.memberLimit" type="number" id="memberlimitField" class="form-control" />
+                    <input asp-for="@model2.Memberlimit" type="number" id="memberlimitField" class="form-control" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Visibility: </span>
                     </div>
-                    <select asp-for="@model2.visible" class="form-control" id="visibilityField">
+                    <select asp-for="@model2.Visible" class="form-control" id="visibilityField">
 
                         <option selected value="0">Private</option>
                         <option value="1">Public</option>
                     </select>
                 </div>
-                <input id="submitButton" type="submit" onclick="thingy(@model2)" value="Create"  class="btn btn-outline-secondary bg-dark text-white additional-buttons" />
+                <input id="submitButton" type="submit" value="Create"  class="btn btn-outline-secondary bg-dark text-white additional-buttons" />
             </form>
         </div>
     </div>

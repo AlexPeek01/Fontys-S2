@@ -14,36 +14,16 @@ namespace LogicLayer
         /// </summary>
         /// <param name="animalList"></param>
         /// <returns></returns>
-        public Train PlaceAnimalsInTrain(List<Animal> animalList)
+        public Train PlaceAnimalsInTrain(List<Animal> animalList, Train train)
         {
-            List<Animal> sortedAnimalList = MainLogic.SortList(animalList);
-            Train train = new Train();
-            foreach (Animal animal in sortedAnimalList)
+            foreach (Animal animal in animalList)
             {
-                FindOptimalWagon(train, animal);
+                Wagon optimalWagon = train.FindOptimalWagon(animal);
+                animal.PlaceAnimal(train, optimalWagon);
             }
             return train;
         }
-        public void FindOptimalWagon(Train train, Animal animal)
-        {
-            
-            if (animal.carnivore)
-            {
-                Wagon wagon = train.CreateWagon();
-                wagon.AddAnimalToWagon(animal);
-                return;
-            }
-            Wagon viableWagon = train.CheckForViableWagon(animal);
-            if (viableWagon!=null)
-            {
-                viableWagon.AddAnimalToWagon(animal);
-                return;
-            }
-            else
-            {
-                Wagon wagon = train.CreateWagon();
-                wagon.AddAnimalToWagon(animal);
-            }
-        }
+        
+        
     }
 }

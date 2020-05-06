@@ -3,12 +3,53 @@
     ViewData["Title"] = "Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel="stylesheet" href="~/css/Dashboard/StyleSheet.css" />
 <script src="~/js/NetworkJS.js"></script>
+<link href="~/css/Dashboard/StyleSheet.css" rel="stylesheet" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<h1>@Model.NetworkName</h1>
-<h2>@Model.Description</h2>
+<link href="~/css/NetworkPage.css" rel="stylesheet" />
+<div class="p-0 main-body">
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-body">
+                @{
+                    string[] categoryNames = ViewData["categories"] as string[];
+                    foreach (string category in categoryNames)
+                    {
+                        <div class="card category-card">
+                            <div class="card-header bg-dark text-white">
+                                @category
+                            </div>
+                            <div class="card-body">
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="p-0">
+    <div class="card-deck network-info">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                @Model.NetworkName
+            </div>
+            <div class="card-body">
+                <div>
+                    <img class="netwerk-afbeelding" src="data:image/png;base64, @Model.Image" />
+                </div>
+                <div>
+                    <p class="bg-dark text-white description">@Model.Description</p>
+                </div>
+                <div class="card-header bg-dark text-white members">
+                    Online members:
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 

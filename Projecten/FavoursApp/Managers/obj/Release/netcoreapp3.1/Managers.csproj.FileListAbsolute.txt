@@ -1,0 +1,13 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Release\netcoreapp3.1\Managers.deps.json
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Release\netcoreapp3.1\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Release\netcoreapp3.1\Managers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Release\netcoreapp3.1\DAL.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Release\netcoreapp3.1\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Release\netcoreapp3.1\DAL.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Release\netcoreapp3.1\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\obj\Release\netcoreapp3.1\Managers.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\obj\Release\netcoreapp3.1\Managers.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\obj\Release\netcoreapp3.1\Managers.AssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\obj\Release\netcoreapp3.1\Managers.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\obj\Release\netcoreapp3.1\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\obj\Release\netcoreapp3.1\Managers.pdb

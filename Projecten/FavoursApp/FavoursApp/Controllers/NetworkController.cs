@@ -23,20 +23,15 @@ namespace FavoursApp.Controllers
         public async Task<IActionResult> Index()
         {
             var user = await userManager.GetUserAsync(HttpContext.User);
-            List<string> usersNetworks = FavoursNetworkManager.GetNetworkIDsByUserID(user.Id);
-            Network[] networkData;
-            List<Network> networks = new List<Network>();
-            foreach (string networkid in usersNetworks)
-            {
-                networks.Add(FavoursNetworkManager.GetNetworkData(networkid));
-            }
-            networkData = networks.ToArray();
+            Network[] networkData = FavoursNetworkManager.GetUsersNetworks(user.Id);
             return View(networkData);
         }
         [HttpGet]
         public IActionResult nw(string id)
         {
             Network network = FavoursNetworkManager.GetNetworkData(id);
+            string[] categories = FavoursNetworkManager.GetNetworksCategories(id).ToArray();
+            ViewData["categories"] = categories;
             return View(network);
         }
         public void ShowCreatedEvent()
@@ -49,20 +44,15 @@ namespace FavoursApp.Controllers
             return RedirectToAction("Index", "Network");
         }
         [HttpPost]
-        public async Task<IActionResult> CreateNetwork(CreateNetworkModel model2)
+        public async Task<IActionResult> CreateNetwork(Network model2)
         {
             var user = await userManager.GetUserAsync(HttpContext.User);
-            model2.id = IdentificationManager.GetUniqueKey();
+            model2.ID = IdentificationManager.GetUniqueKey();
             if (ModelState.IsValid)
             {
-                Network newNetwork = new Network(model2.name, model2.memberLimit);
-                newNetwork.ID = model2.id;
-                newNetwork.Description = model2.description;
-                newNetwork.Image = model2.image.Split("base64,")[1];
-                newNetwork.Password = model2.password;
-                newNetwork.UserCount = 1;
-                FavoursNetworkManager.InsertNewNetworkData(newNetwork, user.Id);
-                return RedirectToAction("nw", "Network", newNetwork.ID);
+                model2.UserCount = 1;
+                FavoursNetworkManager.InsertNewNetworkData(model2, user.Id);
+                return RedirectToAction("nw", "Network", new { id = model2.ID });
             }
             var errors = ModelState.Values.SelectMany(v => v.Errors);
             return RedirectToAction("Index");

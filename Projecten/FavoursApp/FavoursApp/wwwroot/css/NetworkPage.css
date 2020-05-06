@@ -1,0 +1,53 @@
+﻿.form-control{
+}
+.card{
+    max-width: unset;
+    height: 200px;
+    widows: unset;
+    height: 100% !important;
+}
+.card-body{
+    padding: 0 !important;
+    max-width: 100% !important;
+}
+.card-deck{
+    height: 100vh !important;
+}
+.card-header {
+    padding: 0.3em !important;
+}
+.category-card {
+    float: left !important;
+    padding: 0;
+    margin: 0;
+    max-width: 46% !important;
+    height: 15vh !important;
+    margin-top: 1em !important
+}
+.banner-placeholder {
+    font-size: calc(30pt + 0.5vw) !important;
+    font-family: Calibri;
+    color: #212529;
+}
+.netwerk-afbeelding {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 20% !important;
+}
+.members {
+    text-align: left !important;
+    padding: 2px 0px 2px 2px;
+}
+.main-body {
+    width: 85% !important;
+    height: 100vh !important;
+    float: left !important;
+    padding-right: 5px !important;
+}
+.network-info {
+    width: 15% !important;
+    float: left !important;
+    height: 100vh !important;
+    text-align: center;
+    font-size: calc(4pt + 0.9vw) !important;
+}

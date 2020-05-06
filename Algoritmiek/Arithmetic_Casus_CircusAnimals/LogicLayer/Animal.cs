@@ -23,5 +23,17 @@ namespace LogicLayer
             this.animalSize = Convert.ToInt32(_size);
             this.animalName = _animalName;
         }
+        public void PlaceAnimal(Train train, Wagon wagon)
+        {
+            if (wagon != null)
+            {
+                wagon.AddAnimalToWagon(this);
+            }
+            else
+            {
+                Wagon newWagon = train.CreateWagon();
+                newWagon.AddAnimalToWagon(this);
+            }
+        }
     }
 }

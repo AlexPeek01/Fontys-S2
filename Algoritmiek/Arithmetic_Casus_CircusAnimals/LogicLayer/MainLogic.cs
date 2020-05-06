@@ -9,18 +9,6 @@ namespace LogicLayer
     public class MainLogic
     {
         /// <summary>
-        /// Plaatst alle carnivoren vooraan in de lijst.
-        /// </summary>
-        /// <param name="aList"></param>
-        /// <returns></returns>
-        public static List<Animal> SortList(List<Animal> aList)
-        {
-            var sorted = from animal in aList
-                         orderby animal.carnivore descending
-                         select animal;
-            return sorted.ToList<Animal>();
-        }
-        /// <summary>
         /// Genereert de output string om te displayen waar de dieren geplaatst worden.
         /// </summary>
         /// <param name="train"></param>
