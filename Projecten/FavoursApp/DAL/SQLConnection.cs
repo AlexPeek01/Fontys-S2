@@ -11,7 +11,8 @@ namespace DAL
         private static MySqlConnection CreateConnection()
         {
             MySqlConnection cnn;
-            string connectionString = $"server=ns1-442.axc.nl;database=alexpfw442_favours;uid=alexpfw442_favours;pwd=sruovaf2!;";
+            string connectionString = "server=studmysql01.fhict.local;database=dbi430284;uid=dbi430284;pwd=482034;";
+            //string connectionString = $"server=ns1-442.axc.nl;database=alexpfw442_favours;uid=alexpfw442_favours;pwd=sruovaf2!;";
             cnn = new MySqlConnection(connectionString);
             return cnn;
         }

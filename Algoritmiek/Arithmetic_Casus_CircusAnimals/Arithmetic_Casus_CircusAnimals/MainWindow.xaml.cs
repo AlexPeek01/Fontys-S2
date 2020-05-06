@@ -34,7 +34,7 @@ namespace Arithmetic_Casus_CircusAnimals
         {
             MainLogic logic = new MainLogic();
             Algorithm run = new Algorithm();
-            train = run.PlaceAnimalsInTrain(CreateAnimals());
+            train = run.PlaceAnimalsInTrain(CreateAnimals(), new Train());
             DisplayBox.Text = logic.CreateOutputString(train);
             efficiencyLabel.Content = "Space efficiency: " + Math.Round(logic.CalculateEfficiency(train), 1).ToString() + "%";
         }
@@ -47,24 +47,24 @@ namespace Arithmetic_Casus_CircusAnimals
                 Animal animal = new Animal(true, Animal.size.Large, "Large_Carnivore");
                 animalList.Add(animal);
             }
-            for (int i = 0; i < Int32.Parse(LHTextBox.Text); i++)
-            {
-                Animal animal = new Animal(false, Animal.size.Large, "Large_Herbivore");
-                animalList.Add(animal);
-            }
             for (int i = 0; i < Int32.Parse(MCTextBox.Text); i++)
             {
                 Animal animal = new Animal(true, Animal.size.Medium, "Medium_Carnivore");
                 animalList.Add(animal);
             }
-            for (int i = 0; i < Int32.Parse(MHTextBox.Text); i++)
-            {
-                Animal animal = new Animal(false, Animal.size.Medium, "Medium_Herbivore");
-                animalList.Add(animal);
-            }
             for (int i = 0; i < Int32.Parse(SCTextBox.Text); i++)
             {
                 Animal animal = new Animal(true, Animal.size.Small, "Small_Carnivore");
+                animalList.Add(animal);
+            }
+            for (int i = 0; i < Int32.Parse(LHTextBox.Text); i++)
+            {
+                Animal animal = new Animal(false, Animal.size.Large, "Large_Herbivore");
+                animalList.Add(animal);
+            }
+            for (int i = 0; i < Int32.Parse(MHTextBox.Text); i++)
+            {
+                Animal animal = new Animal(false, Animal.size.Medium, "Medium_Herbivore");
                 animalList.Add(animal);
             }
             for (int i = 0; i < Int32.Parse(SHTextBox.Text); i++)

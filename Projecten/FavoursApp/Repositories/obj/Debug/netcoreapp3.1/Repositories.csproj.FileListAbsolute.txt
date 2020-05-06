@@ -1,0 +1,8 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repositories\bin\Debug\netcoreapp3.1\Repositories.deps.json
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repositories\bin\Debug\netcoreapp3.1\Repositories.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repositories\bin\Debug\netcoreapp3.1\Repositories.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repositories\obj\Debug\netcoreapp3.1\Repositories.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repositories\obj\Debug\netcoreapp3.1\Repositories.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repositories\obj\Debug\netcoreapp3.1\Repositories.AssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repositories\obj\Debug\netcoreapp3.1\Repositories.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repositories\obj\Debug\netcoreapp3.1\Repositories.pdb

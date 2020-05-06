@@ -50,7 +50,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
             }
             #endregion
             Algorithm run = new Algorithm();
-            testTrain = run.PlaceAnimalsInTrain(animalList);
+            testTrain = run.PlaceAnimalsInTrain(animalList, new Train());
         }
         [TestMethod]
         public void CarnivoreNotWithOtherCarnivores()   //Checks if each container doesn't have too many carnivores.
@@ -134,7 +134,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
             animalList.Add(testAnimal6);
             #endregion  //Setup the animalList         //Sets up the animalList.
             Algorithm run = new Algorithm();
-            testTrain = run.PlaceAnimalsInTrain(animalList);
+            testTrain = run.PlaceAnimalsInTrain(animalList, new Train());
             Assert.AreEqual(testTrain.wagonsInTrain.Count, 4); //The expected number of wagons is 4.
         }
     }

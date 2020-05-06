@@ -17,10 +17,8 @@ namespace Models
         private List<Service> eventList;
         private List<Category> categoryList;
         private List<User> userList;
-        public Network(string _networkName, int _memberLimit)
+        public Network()
         {
-            this.networkName = _networkName;
-            this.memberLimit = _memberLimit;
             userList = new List<User>();
             categoryList = new List<Category>();
             eventList = new List<Service>();

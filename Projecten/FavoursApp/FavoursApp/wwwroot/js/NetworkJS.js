@@ -1,8 +1,8 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    var modal = document.getElementById("myModal");
-    var span = document.getElementsByClassName("close")[0];
-    modal.style.display = "none";
-});
+﻿//document.addEventListener('DOMContentLoaded', function () {
+//    var modal = document.getElementById("myModal");
+//    var span = document.getElementsByClassName("close")[0];
+//    modal.style.display = "none";
+//});
 
 function OpenCreateNetworkModal() {
     var modal = document.getElementById("myModal");
@@ -43,31 +43,3 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-function thingy(data){
-    console.log(data);
-}
-//function createNetwork() {
-//    console.log($('#modalForm').serialize());
-//    $.ajax({
-//        url: '/Network/CreateNetwork',
-//        type: 'post',
-//        data: $('#modalForm').serialize(),
-//        success: function () {
-//            CloseModal();
-//        },
-//        fail: function () {
-//            alert('Image is to large');
-//        },
-//    });
-//}
-//function fetchNetworks() {
-//    $.ajax({
-//        url: '/Network/FetchAllEvents?SendUserId=' + selectedIndex,
-//        type: 'GET',
-//        dataType: 'json',
-//        success: function (data) {
-            
-//        }
-//    });
-//}
-

@@ -15,6 +15,13 @@ namespace LogicLayer
         {
             wagonsInTrain = new List<Wagon>();
         }
+        public Wagon FindOptimalWagon(Animal animal)
+        {
+            if (animal.carnivore)
+                return null;
+            Wagon viableWagon = CheckForViableWagon(animal);
+            return viableWagon;
+        }
         /// <summary>
         /// Slaat de trein op in de database
         /// </summary>
