@@ -26,7 +26,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Models\\Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -102,6 +106,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -154,6 +164,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

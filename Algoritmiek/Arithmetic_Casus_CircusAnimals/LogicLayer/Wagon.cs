@@ -11,7 +11,6 @@ namespace LogicLayer
     {
         public int wagonId { get; private set; }
         public int spaceAvailable { get; private set; }
-        public bool carnivoreInWagon { get; private set; }
         public List<Animal> animalsInWagon { get; private set; }
 
         public Wagon(int _wagonId, int _spaceAvailable)
@@ -26,22 +25,30 @@ namespace LogicLayer
         /// <param name="animal"></param>
         public void AddAnimalToWagon(Animal animal)
         {
-            animalsInWagon.Add(animal);
-            spaceAvailable -= animal.animalSize;
+            if (animal != null && spaceAvailable >= animal.animalSize)
+            {
+                animalsInWagon.Add(animal);
+                spaceAvailable -= animal.animalSize;
+            }
         }
         /// <summary>
         /// Controleert of een wagon veilig is om een bepaalde herbivoor in te plaatsen.
         /// </summary>
         /// <param name="animal"></param>
         /// <returns></returns>
-        public bool CheckWagon(Animal animal)
+        public bool CanPlaceAnimalChecks(Animal animal)
         {
-            if (animalsInWagon[0].carnivore && spaceAvailable >= animal.animalSize && animalsInWagon[0].animalSize < animal.animalSize)
-                return false;
-            else if (!animalsInWagon[0].carnivore && spaceAvailable >= animal.animalSize)
-                return false;
+            if (animal != null && spaceAvailable >= animal.animalSize)
+            {
+                if (animalsInWagon[0].carnivore && animalsInWagon[0].animalSize < animal.animalSize)
+                    return true;
+                else if (!animalsInWagon[0].carnivore)
+                    return true;
+                else
+                    return false;
+            }
             else
-                return true;
+                return false;
         }
     }
 }

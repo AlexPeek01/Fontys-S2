@@ -17,10 +17,14 @@ namespace LogicLayer
         }
         public Wagon FindOptimalWagon(Animal animal)
         {
-            if (animal.carnivore)
+            if (animal == null || animal.carnivore)
                 return null;
-            Wagon viableWagon = CheckForViableWagon(animal);
-            return viableWagon;
+            foreach (Wagon wagon in wagonsInTrain)
+            {
+                if (wagon.CanPlaceAnimalChecks(animal))
+                    return wagon;
+            }
+            return null;
         }
         /// <summary>
         /// Slaat de trein op in de database
@@ -36,6 +40,7 @@ namespace LogicLayer
                 }
             }
         }
+
         /// <summary>
         /// Als er geen wagon beschikbaar is wordt er een nieuwe wagon aangemaakt.
         /// </summary>
@@ -45,23 +50,6 @@ namespace LogicLayer
             Wagon wagon = new Wagon(wagonsInTrain.Count, 10);
             wagonsInTrain.Add(wagon);
             return wagon;
-        }
-        /// <summary>
-        /// Als er een wagon veilig is, wordt het dier aan die wagon toegevoegd.
-        /// </summary>
-        /// <param name="train"></param>
-        /// <param name="animal"></param>
-        /// <returns></returns>
-        public Wagon CheckForViableWagon(Animal animal)
-        {
-            foreach (Wagon wagon in wagonsInTrain)
-            {
-                if (!wagon.CheckWagon(animal))
-                {
-                    return wagon;
-                }
-            }
-            return null;
         }
     }
 }

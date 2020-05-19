@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Logic
@@ -12,15 +13,8 @@ namespace Logic
         public static Container[,,] placeContainerArray(Ship ship)
         {
             Container[,,] containerArray = new Container[ship.Length, ship.Width, ship.Height];
-            CheckPositionAndPlace(ship, ship.ContainerList, containerArray);
-            foreach (Container c in ship.ContainerList)
-            {
-                if (!c.placed)
-                {
-                    unplacableContainersList.Add(c);
-                }
-            }
-            CheckPositionAndPlace(ship, unplacableContainersList, containerArray);
+            CheckPositionAndPlace(ship, ship.ContainerList, containerArray, false);
+            CheckPositionAndPlace(ship, unplacableContainersList, containerArray, true);
             float totalWeight = ship.LeftSideWeight + ship.RightSideWeight;
             float leftSidePerc = (ship.LeftSideWeight / totalWeight) * 100;
             float rightSidePerc = (ship.RightSideWeight / totalWeight) * 100;
@@ -29,12 +23,13 @@ namespace Logic
             Console.WriteLine((ship.RightSideWeight / totalWeight) * 100);
             return containerArray;
         }
-        public static void CheckPositionAndPlace(Ship ship, List<Container> list, Container[,,] containerArray)
+        public static void CheckPositionAndPlace(Ship ship, List<Container> list, Container[,,] containerArray, bool secondRun)
         {
-            foreach (Container c in ship.ContainerList)
+            foreach (Container c in list)
             {
+                List<Location> locations = new List<Location>();
                 int optimalPosition = CheckOptimalPosition(ship);
-                if(list.Count < ship.ContainerList.Count)
+                if (secondRun == true)
                 {
                     startingPosition = 1;
                     optimalPosition = ship.Width;
@@ -49,15 +44,45 @@ namespace Logic
                         {
                             if (RunChecks(c, containerArray, l, w, h, ship))
                             {
-                                containerArray[l, w, h] = c;
-                                AddWeight(w, c, ship);
-                                c.placed = true;
-                                break;
+                                Location location = new Location(l, w, h, c);
+                                locations.Add(location);
                             }
+                            
                         }
                     }
-
                 }
+                PlaceContainer(containerArray, locations, ship);
+                if (!c.placed && list != unplacableContainersList)
+                {
+                    unplacableContainersList.Add(c);
+                }
+            }
+        }
+        public static void PlaceContainer(Container[,,] containerArray, List<Location> possiblePositions, Ship ship)
+        {
+            Location toUseLoc = null;
+            int height = ship.Height;
+            foreach (Location location in possiblePositions)
+            {
+                if (location.height == 0)
+                {
+                    toUseLoc = location;
+                    break;
+                }
+                else
+                {
+                    if(location.height < height)
+                    {
+                        toUseLoc = location;
+                        height = location.height;
+                    }
+                }
+            }
+            if(toUseLoc != null)
+            {
+                containerArray[toUseLoc.length, toUseLoc.width, toUseLoc.height] = toUseLoc.container;
+                AddWeight(toUseLoc.width, toUseLoc.container, ship);
+                containerArray[toUseLoc.length, toUseLoc.width, toUseLoc.height].placed = true;
             }
         }
         public static bool RunChecks(Container c, Container[,,] containerArray, int l, int w, int h, Ship ship)
@@ -65,6 +90,7 @@ namespace Logic
             if (!c.placed
                 && CheckValuableState(containerArray, l, w, h)
                 && CheckEmptyPosition(containerArray, l, w, h)
+                && ValuableUnderneath(containerArray, l, w, h)
                 && NotFloating(containerArray, l, w, h)
                 && CheckWeightOnTop(containerArray, l, w, h))
             {
@@ -133,7 +159,17 @@ namespace Logic
                 }
             }
         }
-
+        public static bool ValuableUnderneath(Container[,,] ca, int length, int width, int height)
+        {
+            if (height > 1 && ca[length, width, height - 1] != null)
+            {
+                if(ca[length, width, height - 1].valuable)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         public static bool SpaceForValuable(Container[,,] ca, int length, int width, int height, Ship ship)
         {
             if (length == 0 || length == ship.Length - 1)
@@ -151,13 +187,14 @@ namespace Logic
         {
             return (height > 0 && ca[length, width, height - 1] != null || height == 0);
         }
+        //Needs some fixing
         public static bool CheckWeightOnTop(Container[,,] ca, int length, int width, int height)
         {
             int weightOnTop = 0;
-            for (int i = 0; i < height; i++)
-            {
-                weightOnTop += ca[length, width, i].weight;
-            }
+            //for (int i = 1; i < height; i++)
+            //{
+            //    weightOnTop += ca[length, width, i].weight;
+            //}
             return weightOnTop < 120000;
         }
         public static int CheckOptimalPosition(Ship ship)
@@ -166,13 +203,15 @@ namespace Logic
             {
                 if (ship.LeftSideWeight >= ship.RightSideWeight)
                 {
-                    startingPosition = (ship.Width / 2) + 2;
-                    return ship.Width;
+                    //Rechterkant
+                    startingPosition = (ship.Width / 2) + 1; //Confirmed //Used to be + 2
+                    return ship.Width; //Confirmed
                 }
                 else
                 {
-                    startingPosition = 1;
-                    return ship.Width / 2 + 1;
+                    //Linkerkant
+                    startingPosition = 1; //Confirmed
+                    return ship.Width / 2 + 1; //Confirmed
                 }
             }
             else
@@ -195,11 +234,12 @@ namespace Logic
         }
         public static void AddWeight(int width, Container c, Ship ship)
         {
-            if (width > ship.Width / 2)
+            //Line under this something is broken
+            if (width >= ship.Width / 2 + 1) //Zeker goed
             {
                 ship.RightSideWeight += c.weight;
             }
-            else if (width < ship.Width / 2 + 1)
+            if (width <= ship.Width / 2 + 1) //Confirmed
             {
                 ship.LeftSideWeight += c.weight;
             }

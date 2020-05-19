@@ -1,4 +1,4 @@
-﻿@model Models.Network
+﻿@model ServicesInNetworkModel
 @{
     ViewData["Title"] = "Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,24 +8,56 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/umd/util.js" integrity="sha256-MrUaGbgAJYr1e+J4/O6kEZIqB5yOGZN5R+oobyC6h4A=" crossorigin="anonymous"></script>
 <link href="~/css/NetworkPage.css" rel="stylesheet" />
 <div class="p-0 main-body">
     <div class="card-deck">
         <div class="card">
-            <div class="card-body">
-                @{
-                    string[] categoryNames = ViewData["categories"] as string[];
-                    foreach (string category in categoryNames)
-                    {
-                        <div class="card category-card">
-                            <div class="card-header bg-dark text-white">
-                                @category
+            <div class="card-body" id="main-back">
+                <button onclick="OpenCreateNetworkModal()" class="btn btn-primary btn-dark new-event-button">New service</button>
+                <div>
+                    @{
+                        string[] categoryNames = ViewData["categories"] as string[];
+                        foreach (string category in categoryNames)
+                        {
+                            <div class="card category-card">
+                                <div class="card-header bg-dark text-white">
+                                    @category
+                                </div>
+                                <div class="card-body bg-white text-dark category-body">
+                                    @{
+                                        for (int i = 0; i < Model.serviceList.Count; i++)
+                                        {
+                                            if (Model.serviceList[i].Category == category)
+                                            {
+                                                @*<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                                        <div class="carousel-inner">
+                                                            <div class="carousel-item active">
+                                                                <img class="d-block w-100 img-thumbnail service-thumbnail" src="~/uploadedimages/57557646769ndATm0_op.png" alt="First slide">
+                                                            </div>
+                                                            <div class="carousel-item">
+                                                                <img class="d-block w-100 img-thumbnail service-thumbnail" src="~/uploadedimages/576267650jYYXFjX0X1T.jpeg" alt="Second slide">
+                                                            </div>
+                                                            <div class="carousel-item">
+                                                                <img class="d-block w-100 img-thumbnail service-thumbnail" src="~/uploadedimages/576267650jYYXFjX0X1T.jpeg" alt="Third slide">
+                                                            </div>
+                                                        </div>
+                                                    </div>*@
+                                                <div>
+                                                    <img class="d-block w-100 img-thumbnail service-thumbnail" src="~/uploadedimages/@Model.serviceList[i].Images" alt="Service Image" />
+                                                </div>
+                                                <div class="service-box-info">
+                                                    <input class="form-control service-info" disabled value="@Model.serviceList[i].Title" />
+                                                    <input class="form-control service-info" disabled value="@Model.serviceList[i].Description" />
+                                                </div>
+                                            }
+                                        }
+                                    }
+                                </div>
                             </div>
-                            <div class="card-body">
-                            </div>
-                        </div>
+                        }
                     }
-                }
+                </div>
             </div>
         </div>
     </div>
@@ -34,20 +66,68 @@
     <div class="card-deck network-info">
         <div class="card">
             <div class="card-header bg-dark text-white">
-                @Model.NetworkName
+                @Model.network.NetworkName
             </div>
             <div class="card-body">
                 <div>
-                    <img class="netwerk-afbeelding" src="data:image/png;base64, @Model.Image" />
+                    <img class="netwerk-afbeelding" src="~/uploadedimages/@Model.network.ImageID" />
                 </div>
                 <div>
-                    <p class="bg-dark text-white description">@Model.Description</p>
+                    <p class="bg-dark text-white description">@Model.network.Description</p>
                 </div>
                 <div class="card-header bg-dark text-white members">
-                    Online members:
+                    <p class="bg-dark text-white">Online members:</p>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+@{Models.Service service = new Models.Service(); }
+<div id="myModal" class="modal">
+    <div class="card-header bg-dark text-white" style="border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;">New network:</div>
+    <div class="modal-content">
+        <span onclick="CloseModal()" class="close">&times;</span>
+        <form id="eventForm" asp-controller="Network" asp-action="CreateService" method="post">
+            <input type="hidden" asp-for="@service.NetworkID" value="@ViewData["NetworkID"]" />
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Title: </span>
+                </div>
+                <input asp-for="@service.Title" id="titleField" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Description: </span>
+                </div>
+                <input asp-for="@service.Description" id="descriptionField" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Category: </span>
+                </div>
+                <select asp-for="@service.Category" id="categoryField" class="form-control" value="Select a category">
+                    @{
+                        foreach (string category in categoryNames)
+                        {
+                            <option value="@category">@category</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Image: </span>
+                </div>
+                <input class="form-control" type="file" id="image" name="image"/>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Date: </span>
+                </div>
+                <input asp-for="@service.Date" id="dateField" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-ddThh:mm")" />
+            </div>
+            <input id="submitButton" type="submit" value="Create" class="btn btn-outline-secondary bg-dark text-white additional-buttons" />
+        </form>
     </div>
 </div>
 

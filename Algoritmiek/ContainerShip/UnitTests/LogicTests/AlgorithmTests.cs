@@ -79,12 +79,80 @@ namespace UnitTests.Logic
             //Wanneer een container niet op de onderste laag geplaatst wordt en er staat geen container onder dan geeft de methode false terug.
             Assert.IsFalse(Algorithm.NotFloating(containerArray, 0, 0, 1));
 
-            //Hier wordt een container aangemaakt en geplaatst in de container op de onderste laag.
+            //Hier wordt een container aangemaakt en geplaatst in op de onderste laag.
             Container c1 = new Container(10000, false, true, true, false);
             containerArray[0, 0, 0] = c1;
 
             //Wanneer een container niet op de onderste laag geplaatst wordt en er staat wel een container onder dan geeft de methode true terug.
             Assert.IsTrue(Algorithm.NotFloating(containerArray, 0, 0, 1));
+        }
+        [TestMethod]
+        public void WeightOnTopTests()
+        {
+            //----------------------------------Het schip heeft een oneven breedte.
+            Ship ship = new Ship(5, 5, 5, 0, 1);
+            //Wanneer de rechterkant van het schip zwaarder is wordt de container links geplaatst.
+            Assert.AreEqual(Algorithm.CheckOptimalPosition(ship),3);
+
+            //Wanneer de linkerkant van het schip zwaarder is wordt de container rechts geplaatst.
+            ship.LeftSideWeight = 2;
+            Assert.AreEqual(Algorithm.CheckOptimalPosition(ship), 5);
+
+            //Wanneer het schip in balans is wordt de container rechts geplaatst.
+            ship.RightSideWeight = 2;
+            Assert.AreEqual(Algorithm.CheckOptimalPosition(ship), 5);
+            //----------------------------------Het schip heeft een oneven breedte.
+
+
+
+            //----------------------------------Het schip heeft een even breedte.
+            Ship ship2 = new Ship(4, 4, 4, 0, 1);
+            //Wanneer de rechterkant van het schip zwaarder is wordt de container links geplaatst.
+            Assert.AreEqual(Algorithm.CheckOptimalPosition(ship2), 2);
+
+            //Wanneer de linkerkant van het schip zwaarder is wordt de container rechts geplaatst.
+            ship2.LeftSideWeight = 2;
+            Assert.AreEqual(Algorithm.CheckOptimalPosition(ship2), 4);
+
+            //Wanneer het schip in balans is wordt de container rechts geplaatst.
+            ship2.RightSideWeight = 2;
+            Assert.AreEqual(Algorithm.CheckOptimalPosition(ship2), 4);
+            //----------------------------------Het schip heeft een even breedte.
+        }
+        [TestMethod]
+        public void EmptyPositionTests()
+        {
+            Ship ship = new Ship(5, 5, 5, 0, 0);
+            Container[,,] containerArray = new Container[5, 5, 5];
+            Container c1 = new Container(10000, false, false, true, false);
+            containerArray[0, 0, 0] = c1;
+            //Wanneer er geen container staat op de te checken positie wordt er true teruggegeven.
+            Assert.IsTrue(Algorithm.CheckEmptyPosition(containerArray, 0, 0, 1));
+
+            //Wanneer er wel een container staat op de te checken positie wordt er false teruggegeven.
+            Assert.IsFalse(Algorithm.CheckEmptyPosition(containerArray, 0, 0, 0));
+        }
+        [TestMethod]
+        public void AddWeightTests()
+        {
+            //Container[,,] containerArray = new Container[5, 5, 5];
+            //Container c1 = new Container(10000, false, false, true, false);
+            //containerArray[0, 0, 0] = c1;
+            //Assert.AreEqual(ship.RightSideWeight, 0);
+            //Assert.AreEqual(ship.LeftSideWeight, 0);
+            //Algorithm.AddWeight(3, c1, ship);
+            //Assert.AreEqual(ship.RightSideWeight, 10000);
+            //Assert.AreEqual(ship.LeftSideWeight, 0);
+            //Algorithm.AddWeight(2, c1, ship);
+            //Assert.AreEqual(ship.RightSideWeight, 10000);
+            //Assert.AreEqual(ship.LeftSideWeight, 0);
+            //Algorithm.AddWeight(1, c1, ship);
+            //Assert.AreEqual(ship.RightSideWeight, 10000);
+            //Assert.AreEqual(ship.LeftSideWeight, 10000);
+
+
+            //Wanneer er wel een container staat op de te checken positie wordt er false teruggegeven.
+            //Assert.IsFalse(Algorithm.CheckEmptyPosition(containerArray, 0, 0, 0));
         }
     }
 }

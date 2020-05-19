@@ -112,7 +112,9 @@
                 color: #EF3B3A;
             }
 
-
+.wrap-login100 {
+    background-color: whitesmoke !important;
+}
 body {
     background: #c03; /* fallback for old browsers */
     background: -webkit-linear-gradient(right, #0088ce, #0088ce);
@@ -123,7 +125,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+.login100-form-btn{
+    border-radius: 4px !important;
+}
 .buttonform {
     background-color: #0088ce;
 }
@@ -140,4 +144,7 @@ body {
 .center {
     position: relative;
     padding-bottom: 30px;
+}
+.register-btn{
+    margin-left: 15px !important;
 }

@@ -16,14 +16,23 @@ namespace LogicLayer
         /// <returns></returns>
         public Train PlaceAnimalsInTrain(List<Animal> animalList, Train train)
         {
+            if (animalList == null || train == null)
+            {
+                throw new ArgumentException("Train/List");
+            }
             foreach (Animal animal in animalList)
             {
                 Wagon optimalWagon = train.FindOptimalWagon(animal);
-                animal.PlaceAnimal(train, optimalWagon);
+                if (optimalWagon != null)
+                {
+                    optimalWagon.AddAnimalToWagon(animal);
+                }
+                else
+                {
+                    train.CreateWagon().AddAnimalToWagon(animal);
+                }
             }
             return train;
         }
-        
-        
     }
 }

@@ -13,17 +13,25 @@ namespace Logic
         private int height;
         private int leftSideWeight = 0;
         private int rightSideWeight = 0;
-        public int centerWeight = 0;
+        public List<Slice> slices;
 
-        public Ship(int _length, int _width, int _height, int _leftSideWeight, int _rightSideWeight)
+        public Ship(int _length, int _width, int _height)
         {
             containerList = new List<Container>();
             this.length = _length;
             this.width = _width;
             this.height = _height;
-            this.leftSideWeight = _leftSideWeight;
-            this.rightSideWeight = _rightSideWeight;
-
+            slices = new List<Slice>();
+            for(int i = 0; i < _width; i++)
+            {
+                List<Column> columns = new List<Column>();
+                for(int j = 0; j < _length; j++)
+                {
+                    columns.Add(new Column(j));
+                }
+                Slice slice = new Slice(i, columns);
+                slices.Add(slice);
+            }
         }
         public List<Container> ContainerList
         {

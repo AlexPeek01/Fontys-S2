@@ -14,11 +14,13 @@ namespace FavoursApp.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+        private readonly FavoursUserManager favoursusermanager;
 
         public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.favoursusermanager = new FavoursUserManager();
         }
 
         [HttpGet]
@@ -39,7 +41,7 @@ namespace FavoursApp.Controllers
                 if (result.Succeeded)
                 {
                     await signInManager.SignInAsync(user, false);
-                    FavoursUserManager.InsertNewProfileData(user.Id);
+                    favoursusermanager.InsertNewProfileData(user.Id);
                     return RedirectToAction("Index", "Network");
                 }
                 else
