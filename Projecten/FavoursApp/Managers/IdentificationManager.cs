@@ -7,6 +7,13 @@ namespace Managers
 {
     public class IdentificationManager
     {
+        private static IdentificationManager manager;
+        public static IdentificationManager GetManager()
+        {
+            if (manager == null)
+                manager = new IdentificationManager();
+            return manager;
+        }
         internal static readonly char[] chars =
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_".ToCharArray();
 

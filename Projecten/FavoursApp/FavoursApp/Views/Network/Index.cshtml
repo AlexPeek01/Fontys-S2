@@ -23,7 +23,7 @@
                 <div class="card-deck">
                     <div class="card">
                             <div class="card-header bg-dark text-light">
-                                <img class="netwerk-afbeelding" src="data:image/png;base64, @network.Image" />
+                                <img class="netwerk-afbeelding" src="~/uploadedimages/@network.ImageID" />
                                 @network.NetworkName
                             </div>
                             <div class="card-body">
@@ -37,7 +37,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon3">Members: </span>
                                     </div>
-                                    <p class="form-control card-text">@network.UserCount / @network.Memberlimit</p>
+                                    <p class="form-control card-text">@network.UserCount / @network.MemberLimit</p>
                                 </div>
 
                                 <a href="@Url.Action("nw", "Network", new { id = network.ID })" class="btn btn-primary btn-dark enter-button">Enter</a>
@@ -48,12 +48,12 @@
             </div>
         }
     }
-    @{Models.Network model2 = new Models.Network(); }
+    @{NetworkModel model2 = new NetworkModel(); }
     <div id="myModal" class="modal">
         <div class="card-header bg-dark text-white" style="border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;">New network:</div>
         <div class="modal-content">
             <span onclick="CloseModal()" class="close">&times;</span>
-            <form id="modalForm" asp-controller="Network" asp-action="CreateNetwork" method="post">
+            <form id="modalForm" asp-controller="Network" asp-action="CreateNetwork" method="post" enctype="multipart/form-data">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Network name: </span>
@@ -70,33 +70,19 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Password: </span>
                     </div>
-                    <input asp-for="@model2.Password" id="passwordField" class="form-control" />
+                    <input asp-for="@model2.Password" type="password" id="passwordField" class="form-control" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Image: </span>
                     </div>
-                    <button type="button" id="imagebuttonField" style="display:block;" class="form-control image-button" onclick="document.getElementById('getFile').click()">Choose file</button>
-                    <input type="hidden" asp-for="@model2.Image" id="image-box" value="....." />
-                    <input maxlength="4096" type='file' id="getFile" style="display:none">
-                    <script>
-                        const inpFile = document.getElementById("getFile");
-                        const reader = new FileReader();
-                        inpFile.addEventListener("change", function () {
-                            const file = this.files[0];
-                            if (file) {
-                                reader.readAsDataURL(file);
-                                reader.onload = function () { document.getElementById("image-box").value = reader.result }
-
-                            }
-                        });
-                    </script>
+                    <input class="form-control" type="file" id="image" name="image" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Member limit: </span>
                     </div>
-                    <input asp-for="@model2.Memberlimit" type="number" id="memberlimitField" class="form-control" />
+                    <input asp-for="@model2.MemberLimit" type="number" id="memberlimitField" class="form-control" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">

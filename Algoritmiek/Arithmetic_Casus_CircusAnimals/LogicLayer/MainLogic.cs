@@ -39,6 +39,42 @@ namespace LogicLayer
                 totalSpaceAvailable += (10 - w.spaceAvailable);
             return (totalSpaceAvailable / (train.wagonsInTrain.Count * 10)) * 100;
         }
-
+        public List<Animal> CreateAnimals(int[] animalCountPerType)
+        {
+            #region CreateAnimals
+            List<Animal> animalList = new List<Animal>();
+            for (int i = 0; i < animalCountPerType[0]; i++)
+            {
+                Animal animal = new Animal(true, Animal.size.Small, "Small_Carnivore");
+                animalList.Add(animal);
+            }
+            for (int i = 0; i < animalCountPerType[1]; i++)
+            {
+                Animal animal = new Animal(true, Animal.size.Medium, "Medium_Carnivore");
+                animalList.Add(animal);
+            }
+            for (int i = 0; i < animalCountPerType[2]; i++)
+            {
+                Animal animal = new Animal(true, Animal.size.Large, "Large_Carnivore");
+                animalList.Add(animal);
+            }
+            for (int i = 0; i < animalCountPerType[3]; i++)
+            {
+                Animal animal = new Animal(false, Animal.size.Small, "Small_Herbivore");
+                animalList.Add(animal);
+            }
+            for (int i = 0; i < animalCountPerType[4]; i++)
+            {
+                Animal animal = new Animal(false, Animal.size.Medium, "Medium_Herbivore");
+                animalList.Add(animal);
+            }
+            for (int i = 0; i < animalCountPerType[5]; i++)
+            {
+                Animal animal = new Animal(false, Animal.size.Large, "Large_Herbivore");
+                animalList.Add(animal);
+            }
+            #endregion
+            return animalList;
+        }
     }
 }

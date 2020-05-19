@@ -10,51 +10,44 @@ namespace Managers
     {
         public static List<string> GetNetworksCategories(string id)
         {
-            string[] categorieID = SQLConnection.ExecuteSearchQuery($"Select CategoryID From categorynetworkconnection Where NetworkID='{id}'").ToArray();
-            string query = "SELECT CategoryName FROM category WHERE CategoryID=";
-            foreach(string s in categorieID)
-            {
-                query += "'" + s + "'" + " OR CategoryID=";
-            }
-            query = query.Substring(0, query.Length - 15);
-            return SQLConnection.ExecuteSearchQuery(query);
+            string[] categorieIDs = NetworkDB.GetCategorieIDs(id);
+            return NetworkDB.GetCategoryNamesByID(categorieIDs);
         }
         public static List<string> GetNetworkIDsByUserID(string UserID)
         {
-            return SQLConnection.ExecuteSearchQuery($"Select NetworkID From UserNetworkConnection Where UserID='{UserID}'");
+            return NetworkDB.GetNetworkIdsByUserID(UserID);
         }
         public static Network GetNetworkData(string networkId)
         {
-            List<string> networkData = SQLConnection.ExecuteSearchQuery($"Select * From Netwerken Where NetwerkID='{networkId}'");
-            Network network = new Network();
-            //TODO find a way to keep the ID set private.
-            network.ID = networkData[0];
-            network.NetworkName = networkData[1];
-            network.Image = networkData[3];
-            network.Description = networkData[4];
-            network.UserCount = Convert.ToInt32(networkData[6]);
-            network.Memberlimit = Convert.ToInt32(networkData[7]);
-            return network;
+            return NetworkDB.GetNetworkDataByNetworkID(networkId);
         }
         public static Network[] GetUsersNetworks(string userID)
         {
             List<string> usersNetworks = FavoursNetworkManager.GetNetworkIDsByUserID(userID);
             List<Network> networks = new List<Network>();
-            foreach (string networkid in usersNetworks)
-            {
-                networks.Add(FavoursNetworkManager.GetNetworkData(networkid));
-            }
-            return networks.ToArray();
+            return NetworkDB.GetUsersNetworksData(usersNetworks).ToArray();
         }
-        public static void InsertNewNetworkData(Network network, string UserID)
+        public static string InsertNewNetworkData(Network network, string UserID)
         {
-            network.Image = network.Image.Split("base64,")[1];
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Netwerken (NetwerkID,NetwerkNaam,Wachtwoord,Afbeelding,Beschrijving,Visible,UserCount,UserLimit) VALUES('{network.ID}','{network.NetworkName}','{network.Password}','{network.Image}','{network.Description}','{network.Visible}','{network.UserCount}','{network.Memberlimit}')");
-            CreateUserNetworkConnection(UserID, network.ID);
+            Network networkWithID = new Network(IdentificationManager.GetUniqueKey());
+            networkWithID.NetworkName = network.NetworkName;
+            networkWithID.Description = network.Description;
+            networkWithID.Image = network.Image;
+            networkWithID.Password = network.Password;
+            networkWithID.MemberLimit = network.MemberLimit;
+            networkWithID.UserCount = 1;
+            networkWithID.Visible = network.Visible;
+            NetworkDB.InsertNewNetworkData(networkWithID);
+            CreateUserNetworkConnection(UserID, networkWithID.ID);
+            return networkWithID.ID;
         }
         public static void CreateUserNetworkConnection(string UserID, string NetworkID)
         {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES('{NetworkID}','{UserID}')");
+            NetworkDB.CreateUserNetworkConnection(UserID, NetworkID);
+        }
+        public static List<Service> GetServices(string ID)
+        {
+            return NetworkDB.GetServicesByNetworkID(ID);
         }
     }
 }

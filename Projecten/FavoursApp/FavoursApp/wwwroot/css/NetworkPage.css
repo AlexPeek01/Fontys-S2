@@ -14,15 +14,36 @@
     height: 100vh !important;
 }
 .card-header {
-    padding: 0.3em !important;
+    padding: 0.5em !important;
 }
 .category-card {
     float: left !important;
     padding: 0;
-    margin: 0;
+    margin: auto;
     max-width: 46% !important;
     height: 15vh !important;
-    margin-top: 1em !important
+    margin-top: 1em !important;
+    margin-left: 2.3% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+.service-box-info {
+    max-height: 9vh;
+    width: 85%;
+    float: right;
+}
+.service-info {
+    font-size: calc(2pt + 0.9vw) !important;
+    height: 4.5vh !important;
+}
+.service-thumbnail {
+    max-height: 9vh !important;
+    max-width: 15% !important;
+    width: auto !important;
+    float: left;
+}
+.category-body {
+    padding: 5px !important;
 }
 .banner-placeholder {
     font-size: calc(30pt + 0.5vw) !important;
@@ -50,4 +71,8 @@
     height: 100vh !important;
     text-align: center;
     font-size: calc(4pt + 0.9vw) !important;
+}
+.new-event-button {
+    margin-top: 1em !important;
+    margin-left: 2.3% !important;
 }

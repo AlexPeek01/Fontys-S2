@@ -7,9 +7,9 @@ namespace Managers
 {
     public class FavoursUserManager
     {
-        public static void InsertNewProfileData(string id)
+        public void InsertNewProfileData(string id)
         {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Users (Id) VALUES('{id}')");
+            UserDB.InsertNewProfileData(id);
         }
     }
 }

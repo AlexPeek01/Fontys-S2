@@ -105,7 +105,6 @@ namespace DAL
                     string eString = e.ToString();
                 }
             }
-
             cnn.Close();
             return values;
         }
@@ -113,7 +112,6 @@ namespace DAL
         public static void ExecuteNonSearchQuery(string query)
         {
             MySqlConnection cnn = CreateConnection();
-
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = query;
             cmd.Connection = cnn;

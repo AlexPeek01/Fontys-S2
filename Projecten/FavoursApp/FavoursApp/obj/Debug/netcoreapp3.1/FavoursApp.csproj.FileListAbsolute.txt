@@ -188,3 +188,5 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\FavoursApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\Razor\Views\Network\nw.cshtml.g.cs
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\web.config
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
