@@ -1,0 +1,11 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\obj\Debug\netstandard2.0\Managers.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\obj\Debug\netstandard2.0\Managers.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\obj\Debug\netstandard2.0\Managers.AssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\bin\Debug\netstandard2.0\Managers.deps.json
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\bin\Debug\netstandard2.0\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\bin\Debug\netstandard2.0\Managers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\bin\Debug\netstandard2.0\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\bin\Debug\netstandard2.0\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\obj\Debug\netstandard2.0\Managers.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\obj\Debug\netstandard2.0\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Mastermind\Managers\obj\Debug\netstandard2.0\Managers.pdb

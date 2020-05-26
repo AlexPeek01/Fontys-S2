@@ -1,0 +1,5 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Models\bin\Debug\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Models\bin\Debug\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Models\obj\Debug\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Models\obj\Debug\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Models\obj\Debug\Models.csprojAssemblyReference.cache

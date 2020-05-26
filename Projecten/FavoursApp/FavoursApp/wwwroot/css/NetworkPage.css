@@ -1,21 +1,37 @@
-﻿.form-control{
+﻿@media only screen and (max-width: 900px) {
+    .category-section {
+        display: none;
+    }
+
+    .network-info {
+        display: none;
+    }
+
+    .main-body {
+        width: 100% !important;
+    }
 }
-.card{
+
+.card {
     max-width: unset;
     height: 200px;
     widows: unset;
     height: 100% !important;
 }
-.card-body{
+
+.card-body {
     padding: 0 !important;
     max-width: 100% !important;
 }
-.card-deck{
+
+.card-deck {
     height: 100vh !important;
 }
+
 .card-header {
     padding: 0.5em !important;
 }
+
 .category-card {
     float: left !important;
     padding: 0;
@@ -27,44 +43,93 @@
     overflow: hidden !important;
     text-overflow: ellipsis;
 }
+
 .service-box-info {
     max-height: 9vh;
     width: 85%;
     float: right;
 }
-.service-info {
-    font-size: calc(2pt + 0.9vw) !important;
-    height: 4.5vh !important;
+
+.service-list-thumbnail-box {
+    max-height: 30px;
+    min-width: 8vw;
+    float: left;
+    font-size: calc(6pt + 0.5vw) !important;
 }
+
+.service-list-title-box {
+    max-height: 30px;
+    width: 18vw;
+    margin-right: 15px;
+    float: left;
+    font-size: calc(6pt + 0.5vw) !important;
+}
+
+.service-list-description-box {
+    max-height: 30px;
+    margin-right: 15px;
+    width: 35vw;
+    float: left;
+    font-size: calc(6pt + 0.4vw) !important;
+}
+.service-list-item {
+    color: black !important;
+    cursor: pointer;
+}
+.service-list-item:hover{
+    background-color: grey;
+}
+.service-list-image {
+    height: 5vh;
+    width: 5vh;
+    margin-right: 15px;
+    border-radius: 100%;
+    background-color: grey;
+    padding: 1px;
+}
+
+.service-info {
+    font-size: calc(6pt + 0.3vw) !important;
+    height: 4vh !important;
+}
+
 .service-thumbnail {
-    max-height: 9vh !important;
-    max-width: 15% !important;
-    width: auto !important;
+    height: 4.4vw !important;
+    width: 4.5vw !important;
     float: left;
 }
+
 .category-body {
     padding: 5px !important;
 }
+
 .banner-placeholder {
     font-size: calc(30pt + 0.5vw) !important;
     font-family: Calibri;
     color: #212529;
 }
+
+https://localhost:44361/Account/Settings
 .netwerk-afbeelding {
     width: 100% !important;
     max-width: 100% !important;
     height: 20% !important;
 }
+
 .members {
     text-align: left !important;
     padding: 2px 0px 2px 2px;
 }
+
 .main-body {
-    width: 85% !important;
+    /*width: 85%;*/
+    width: 100%;
     height: 100vh !important;
     float: left !important;
-    padding-right: 5px !important;
+    /*padding-right: 5px !important;*/
+    padding-right: 0px;
 }
+
 .network-info {
     width: 15% !important;
     float: left !important;
@@ -72,6 +137,7 @@
     text-align: center;
     font-size: calc(4pt + 0.9vw) !important;
 }
+
 .new-event-button {
     margin-top: 1em !important;
     margin-left: 2.3% !important;
