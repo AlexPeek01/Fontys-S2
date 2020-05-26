@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace Managers
 {
-    public class ImageManager
+    public class ImageHelper
     {
         public static async Task SaveImage(IFormFile image, IHostingEnvironment _hostingEnvironment, string filename)
         {
+            // Set file directory
             var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploadedimages");
             if (image != null && image.Length > 0)
             {
-                
+                // Save image
                 var filePath = Path.Combine(uploads, filename);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
@@ -25,9 +26,10 @@ namespace Managers
         }
         public static string GetImageName(IFormFile image)
         {
+            // Set imagename to UniqueKey + the image's filetype
             if (image != null && image.Length > 0)
             {
-                string imageID = IdentificationManager.GetUniqueKey();
+                string imageID = IdentificationHelper.GetUniqueKey();
                 string filetype = '.' + image.ContentType.Split('/')[1];
                 string filename = imageID + filetype;
                 return filename;

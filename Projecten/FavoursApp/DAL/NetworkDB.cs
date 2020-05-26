@@ -5,13 +5,13 @@ using System.Text;
 
 namespace DAL
 {
-    public class NetworkDB
+    public class NetworkDB : INetworkDB
     {
-        public static string[] GetCategorieIDs(string id)
+        public string[] GetCategorieIDs(string id)
         {
             return SQLConnection.ExecuteSearchQuery($"Select CategoryID From categorynetworkconnection Where NetworkID='{id}'").ToArray();
         }
-        public static List<string> GetCategoryNamesByID(string[] categoryIds)
+        public List<string> GetCategoryNamesByID(string[] categoryIds)
         {
             string query = "SELECT CategoryName FROM category WHERE CategoryID=";
             foreach (string s in categoryIds)
@@ -21,11 +21,11 @@ namespace DAL
             query = query.Substring(0, query.Length - 15);
             return SQLConnection.ExecuteSearchQuery(query);
         }
-        public static List<string> GetNetworkIdsByUserID(string UserID)
+        public List<string> GetNetworkIdsByUserID(string UserID)
         {
             return SQLConnection.ExecuteSearchQuery($"Select NetworkID From UserNetworkConnection Where UserID='{UserID}'");
         }
-        public static List<Network> GetUsersNetworksData(List<string> networkIds)
+        public List<Network> GetUsersNetworksData(List<string> networkIds)
         {
             string query = $"Select * From Netwerken Where NetwerkID='";
             List<string[]> networkData;
@@ -53,7 +53,7 @@ namespace DAL
             }
             return networks;
         }
-        public static Network GetNetworkDataByNetworkID(string networkId)
+        public Network GetNetworkDataByNetworkID(string networkId)
         {
             List<string> networkData = SQLConnection.ExecuteSearchQuery($"Select * From Netwerken Where NetwerkID='{networkId}'");
             Network network = new Network(networkData[0]);
@@ -66,15 +66,15 @@ namespace DAL
             network.MemberLimit = Convert.ToInt32(networkData[7]);
             return network;
         }
-        public static void InsertNewNetworkData(Network network)
+        public void InsertNewNetworkData(Network network)
         {
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Netwerken (NetwerkID,NetwerkNaam,Wachtwoord,Afbeelding,Beschrijving,Visible,UserCount,UserLimit) VALUES('{network.ID}','{network.NetworkName}','{network.Password}','{network.Image}','{network.Description}','{network.Visible}','{network.UserCount}','{network.MemberLimit}')");
         }
-        public static void CreateUserNetworkConnection(string UserID, string NetworkID)
+        public void CreateUserNetworkConnection(string UserID, string NetworkID)
         {
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES('{NetworkID}','{UserID}')");
         }
-        public static List<Service> GetServicesByNetworkID(string ID)
+        public List<Service> GetServicesByNetworkID(string ID)
         {
             List<string[]> networkData = SQLConnection.ExecuteSearchQueryWithArrayReturn($"SELECT * FROM services WHERE NetworkID='{ID}'");
             List<Service> serviceList = new List<Service>();

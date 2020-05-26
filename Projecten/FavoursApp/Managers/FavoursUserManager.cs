@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Managers.Interfaces;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -6,16 +7,16 @@ using System.Text;
 
 namespace Managers
 {
-    public class FavoursUserManager
+    public class FavoursUserManager : IUserManager
     {
         UserDB userDB = new UserDB();
-        public void InsertNewProfileData(string id)
+        public void InsertNewProfileData(string id, string username, string hashedpassword, string email)
         {
-            UserDB.InsertNewProfileData(id);
+            userDB.InsertNewProfileData(id, username, hashedpassword, email);
         }
-        public User GetUserDataByUserID(string userId)
+        public User GetUserDataByUsername(string username)
         {
-            return userDB.GetUserDataByUserID(userId);
+            return userDB.GetUserDataByUsername(username);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Managers.Interfaces;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -6,30 +7,35 @@ using System.Text;
 
 namespace Managers
 {
-    public class FavoursNetworkManager
+    public class FavoursNetworkManager : INetworkManager
     {
-        public static List<string> GetNetworksCategories(string id)
+        public readonly INetworkDB networkdb;
+        public FavoursNetworkManager()
         {
-            string[] categorieIDs = NetworkDB.GetCategorieIDs(id);
-            return NetworkDB.GetCategoryNamesByID(categorieIDs);
+            if (networkdb == null) networkdb = new NetworkDB();
         }
-        public static List<string> GetNetworkIDsByUserID(string UserID)
+        public List<string> GetNetworksCategories(string id)
         {
-            return NetworkDB.GetNetworkIdsByUserID(UserID);
+            string[] categorieIDs = networkdb.GetCategorieIDs(id);
+            return networkdb.GetCategoryNamesByID(categorieIDs);
         }
-        public static Network GetNetworkData(string networkId)
+        public List<string> GetNetworkIDsByUserID(string UserID)
         {
-            return NetworkDB.GetNetworkDataByNetworkID(networkId);
+            return networkdb.GetNetworkIdsByUserID(UserID);
         }
-        public static Network[] GetUsersNetworks(string userID)
+        public Network GetNetworkData(string networkId)
         {
-            List<string> usersNetworks = FavoursNetworkManager.GetNetworkIDsByUserID(userID);
+            return networkdb.GetNetworkDataByNetworkID(networkId);
+        }
+        public Network[] GetUsersNetworks(string userID)
+        {
+            List<string> usersNetworks = GetNetworkIDsByUserID(userID);
             List<Network> networks = new List<Network>();
-            return NetworkDB.GetUsersNetworksData(usersNetworks).ToArray();
+            return networkdb.GetUsersNetworksData(usersNetworks).ToArray();
         }
-        public static string InsertNewNetworkData(Network network, string UserID)
+        public string InsertNewNetworkData(Network network, string UserID)
         {
-            Network networkWithID = new Network(IdentificationManager.GetUniqueKey());
+            Network networkWithID = new Network(IdentificationHelper.GetUniqueKey());
             networkWithID.NetworkName = network.NetworkName;
             networkWithID.Description = network.Description;
             networkWithID.Image = network.Image;
@@ -37,17 +43,17 @@ namespace Managers
             networkWithID.MemberLimit = network.MemberLimit;
             networkWithID.UserCount = 1;
             networkWithID.Visible = network.Visible;
-            NetworkDB.InsertNewNetworkData(networkWithID);
+            networkdb.InsertNewNetworkData(networkWithID);
             CreateUserNetworkConnection(UserID, networkWithID.ID);
             return networkWithID.ID;
         }
-        public static void CreateUserNetworkConnection(string UserID, string NetworkID)
+        public void CreateUserNetworkConnection(string UserID, string NetworkID)
         {
-            NetworkDB.CreateUserNetworkConnection(UserID, NetworkID);
+            networkdb.CreateUserNetworkConnection(UserID, NetworkID);
         }
-        public static List<Service> GetServices(string ID)
+        public List<Service> GetServices(string ID)
         {
-            return NetworkDB.GetServicesByNetworkID(ID);
+            return networkdb.GetServicesByNetworkID(ID);
         }
     }
 }

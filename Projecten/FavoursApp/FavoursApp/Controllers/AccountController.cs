@@ -9,19 +9,16 @@ using FavoursApp.Models;
 using Managers;
 using Microsoft.AspNetCore.Http;
 using Models;
+using Managers.Interfaces;
 
 namespace FavoursApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
-        private readonly FavoursUserManager favoursusermanager;
+        private readonly IUserManager favoursusermanager;
 
         public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
             this.favoursusermanager = new FavoursUserManager();
         }
 
@@ -30,29 +27,19 @@ namespace FavoursApp.Controllers
         {
             return View();
         }
-
-
         [HttpPost]
         public async Task<IActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = model.Username, Email = model.Email };
-                var result = await userManager.CreateAsync(user, model.Password);
+                // Handle required data
+                string id = IdentificationHelper.GetUniqueKey();
+                string hashedPassword = IdentificationHelper.Encrypt(model.Password);
 
-                if (result.Succeeded)
-                {
-                    await signInManager.SignInAsync(user, false);
-                    favoursusermanager.InsertNewProfileData(user.Id);
-                    return RedirectToAction("Index", "Network");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
+                // Insert new user into database
+                favoursusermanager.InsertNewProfileData(id, model.Username, hashedPassword, model.Email);
+
+                return RedirectToAction("Login");
             }
             return View(model);
         }
@@ -68,17 +55,13 @@ namespace FavoursApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
-                if (result.Succeeded)
-                {
-                    User user = favoursusermanager.GetUserDataByUserID(userManager.FindByNameAsync(User.Identity.Name).ToString());
-                    HttpContext.Session.SetString("UserData", user.UserId);
-                    return RedirectToAction("Index", "Network");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid Login Attempt");
-                }
+                // Get userdata by username
+                User user = favoursusermanager.GetUserDataByUsername(model.Username);
+
+                // Set userid in session cookie
+                HttpContext.Session.SetString("UserData", user.UserId);
+
+                return RedirectToAction("Index", "Network");
             }
             return View(model);
         }
@@ -86,8 +69,9 @@ namespace FavoursApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            await signInManager.SignOutAsync();
-            return RedirectToAction("index", "home");
+            // Delete logged in user cookie
+            //HttpContext.Session.Remove("UserData");
+            return RedirectToAction("Login", "Account");
         }
 
         [HttpGet]

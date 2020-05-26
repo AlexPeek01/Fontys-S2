@@ -7,21 +7,23 @@ namespace DAL
 {
     public class UserDB
     {
-        public static void InsertNewProfileData(string id)
+        public void InsertNewProfileData(string id, string username, string hashedpassword, string email)
         {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Users (Id) VALUES('{id}')");
+            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Users (Id, Email, UserName, HashedPassword) VALUES('{id}', '{email}','{username}','{hashedpassword}')");
         }
-        public User GetUserDataByUserID(string userId)
+        public User GetUserDataByUsername(string username)
         {
-            string[] userdata = SQLConnection.ExecuteSearchQuery($"SELECT * FROM users WHERE Id = {userId}").ToArray();
+            string[] userdata = SQLConnection.ExecuteSearchQuery($"SELECT * FROM users WHERE UserName = '{username}'").ToArray();
             if(userdata.Length > 0)
             {
-                User user = new User(userdata[0])
+                User user = new User(userdata[0], userdata[3])
                 {
-                    FirstName = userdata[1],
-                    Insertion = userdata[2],
-                    LastName = userdata[3],
-                    Phone = userdata[4],
+                    Email = userdata[1],
+                    Username = userdata[2],
+                    FirstName = userdata[4],
+                    Insertion = userdata[5],
+                    LastName = userdata[6],
+                    Phone = userdata[7]
                 };
                 return user;
             }

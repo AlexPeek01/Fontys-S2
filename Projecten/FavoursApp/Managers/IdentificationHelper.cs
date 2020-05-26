@@ -5,15 +5,14 @@ using System.Text;
 
 namespace Managers
 {
-    public class IdentificationManager
+    public class IdentificationHelper
     {
-        private static IdentificationManager manager;
-        public static IdentificationManager GetManager()
+        private static IdentificationHelper manager;
+        public static IdentificationHelper GetManager()
         {
-            if (manager == null)
-                manager = new IdentificationManager();
-            return manager;
+            return manager == null ? new IdentificationHelper() : manager;
         }
+        // Set useable characters for keys
         internal static readonly char[] chars =
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_".ToCharArray();
 
@@ -32,10 +31,24 @@ namespace Managers
 
                 result.Append(chars[idx]);
             }
+
+            // Add date in milliseconds to the key
             string dateMs = DateTime.Now.Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds.ToString();
             dateMs = dateMs.Substring(4, dateMs.Length-9);
             string endResult = dateMs + result.ToString();
             return endResult;
+        }
+        public static string Encrypt(string data)
+        {
+            // Encrypt password one way using SHA256
+            var crypt = new SHA256Managed();
+            string hash = String.Empty;
+            byte[] crypto = crypt.ComputeHash(Encoding.ASCII.GetBytes(data));
+            foreach (byte theByte in crypto)
+            {
+                hash += theByte.ToString("x2");
+            }
+            return hash;
         }
     }
 }
