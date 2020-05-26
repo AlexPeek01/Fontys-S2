@@ -1,0 +1,14 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Debug\DeBesteTijdVoorWetenschappers.exe.config
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Debug\DeBesteTijdVoorWetenschappers.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Debug\DeBesteTijdVoorWetenschappers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Debug\DeBesteTijdVoorWetenschappers.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Debug\DeBesteTijdVoorWetenschappers.Form1.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Debug\DeBesteTijdVoorWetenschappers.Properties.Resources.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Debug\DeBesteTijdVoorWetenschappers.csproj.GenerateResource.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Debug\DeBesteTijdVoorWetenschappers.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Debug\DeBesteTijdVoorWetenschappers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Debug\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Debug\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Debug\DeBesteTijdVoorWetenschappers.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Debug\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Debug\Managers.pdb

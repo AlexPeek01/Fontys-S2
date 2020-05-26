@@ -10,23 +10,30 @@ namespace Managers
 {
     public class ImageManager
     {
-
-        public static string SaveImage(IFormFile image, IHostingEnvironment _hostingEnvironment)
+        public static async Task SaveImage(IFormFile image, IHostingEnvironment _hostingEnvironment, string filename)
         {
             var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploadedimages");
+            if (image != null && image.Length > 0)
+            {
+                
+                var filePath = Path.Combine(uploads, filename);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(fileStream);
+                }
+            }
+        }
+        public static string GetImageName(IFormFile image)
+        {
             if (image != null && image.Length > 0)
             {
                 string imageID = IdentificationManager.GetUniqueKey();
                 string filetype = '.' + image.ContentType.Split('/')[1];
                 string filename = imageID + filetype;
-                var filePath = Path.Combine(uploads, filename);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    image.CopyToAsync(fileStream);
-                }
                 return filename;
             }
             return null;
         }
+
     }
 }

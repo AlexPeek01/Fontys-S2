@@ -46,12 +46,14 @@ namespace FavoursApp.Controllers
         }
         public async Task<IActionResult> CreateService(IFormFile image, Service service)
         {
-            service.Images = ImageManager.SaveImage(image, _hostingEnvironment).ToString();
+            string filename = ImageManager.GetImageName(image);
+            await ImageManager.SaveImage(image, _hostingEnvironment, filename);
+            service.Images = filename;
             var user = await userManager.GetUserAsync(HttpContext.User);
             service.PostersID = user.Id;
             service.ServiceID = IdentificationManager.GetUniqueKey();
             FavoursServiceManager.InsertNewServiceData(service);
-            return RedirectToAction("nw", "Network");
+            return RedirectToAction("nw", "Network", new { id = service.NetworkID });
             //return View(service);
         }
         [HttpGet]
@@ -61,7 +63,9 @@ namespace FavoursApp.Controllers
         }
         public async Task<IActionResult> CreateNetwork(Network model2, IFormFile image)
         {
-            model2.Image = ImageManager.SaveImage(image, _hostingEnvironment);
+            string filename = ImageManager.GetImageName(image);
+            await ImageManager.SaveImage(image, _hostingEnvironment, filename);
+            model2.Image = filename;
             var user = await userManager.GetUserAsync(HttpContext.User);
             if (ModelState.IsValid)
             {

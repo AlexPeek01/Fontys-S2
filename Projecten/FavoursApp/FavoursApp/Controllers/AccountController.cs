@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using FavoursApp.Models;
 using Managers;
+using Microsoft.AspNetCore.Http;
+using Models;
 
 namespace FavoursApp.Controllers
 {
@@ -69,6 +71,8 @@ namespace FavoursApp.Controllers
                 var result = await signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
+                    User user = favoursusermanager.GetUserDataByUserID(userManager.FindByNameAsync(User.Identity.Name).ToString());
+                    HttpContext.Session.SetString("UserData", user.UserId);
                     return RedirectToAction("Index", "Network");
                 }
                 else
