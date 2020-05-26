@@ -1,4 +1,6 @@
 ﻿using DAL;
+using DAL.Interface;
+using Managers.Interfaces;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -6,12 +8,19 @@ using System.Text;
 
 namespace Managers
 {
-    public class FavoursServiceManager
+    public class FavoursServiceManager : IServiceManager
     {
-        public static void InsertNewServiceData(Service service)
+        private readonly IServiceDB servicedb;
+        public FavoursServiceManager()
         {
+            servicedb = new ServiceDB();
+        }
+        public void InsertNewServiceData(Service service)
+        {
+            // Convert date to required format
             string datestring = service.Date.ToString("yyyy-MM-dd HH:mm:ss");
-            ServiceDB.InsertNewServiceData(service, datestring);
+            
+            servicedb.InsertNewServiceData(service, datestring);
         }
     }
 }

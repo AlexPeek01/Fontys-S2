@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FavoursApp.Models;
 using Managers;
+using Managers.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -16,63 +17,66 @@ namespace FavoursApp.Controllers
     public class NetworkController : Controller
     {
         #region Setup
-        private readonly UserManager<IdentityUser> userManager;
-        private readonly SignInManager<IdentityUser> signInManager;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly INetworkManager networkManager;
+        private readonly IServiceManager serviceManager;
 
-        public NetworkController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, IHostingEnvironment _hostingEnvironment)
+        public NetworkController(IHostingEnvironment _hostingEnvironment)
         {
-            this.userManager = userManager;
-            this.signInManager = signInManager;
+            if (networkManager == null) networkManager = new FavoursNetworkManager();
+            if (serviceManager == null) serviceManager = new FavoursServiceManager();
             this._hostingEnvironment = _hostingEnvironment;
         }
         #endregion
         public async Task<IActionResult> Index()
         {
-            var user = await userManager.GetUserAsync(HttpContext.User);
-            Network[] networkData = FavoursNetworkManager.GetUsersNetworks(user.Id);
+            // Get a users networks
+            string userid = HttpContext.Session.GetString("UserData");
+            Network[] networkData = networkManager.GetUsersNetworks(userid);
             return View(networkData);
         }
         [HttpGet]
         public IActionResult nw(string id)
         {
-            ViewData["NetworkID"] = id;
-            Network network = FavoursNetworkManager.GetNetworkData(id);
-            List<Service> services = FavoursNetworkManager.GetServices(id);
+            // Retrieve needed data
+            Network network = networkManager.GetNetworkData(id);
+            List<Service> services = networkManager.GetServices(id);
+            string[] categories = networkManager.GetNetworksCategories(id).ToArray();
+
+            // Pass data to view
             ServicesInNetworkModel model = new ServicesInNetworkModel(network, services);
-            string[] categories = FavoursNetworkManager.GetNetworksCategories(id).ToArray();
+            ViewData["NetworkID"] = id;
             ViewData["categories"] = categories;
             return View(model);
         }
         public async Task<IActionResult> CreateService(IFormFile image, Service service)
         {
-            string filename = ImageManager.GetImageName(image);
-            await ImageManager.SaveImage(image, _hostingEnvironment, filename);
+            // Handle image file
+            string filename = ImageHelper.GetImageName(image);
+            await ImageHelper.SaveImage(image, _hostingEnvironment, filename);
+
+            // Set service model data
             service.Images = filename;
-            var user = await userManager.GetUserAsync(HttpContext.User);
-            service.PostersID = user.Id;
-            service.ServiceID = IdentificationManager.GetUniqueKey();
-            FavoursServiceManager.InsertNewServiceData(service);
+            service.ServiceID = IdentificationHelper.GetUniqueKey();
+
+            // Insert data into datasource
+            serviceManager.InsertNewServiceData(service);
             return RedirectToAction("nw", "Network", new { id = service.NetworkID });
-            //return View(service);
-        }
-        [HttpGet]
-        public IActionResult CreateNetwork()
-        {
-            return RedirectToAction("Index", "Network");
         }
         public async Task<IActionResult> CreateNetwork(Network model2, IFormFile image)
         {
-            string filename = ImageManager.GetImageName(image);
-            await ImageManager.SaveImage(image, _hostingEnvironment, filename);
+            // Handle image file
+            string filename = ImageHelper.GetImageName(image);
+            await ImageHelper.SaveImage(image, _hostingEnvironment, filename);
             model2.Image = filename;
-            var user = await userManager.GetUserAsync(HttpContext.User);
+
             if (ModelState.IsValid)
             {
-                string networkID = FavoursNetworkManager.InsertNewNetworkData(model2, user.Id);
+                // Insert new network into datasource
+                string userId = HttpContext.Session.GetString("UserData");
+                string networkID = networkManager.InsertNewNetworkData(model2, userId);
                 return RedirectToAction("nw", "Network", new { id = networkID });
             }
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
             return RedirectToAction("Index");
         }
     }

@@ -11,9 +11,13 @@ namespace Models
         public string Insertion { get; set; }
         public string LastName { get; set; }
         public string Phone { get; set; }
-        public User(string UserId)
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public string HashedPassword { get; private set; }
+        public User(string UserId, string pw)
         {
-            
+            this.UserId = UserId;
+            this.HashedPassword = pw;
         }
     }
 }
