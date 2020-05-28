@@ -7,11 +7,6 @@ namespace Managers
 {
     public class IdentificationHelper
     {
-        private static IdentificationHelper manager;
-        public static IdentificationHelper GetManager()
-        {
-            return manager == null ? new IdentificationHelper() : manager;
-        }
         // Set useable characters for keys
         internal static readonly char[] chars =
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_".ToCharArray();

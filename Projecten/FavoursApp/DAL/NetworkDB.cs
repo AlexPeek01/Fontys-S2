@@ -42,7 +42,6 @@ namespace DAL
                 {
                     Network network = new Network(data[0]);
                     network.NetworkName = data[1];
-                    network.Password = data[2];
                     network.ImageID = data[3];
                     network.Description = data[4];
                     network.Visible = data[5] == "0" ? 0 : 1;

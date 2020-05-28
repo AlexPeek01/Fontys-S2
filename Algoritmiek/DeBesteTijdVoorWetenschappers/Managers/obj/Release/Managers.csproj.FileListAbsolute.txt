@@ -1,0 +1,8 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Managers\bin\Release\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Managers\bin\Release\Managers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Managers\bin\Release\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Managers\bin\Release\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Managers\obj\Release\Managers.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Managers\obj\Release\Managers.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Managers\obj\Release\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\Managers\obj\Release\Managers.pdb

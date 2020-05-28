@@ -14,9 +14,9 @@ namespace Managers
         {
             userDB.InsertNewProfileData(id, username, hashedpassword, email);
         }
-        public User GetUserDataByUsername(string username)
+        public User GetUserDataByUsername(string username, string HashedPassword)
         {
-            return userDB.GetUserDataByUsername(username);
+            return userDB.GetUserDataByUsername(username, HashedPassword);
         }
     }
 }

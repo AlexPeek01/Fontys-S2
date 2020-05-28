@@ -11,6 +11,32 @@
         width: 100% !important;
     }
 }
+@media only screen and (max-width: 1200px) {
+    .category-card {
+        margin: 0 !important;
+    }
+}
+.confirm-popup{
+    padding: 0;
+    max-width: 25%;
+    margin-left: 40%;
+    color: black;
+}
+.confirm-body{
+    padding: 5px !important;
+}
+.confirm-card {
+    padding: 0;
+    max-width: 100% !important;
+    color: black;
+}
+.leave-button {
+    margin-top: 1em !important;
+    margin-right: 2.3% !important;
+    float: right;
+    background-color: darkred;
+    border-color: darkred;
+}
 
 .card {
     max-width: unset;
@@ -20,7 +46,7 @@
 }
 
 .card-body {
-    padding: 0 !important;
+    padding: 0;
     max-width: 100% !important;
 }
 
@@ -80,8 +106,8 @@
     background-color: grey;
 }
 .service-list-image {
-    height: 5vh;
-    width: 5vh;
+    height: 3vh;
+    width: 3vh;
     margin-right: 15px;
     border-radius: 100%;
     background-color: grey;
