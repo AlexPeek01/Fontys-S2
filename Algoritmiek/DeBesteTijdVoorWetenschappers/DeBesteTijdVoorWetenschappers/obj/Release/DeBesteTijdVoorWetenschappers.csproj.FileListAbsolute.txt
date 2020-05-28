@@ -1,0 +1,14 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Release\DeBesteTijdVoorWetenschappers.exe.config
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Release\DeBesteTijdVoorWetenschappers.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Release\DeBesteTijdVoorWetenschappers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Release\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Release\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Release\Managers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\bin\Release\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Release\DeBesteTijdVoorWetenschappers.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Release\DeBesteTijdVoorWetenschappers.Form1.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Release\DeBesteTijdVoorWetenschappers.Properties.Resources.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Release\DeBesteTijdVoorWetenschappers.csproj.GenerateResource.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Release\DeBesteTijdVoorWetenschappers.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Release\DeBesteTijdVoorWetenschappers.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\DeBesteTijdVoorWetenschappers\DeBesteTijdVoorWetenschappers\obj\Release\DeBesteTijdVoorWetenschappers.pdb

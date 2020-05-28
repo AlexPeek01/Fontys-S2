@@ -11,9 +11,9 @@ namespace DAL
         {
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Users (Id, Email, UserName, HashedPassword) VALUES('{id}', '{email}','{username}','{hashedpassword}')");
         }
-        public User GetUserDataByUsername(string username)
+        public User GetUserDataByUsername(string username, string HashedPassword)
         {
-            string[] userdata = SQLConnection.ExecuteSearchQuery($"SELECT * FROM users WHERE UserName = '{username}'").ToArray();
+            string[] userdata = SQLConnection.ExecuteSearchQuery($"SELECT * FROM users WHERE UserName = '{username}' AND HashedPassword = '{HashedPassword}'").ToArray();
             if(userdata.Length > 0)
             {
                 User user = new User(userdata[0], userdata[3])

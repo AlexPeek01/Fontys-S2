@@ -24,13 +24,13 @@ namespace Managers
                 }
             }
         }
-        public static string GetImageName(IFormFile image)
+        public static string GetImageName(string image)
         {
             // Set imagename to UniqueKey + the image's filetype
             if (image != null && image.Length > 0)
             {
                 string imageID = IdentificationHelper.GetUniqueKey();
-                string filetype = '.' + image.ContentType.Split('/')[1];
+                string filetype = '.' + image;
                 string filename = imageID + filetype;
                 return filename;
             }

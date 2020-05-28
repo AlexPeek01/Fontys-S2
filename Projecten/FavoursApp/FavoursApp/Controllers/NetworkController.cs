@@ -52,7 +52,7 @@ namespace FavoursApp.Controllers
         public async Task<IActionResult> CreateService(IFormFile image, Service service)
         {
             // Handle image file
-            string filename = ImageHelper.GetImageName(image);
+            string filename = ImageHelper.GetImageName(image.ContentType.Split('/')[1]);
             await ImageHelper.SaveImage(image, _hostingEnvironment, filename);
 
             // Set service model data
@@ -66,7 +66,7 @@ namespace FavoursApp.Controllers
         public async Task<IActionResult> CreateNetwork(Network model2, IFormFile image)
         {
             // Handle image file
-            string filename = ImageHelper.GetImageName(image);
+            string filename = ImageHelper.GetImageName(image.ContentType.Split('/')[1]);
             await ImageHelper.SaveImage(image, _hostingEnvironment, filename);
             model2.Image = filename;
 
@@ -78,6 +78,10 @@ namespace FavoursApp.Controllers
                 return RedirectToAction("nw", "Network", new { id = networkID });
             }
             return RedirectToAction("Index");
+        }
+        public void LeaveNetwork(string networkID)
+        {
+            string userid = HttpContext.Session.GetString("UserData");
         }
     }
 }

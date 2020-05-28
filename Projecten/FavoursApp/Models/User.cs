@@ -13,11 +13,10 @@ namespace Models
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }
-        public string HashedPassword { get; private set; }
-        public User(string UserId, string pw)
+        public string HashedPassword { get; set; }
+        public User(string UserId)
         {
             this.UserId = UserId;
-            this.HashedPassword = pw;
         }
     }
 }

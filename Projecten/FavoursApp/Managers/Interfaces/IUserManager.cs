@@ -8,6 +8,6 @@ namespace Managers.Interfaces
     public interface IUserManager
     {
         void InsertNewProfileData(string id, string username, string hashedpassword, string email);
-        User GetUserDataByUsername(string username);
+        User GetUserDataByUsername(string username, string password);
     }
 }

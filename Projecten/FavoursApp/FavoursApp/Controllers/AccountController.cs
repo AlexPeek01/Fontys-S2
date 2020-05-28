@@ -17,7 +17,7 @@ namespace FavoursApp.Controllers
     {
         private readonly IUserManager favoursusermanager;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController()
         {
             this.favoursusermanager = new FavoursUserManager();
         }
@@ -28,7 +28,7 @@ namespace FavoursApp.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public IActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
@@ -51,34 +51,32 @@ namespace FavoursApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginModel model)
+        public IActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
+                // Hash input password
+                string HashedPassword = IdentificationHelper.Encrypt(model.Password);
+
                 // Get userdata by username
-                User user = favoursusermanager.GetUserDataByUsername(model.Username);
+                User user = favoursusermanager.GetUserDataByUsername(model.Username, HashedPassword);
 
-                // Set userid in session cookie
-                HttpContext.Session.SetString("UserData", user.UserId);
-
-                return RedirectToAction("Index", "Network");
+                if(user != null)
+                {
+                    HttpContext.Session.SetString("UserData", user.UserId);
+                    return RedirectToAction("Index", "Network");
+                }
+                    
             }
-            return View(model);
+            return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Logout()
+        public IActionResult Logout()
         {
             // Delete logged in user cookie
             //HttpContext.Session.Remove("UserData");
             return RedirectToAction("Login", "Account");
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public IActionResult AccessDenied()
-        {
-            return View();
         }
     }
 }
