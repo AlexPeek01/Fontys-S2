@@ -7,13 +7,13 @@ namespace DAL
 {
     public interface INetworkDB
     {
-        string[] GetCategorieIDs(string id);
         List<string> GetCategoryNamesByID(string[] categoryIds);
         List<string> GetNetworkIdsByUserID(string UserID);
+        List<Service> GetServicesByNetworkID(string ID);
         List<Network> GetUsersNetworksData(List<string> networkIds);
         Network GetNetworkDataByNetworkID(string networkId);
+        string[] GetCategorieIDs(string id);
         void InsertNewNetworkData(Network network);
         void CreateUserNetworkConnection(string UserID, string NetworkID);
-        List<Service> GetServicesByNetworkID(string ID);
     }
 }

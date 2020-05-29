@@ -32,7 +32,8 @@ namespace FavoursApp
 
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.Name = "Favours.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(99999999);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });

@@ -9,36 +9,49 @@ namespace DAL
     {
         public string[] GetCategorieIDs(string id)
         {
-            return SQLConnection.ExecuteSearchQuery($"Select CategoryID From categorynetworkconnection Where NetworkID='{id}'").ToArray();
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@NetworkID", id},
+            };
+            return SQLConnection.ExecuteSearchQuery($"Select CategoryID From categorynetworkconnection Where NetworkID=@NetworkID", parameters).ToArray();
         }
         public List<string> GetCategoryNamesByID(string[] categoryIds)
         {
+
+            List<string[]> parameters = new List<string[]>();
             string query = "SELECT CategoryName FROM category WHERE CategoryID=";
-            foreach (string s in categoryIds)
+            for (int i = 0; i < categoryIds.Length; i++)
             {
-                query += "'" + s + "'" + " OR CategoryID=";
+                parameters.Add(new string[] { "@" + i.ToString(), categoryIds[i] });
+                query += "'" + "@" + i.ToString() + "'" + " OR CategoryID=";
             }
             query = query.Substring(0, query.Length - 15);
-            return SQLConnection.ExecuteSearchQuery(query);
+            return SQLConnection.ExecuteSearchQuery(query, parameters);
         }
         public List<string> GetNetworkIdsByUserID(string UserID)
         {
-            return SQLConnection.ExecuteSearchQuery($"Select NetworkID From UserNetworkConnection Where UserID='{UserID}'");
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@UserID", UserID}
+            };
+            return SQLConnection.ExecuteSearchQuery($"Select NetworkID From UserNetworkConnection Where UserID=@UserID", parameters);
         }
         public List<Network> GetUsersNetworksData(List<string> networkIds)
         {
-            string query = $"Select * From Netwerken Where NetwerkID='";
+            List<string[]> parameters = new List<string[]>();
+            string query = $"Select * From Netwerken Where NetwerkID=";
             List<string[]> networkData;
             List<Network> networks = new List<Network>();
             if (networkIds.Count > 0)
             {
-                foreach(string id in networkIds)
+                for (int i = 0; i < networkIds.Count; i++)
                 {
-                    query += id + "' OR NetwerkID='";
+                    parameters.Add(new string[] { "@" + i.ToString(), networkIds[i] });
+                    query += "@" + i.ToString() + " OR NetwerkID=";
                 }
-                query = query.Substring(0, query.Length - 15);
-                networkData = SQLConnection.ExecuteSearchQueryWithArrayReturn(query);
-                foreach(string[] data in networkData)
+                query = query.Substring(0, query.Length - 14);
+                networkData = SQLConnection.ExecuteSearchQueryWithArrayReturn(query, parameters);
+                foreach (string[] data in networkData)
                 {
                     Network network = new Network(data[0]);
                     network.NetworkName = data[1];
@@ -54,7 +67,11 @@ namespace DAL
         }
         public Network GetNetworkDataByNetworkID(string networkId)
         {
-            List<string> networkData = SQLConnection.ExecuteSearchQuery($"Select * From Netwerken Where NetwerkID='{networkId}'");
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@NetworkID", networkId }
+            };
+            List<string> networkData = SQLConnection.ExecuteSearchQuery($"Select * From Netwerken Where NetwerkID=@NetworkID", parameters);
             Network network = new Network(networkData[0]);
             network.NetworkName = networkData[1];
             network.Image = networkData[3];
@@ -67,15 +84,36 @@ namespace DAL
         }
         public void InsertNewNetworkData(Network network)
         {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Netwerken (NetwerkID,NetwerkNaam,Wachtwoord,Afbeelding,Beschrijving,Visible,UserCount,UserLimit) VALUES('{network.ID}','{network.NetworkName}','{network.Password}','{network.Image}','{network.Description}','{network.Visible}','{network.UserCount}','{network.MemberLimit}')");
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@NetworkID", network.ID },
+                new string[] { "@NetwerkNaam", network.NetworkName },
+                new string[] { "@Wachtwoord", network.Password },
+                new string[] { "@Afbeelding", network.Image },
+                new string[] { "@Beschrijving", network.Description },
+                new string[] { "@Visible", network.Visible.ToString() },
+                new string[] { "@UserCount", network.UserCount.ToString() },
+                new string[] { "@UserLimit", network.MemberLimit.ToString() }
+            };
+            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Netwerken (NetwerkID,NetwerkNaam,Wachtwoord,Afbeelding,Beschrijving,Visible,UserCount,UserLimit) " +
+                $"VALUES(@NetworkID,@NetwerkNaam,@Wachtwoord,@Afbeelding,@Beschrijving,@Visible,@UserCount,@UserLimit)", parameters);
         }
         public void CreateUserNetworkConnection(string UserID, string NetworkID)
         {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES('{NetworkID}','{UserID}')");
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@NetworkID", NetworkID },
+                new string[] { "@UserID", UserID }
+            };
+            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES(@NetworkID,@UserID)", parameters);
         }
         public List<Service> GetServicesByNetworkID(string ID)
         {
-            List<string[]> networkData = SQLConnection.ExecuteSearchQueryWithArrayReturn($"SELECT * FROM services WHERE NetworkID='{ID}'");
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@NetworkID", ID },
+            };
+            List<string[]> networkData = SQLConnection.ExecuteSearchQueryWithArrayReturn($"SELECT * FROM services WHERE NetworkID=@NetworkID", parameters);
             List<Service> serviceList = new List<Service>();
             foreach (string[] data in networkData)
             {

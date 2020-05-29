@@ -2628,8 +2628,20 @@
           "ref/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
+      "AdditionalFiles/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "AdditionalFiles.dll": {}
+        },
+        "compile": {
+          "AdditionalFiles.dll": {}
+        }
+      },
       "DAL/1.0.0": {
         "dependencies": {
+          "AdditionalFiles": "1.0.0",
           "Models": "1.0.0",
           "MySql.Data": "8.0.19"
         },
@@ -2642,6 +2654,7 @@
       },
       "Managers/1.0.0": {
         "dependencies": {
+          "AdditionalFiles": "1.0.0",
           "DAL": "1.0.0",
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
           "Models": "1.0.0"
@@ -5565,6 +5578,11 @@
       "sha512": "sha512-Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
+    },
+    "AdditionalFiles/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "DAL/1.0.0": {
       "type": "project",

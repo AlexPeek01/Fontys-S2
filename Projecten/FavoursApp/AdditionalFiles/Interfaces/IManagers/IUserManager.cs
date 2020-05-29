@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Interface
+namespace Managers.Interfaces
 {
-    public interface IUserDB
+    public interface IUserManager
     {
+        User GetUserDataByUsername(string username, string password);
         void InsertNewProfileData(string id, string username, string hashedpassword, string email);
-        User GetUserDataByUsername(string username);
     }
 }

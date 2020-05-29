@@ -58,7 +58,7 @@ namespace FavoursApp.Controllers
             // Set service model data
             service.Images = filename;
             service.ServiceID = IdentificationHelper.GetUniqueKey();
-
+            service.PostersID = HttpContext.Session.GetString("UserData");
             // Insert data into datasource
             serviceManager.InsertNewServiceData(service);
             return RedirectToAction("nw", "Network", new { id = service.NetworkID });

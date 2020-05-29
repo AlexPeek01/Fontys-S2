@@ -9,3 +9,5 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\DAL\obj\Debug\netcore
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\DAL\bin\Debug\netcoreapp3.1\Models.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\DAL\bin\Debug\netcoreapp3.1\Models.pdb
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\DAL\bin\Debug\netcoreapp3.1\AdditionalFiles.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\DAL\bin\Debug\netcoreapp3.1\AdditionalFiles.pdb

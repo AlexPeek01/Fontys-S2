@@ -1,4 +1,7 @@
-﻿var modal;
+﻿//Global variables
+var modal;
+
+//Modal functions
 function changeModalState() {
     if (typeof modal[0] !== "undefined") {
         console.log(modal[0]);
@@ -10,13 +13,21 @@ function changeModalState() {
         }
     }
 }
+
+//Network functions
 function LeaveNetwork() {
     var networkID = $('networkID').val();
     $.get("/Network/LeaveNetwork?networkID=" + networkID, (data) => {
     })
 }
+
+//Click events
 $("#newServiceBtn").click(() => {
     modal = $("#myModal");
+    changeModalState();
+});
+$('#newNetworkBtn').click(() => {
+    modal = $("#networkModal");
     changeModalState();
 });
 $("#leaveNetworkBtn").click(() => {
@@ -30,6 +41,10 @@ $("#confirmBtn").click(() => {
 });
 $("#cancelBtn").click(() => {
     modal = $("#confirmModal");
+    changeModalState();
+});
+$("#closeNetworkModal").click(() => {
+    modal = $("#networkModal");
     changeModalState();
 });
 $("#closeCreate").click(() => {

@@ -10,7 +10,19 @@ namespace DAL
     {
         public void InsertNewServiceData(Service service, string datestring)
         {
-            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO services (ServiceID,NetworkID,UserID,Title,Description,Image,Date,Visibility,Category) VALUES('{service.ServiceID}','{service.NetworkID}','{service.PostersID}','{service.Title}','{service.Description}','{service.Images}','{datestring}','{Convert.ToInt32(service.Visibility)}','{service.Category}')");
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@ServiceID", service.ServiceID},
+                new string[] { "@NetworkID", service.NetworkID},
+                new string[] { "@UserID", service.PostersID},
+                new string[] { "@Title", service.Title},
+                new string[] { "@Description", service.Description},
+                new string[] { "@Image", service.Images},
+                new string[] { "@Date", service.Date.ToString()},
+                new string[] { "@Visibility", Convert.ToInt32(service.Visibility).ToString()},
+                new string[] { "@Category", service.Category}
+            };
+            SQLConnection.ExecuteNonSearchQuery($"INSERT INTO services (ServiceID,NetworkID,UserID,Title,Description,Image,Date,Visibility,Category) VALUES(@ServiceID,@NetworkID,@UserID,@Title,@Description,@Image,@Date,@Visibility,@Category)", parameters);
         }
     }
 }

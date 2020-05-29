@@ -1,0 +1,11 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\bin\Debug\netcoreapp3.1\AdditionalFiles.deps.json
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\bin\Debug\netcoreapp3.1\AdditionalFiles.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\bin\Debug\netcoreapp3.1\AdditionalFiles.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\bin\Debug\netcoreapp3.1\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\bin\Debug\netcoreapp3.1\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.AssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.pdb
