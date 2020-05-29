@@ -19,7 +19,6 @@ namespace Managers
         {
             // Convert date to required format
             string datestring = service.Date.ToString("yyyy-MM-dd HH:mm:ss");
-            
             servicedb.InsertNewServiceData(service, datestring);
         }
     }

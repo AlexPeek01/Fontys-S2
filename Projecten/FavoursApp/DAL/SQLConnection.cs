@@ -15,12 +15,21 @@ namespace DAL
             cnn = new MySqlConnection(connectionString);
             return cnn;
         }
-        public static List<string[]> ExecuteSearchQueryWithArrayReturn(string query)
+        public static MySqlCommand AddCmdParameters(MySqlCommand cmd, List<string[]> parameters)
+        {
+            foreach (string[] array in parameters)
+            {
+                cmd.Parameters.AddWithValue(array[0], array[1]);
+            }
+            return cmd;
+        }
+        public static List<string[]> ExecuteSearchQueryWithArrayReturn(string query, List<string[]> parameters)
         {
             string[] tempStrArr;
             List<string[]> values = new List<string[]>();
             MySqlConnection cnn = CreateConnection();
             MySqlCommand cmd = new MySqlCommand();
+            AddCmdParameters(cmd, parameters);
             cmd.CommandText = query;
             cmd.Connection = cnn;
             cnn.Open();
@@ -46,11 +55,12 @@ namespace DAL
             return values;
         }
 
-        public static List<string> ExecuteSearchQuery(string query)
+        public static List<string> ExecuteSearchQuery(string query, List<string[]> parameters)
         {
             List<string> values = new List<string>();
             MySqlConnection cnn = CreateConnection();
             MySqlCommand cmd = new MySqlCommand();
+            AddCmdParameters(cmd, parameters);
             cmd.CommandText = query;
             cmd.Connection = cnn;
             cnn.Open();
@@ -73,45 +83,12 @@ namespace DAL
             cnn.Close();
             return values;
         }
-        public static List<string>[] ExecuteSearchQueryArray(string[] query)
-        {
-            List<string>[] values = new List<string>[query.Length];
-            MySqlConnection cnn = CreateConnection();
-            MySqlCommand[] cmd = new MySqlCommand[query.Length];
-            for (int i = 0; i < cmd.Length; i++)
-            {
-                cmd[i] = new MySqlCommand();
-                cmd[i].CommandText = query[i];
-                cmd[i].Connection = cnn;
-            }
-            cnn.Open();
-            for (int i = 0; i < cmd.Length; i++)
-            {
-                MySqlDataReader reader = cmd[i].ExecuteReader();
-                values[i].Clear();
-                try
-                {
-                    while (reader.Read())
-                    {
-                        for (int j = 0; j < reader.FieldCount; j++)
-                        {
-                            values[i].Add(reader[j].ToString());
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    string eString = e.ToString();
-                }
-            }
-            cnn.Close();
-            return values;
-        }
 
-        public static void ExecuteNonSearchQuery(string query)
+        public static void ExecuteNonSearchQuery(string query, List<string[]> parameters)
         {
             MySqlConnection cnn = CreateConnection();
             MySqlCommand cmd = new MySqlCommand();
+            AddCmdParameters(cmd, parameters);
             cmd.CommandText = query;
             cmd.Connection = cnn;
             cnn.Open();
@@ -119,30 +96,12 @@ namespace DAL
             cnn.Close();
         }
 
-        public static void ExecuteNonSearchQueryArray(string[] query)
-        {
-            MySqlConnection cnn = CreateConnection();
-
-            MySqlCommand[] cmd = new MySqlCommand[query.Length];
-            for (int i = 0; i < cmd.Length; i++)
-            {
-                cmd[i] = new MySqlCommand();
-                cmd[i].CommandText = query[i];
-                cmd[i].Connection = cnn;
-            }
-            cnn.Open();
-            for (int i = 0; i < cmd.Length; i++)
-            {
-                cmd[i].ExecuteNonQuery();
-            }
-            cnn.Close();
-        }
-
-        public static List<string> ExecuteGetStringQuery(string query)
+        public static List<string> ExecuteGetStringQuery(string query, List<string[]> parameters)
         {
             List<string> values = new List<string>();
             MySqlConnection cnn = CreateConnection();
             MySqlCommand cmd = new MySqlCommand();
+            AddCmdParameters(cmd, parameters);
             cmd.CommandText = query;
             cmd.Connection = cnn;
             cnn.Open();

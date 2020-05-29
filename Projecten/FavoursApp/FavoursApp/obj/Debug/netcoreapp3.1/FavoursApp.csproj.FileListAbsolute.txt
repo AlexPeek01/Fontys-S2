@@ -191,3 +191,5 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\Razor\Views\Chat\Index.cshtml.g.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\AdditionalFiles.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\AdditionalFiles.pdb

@@ -9,10 +9,10 @@ namespace Managers.Interfaces
     {
         List<string> GetNetworksCategories(string id);
         List<string> GetNetworkIDsByUserID(string UserID);
-        Network GetNetworkData(string networkId);
+        List<Service> GetServices(string ID);
         Network[] GetUsersNetworks(string userID);
+        Network GetNetworkData(string networkId);
         string InsertNewNetworkData(Network network, string UserID);
         void CreateUserNetworkConnection(string UserID, string NetworkID);
-        List<Service> GetServices(string ID);
     }
 }
