@@ -7,6 +7,7 @@ namespace DAL
 {
     public class NetworkDB : INetworkDB
     {
+        // Methods regarding categories
         public string[] GetCategorieIDs(string id)
         {
             List<string[]> parameters = new List<string[]>()
@@ -28,6 +29,8 @@ namespace DAL
             query = query.Substring(0, query.Length - 15);
             return SQLConnection.ExecuteSearchQuery(query, parameters);
         }
+
+        // Methods regarding Networks
         public List<string> GetNetworkIdsByUserID(string UserID)
         {
             List<string[]> parameters = new List<string[]>()
@@ -98,6 +101,8 @@ namespace DAL
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO Netwerken (NetwerkID,NetwerkNaam,Wachtwoord,Afbeelding,Beschrijving,Visible,UserCount,UserLimit) " +
                 $"VALUES(@NetworkID,@NetwerkNaam,@Wachtwoord,@Afbeelding,@Beschrijving,@Visible,@UserCount,@UserLimit)", parameters);
         }
+
+        // Methods regarding the connection between User and Network
         public void CreateUserNetworkConnection(string UserID, string NetworkID)
         {
             List<string[]> parameters = new List<string[]>()
@@ -107,6 +112,8 @@ namespace DAL
             };
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES(@NetworkID,@UserID)", parameters);
         }
+
+        // Methods regarding the services in a network
         public List<Service> GetServicesByNetworkID(string ID)
         {
             List<string[]> parameters = new List<string[]>()
