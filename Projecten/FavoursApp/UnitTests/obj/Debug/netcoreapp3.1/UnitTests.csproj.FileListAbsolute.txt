@@ -126,3 +126,5 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\UnitTests\obj\Debug\n
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csproj.CopyComplete
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\UnitTests\obj\Debug\netcoreapp3.1\UnitTests.genruntimeconfig.cache

@@ -1,0 +1,16 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\Repos.deps.json
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\Repos.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\Repos.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\AdditionalFiles.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\Models.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\AdditionalFiles.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\bin\Debug\netcoreapp3.1\Models.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\obj\Debug\netcoreapp3.1\Repos.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\obj\Debug\netcoreapp3.1\Repos.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\obj\Debug\netcoreapp3.1\Repos.AssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\obj\Debug\netcoreapp3.1\Repos.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\obj\Debug\netcoreapp3.1\Repos.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\obj\Debug\netcoreapp3.1\Repos.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Repos\obj\Debug\netcoreapp3.1\Repos.pdb

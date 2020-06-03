@@ -9,3 +9,4 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\D
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.csproj.CopyComplete
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\AdditionalFiles\obj\Debug\netcoreapp3.1\AdditionalFiles.csproj.CoreCompileInputs.cache

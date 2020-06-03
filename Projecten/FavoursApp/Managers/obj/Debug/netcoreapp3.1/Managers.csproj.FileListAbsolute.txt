@@ -13,3 +13,4 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Debug\ne
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Debug\netcoreapp3.1\Models.pdb
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Debug\netcoreapp3.1\AdditionalFiles.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\bin\Debug\netcoreapp3.1\AdditionalFiles.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\Managers\obj\Debug\netcoreapp3.1\Managers.csproj.CoreCompileInputs.cache
