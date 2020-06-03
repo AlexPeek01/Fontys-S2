@@ -82,6 +82,7 @@ namespace FavoursApp.Controllers
         public void LeaveNetwork(string networkID)
         {
             string userid = HttpContext.Session.GetString("UserData");
+            networkManager.RemoveUserNetworkCon(userid, networkID);
         }
     }
 }

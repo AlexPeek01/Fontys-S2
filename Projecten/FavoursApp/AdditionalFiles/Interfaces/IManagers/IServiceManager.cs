@@ -8,5 +8,6 @@ namespace Managers.Interfaces
     public interface IServiceManager
     {
         void InsertNewServiceData(Service service);
+        Service GetServiceDataById(string serviceID);
     }
 }

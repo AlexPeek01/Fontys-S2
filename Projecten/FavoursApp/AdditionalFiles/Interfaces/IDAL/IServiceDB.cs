@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Interface
+namespace AdditionalFiles.Interfaces.IDAL
 {
     public interface IServiceDB
     {
         void InsertNewServiceData(Service service, string datestring);
+        Service GetServiceDataById(string serviceID);
     }
 }

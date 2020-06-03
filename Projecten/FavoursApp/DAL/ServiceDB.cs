@@ -1,4 +1,4 @@
-﻿using DAL.Interface;
+﻿using AdditionalFiles.Interfaces.IDAL;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -23,6 +23,26 @@ namespace DAL
                 new string[] { "@Category", service.Category}
             };
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO services (ServiceID,NetworkID,UserID,Title,Description,Image,Date,Visibility,Category) VALUES(@ServiceID,@NetworkID,@UserID,@Title,@Description,@Image,@Date,@Visibility,@Category)", parameters);
+        }
+        public Service GetServiceDataById(string serviceID)
+        {
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@ServiceID", serviceID },
+            };
+            string[] serviceData = SQLConnection.ExecuteSearchQuery("SELECT * FROM services WHERE ServiceID = @ServiceID", parameters).ToArray();
+            return new Service()
+            {
+                ServiceID = serviceData[0],
+                NetworkID = serviceData[1],
+                PostersID = serviceData[2],
+                Title = serviceData[3],
+                Description = serviceData[4],
+                Images = serviceData[5],
+                Date = DateTime.Parse(serviceData[6]),
+                Visibility = Convert.ToBoolean(Int32.Parse(serviceData[7])),
+                Category = serviceData[8],
+            };
         }
     }
 }

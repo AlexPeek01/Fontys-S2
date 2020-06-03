@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "6JlOcwTR7ak+o2aj2kFLd+2VtPjqQOlUV+v8EvwgIA1AWJLqbpkQUZI4/62Fn8t9ENcNJd/Q1koc7oUur/xfeQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alex\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.4\\microsoft.aspnetcore.http.features.3.1.4.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.4\\microsoft.extensions.primitives.3.1.4.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\system.io.pipelines\\4.7.1\\system.io.pipelines.4.7.1.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

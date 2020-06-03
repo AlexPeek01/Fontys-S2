@@ -1,5 +1,6 @@
-﻿using DAL;
-using DAL.Interface;
+﻿using AdditionalFiles.Interfaces.IDAL;
+using DAL;
+using DAL.Memory;
 using Managers.Interfaces;
 using Models;
 using System;
@@ -13,13 +14,24 @@ namespace Managers
         private readonly IServiceDB servicedb;
         public FavoursServiceManager()
         {
-            servicedb = new ServiceDB();
+            if (AdditionalFiles.Beans.dataSource == "sql")
+            {
+                servicedb = new ServiceDB();
+            }
+            else if (AdditionalFiles.Beans.dataSource == "memory")
+            {
+                servicedb = new ServiceMemoryContext();
+            }
         }
         public void InsertNewServiceData(Service service)
         {
             // Convert date to required format
             string datestring = service.Date.ToString("yyyy-MM-dd HH:mm:ss");
             servicedb.InsertNewServiceData(service, datestring);
+        }
+        public Service GetServiceDataById(string serviceID)
+        {
+            return servicedb.GetServiceDataById(serviceID);
         }
     }
 }

@@ -58,7 +58,7 @@ namespace UnitTests.Logic
         [TestMethod]
         public void SpaceForValuableTest()
         {
-            Ship ship = new Ship(5, 5, 5, 0, 0);
+            Ship ship = new Ship(5, 5, 5);
             Container[,,] containerArray = new Container[5, 5, 5];
             Container c1 = new Container(10000, false, true, true, false);
             Container c2 = new Container(10000, false, false, true, false);

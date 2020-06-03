@@ -19,6 +19,7 @@ namespace FavoursApp.Controllers
 
         public AccountController()
         {
+            AdditionalFiles.Beans.dataSource = "sql";
             this.favoursusermanager = new FavoursUserManager();
         }
 

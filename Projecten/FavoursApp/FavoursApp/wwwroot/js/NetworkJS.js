@@ -16,7 +16,7 @@ function changeModalState() {
 
 //Network functions
 function LeaveNetwork() {
-    var networkID = $('networkID').val();
+    var networkID = $('#networkID').val();
     $.get("/Network/LeaveNetwork?networkID=" + networkID, (data) => {
     })
 }

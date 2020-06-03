@@ -1,11 +1,12 @@
-﻿using Models;
+﻿using AdditionalFiles.Interfaces.IDAL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DAL
 {
-    public class UserDB
+    public class UserDB : IUserDB
     {
         public void InsertNewProfileData(string id, string username, string hashedpassword, string email)
         {

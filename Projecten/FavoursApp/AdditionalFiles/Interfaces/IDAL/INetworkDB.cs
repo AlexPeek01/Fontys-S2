@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL
+namespace AdditionalFiles.Interfaces.IDAL
 {
     public interface INetworkDB
     {
@@ -15,5 +15,6 @@ namespace DAL
         string[] GetCategorieIDs(string id);
         void InsertNewNetworkData(Network network);
         void CreateUserNetworkConnection(string UserID, string NetworkID);
+        void RemoveUserNetworkCon(string userId, string networkId);
     }
 }

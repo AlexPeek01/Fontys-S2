@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using AdditionalFiles.Interfaces.IDAL;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -137,6 +138,15 @@ namespace DAL
                 serviceList.Add(service);
             }
             return serviceList;
+        }
+        public void RemoveUserNetworkCon(string userId, string networkId)
+        {
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@UserID", userId},
+                new string[] { "@NetworkID", networkId }
+            };
+            SQLConnection.ExecuteNonSearchQuery("DELETE FROM usernetworkconnection WHERE UserID = @UserID AND NetworkID = @NetworkID", parameters);
         }
     }
 }

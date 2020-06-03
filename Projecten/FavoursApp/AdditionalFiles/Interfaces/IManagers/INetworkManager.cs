@@ -14,5 +14,6 @@ namespace Managers.Interfaces
         Network GetNetworkData(string networkId);
         string InsertNewNetworkData(Network network, string UserID);
         void CreateUserNetworkConnection(string UserID, string NetworkID);
+        void RemoveUserNetworkCon(string userId, string networkId);
     }
 }

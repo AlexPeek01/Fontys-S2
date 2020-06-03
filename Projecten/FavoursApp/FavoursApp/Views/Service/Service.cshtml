@@ -1,0 +1,39 @@
+﻿@model Models.Service
+
+@{
+    ViewData["Title"] = "Service";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Title</h1>
+
+<div>
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            @Html.DisplayNameFor(model => model.Title)
+        </div>
+        <div class="card-body bg-white text-dark">
+            @Html.DisplayFor(model => model.Title)
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            @Html.DisplayNameFor(model => model.Description)
+        </div>
+        <div class="card-body bg-white text-dark">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            @Html.DisplayNameFor(model => model.Category)
+        </div>
+        <div class="card-body bg-white text-dark">
+            @Html.DisplayFor(model => model.Category)
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

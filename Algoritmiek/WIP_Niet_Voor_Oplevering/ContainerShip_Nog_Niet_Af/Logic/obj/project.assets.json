@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Algoritmiek\\ContainerShip\\Logic\\Logic.csproj",
+      "projectUniqueName": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Algoritmiek\\WIP_Niet_Voor_Oplevering\\ContainerShip_Nog_Niet_Af\\Logic\\Logic.csproj",
       "projectName": "Logic",
-      "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Algoritmiek\\ContainerShip\\Logic\\Logic.csproj",
+      "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Algoritmiek\\WIP_Niet_Voor_Oplevering\\ContainerShip_Nog_Niet_Af\\Logic\\Logic.csproj",
       "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Algoritmiek\\ContainerShip\\Logic\\obj\\",
+      "outputPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Algoritmiek\\WIP_Niet_Voor_Oplevering\\ContainerShip_Nog_Niet_Af\\Logic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
