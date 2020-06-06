@@ -10,3 +10,16 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\ContainerShip\ob
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\ContainerShip\obj\Debug\ContainerShip.exe
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\ContainerShip\obj\Debug\ContainerShip.pdb
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\ContainerShip\obj\Debug\ContainerShip.Form1.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\bin\Debug\ContainerShip.exe.config
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\bin\Debug\ContainerShip.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\bin\Debug\ContainerShip.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\bin\Debug\Logic.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\bin\Debug\Logic.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\obj\Debug\ContainerShip.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\obj\Debug\ContainerShip.Form1.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\obj\Debug\ContainerShip.Properties.Resources.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\obj\Debug\ContainerShip.csproj.GenerateResource.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\obj\Debug\ContainerShip.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\obj\Debug\ContainerShip.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\obj\Debug\ContainerShip.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\ContainerShip\obj\Debug\ContainerShip.pdb

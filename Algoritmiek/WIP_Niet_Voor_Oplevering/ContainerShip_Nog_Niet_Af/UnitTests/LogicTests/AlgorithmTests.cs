@@ -12,7 +12,7 @@ namespace UnitTests.Logic
         [TestInitialize]
         public void Initialize()
         {
-            ship = new Ship(5, 5, 5, 0, 0);
+            ship = new Ship(5, 5, 5);
             List<Container> containerList = new List<Container>();
             for (int i = 0; i < 4; i++)
             {
@@ -90,7 +90,7 @@ namespace UnitTests.Logic
         public void WeightOnTopTests()
         {
             //----------------------------------Het schip heeft een oneven breedte.
-            Ship ship = new Ship(5, 5, 5, 0, 1);
+            Ship ship = new Ship(5, 5, 5);
             //Wanneer de rechterkant van het schip zwaarder is wordt de container links geplaatst.
             Assert.AreEqual(Algorithm.CheckOptimalPosition(ship),3);
 
@@ -106,7 +106,7 @@ namespace UnitTests.Logic
 
 
             //----------------------------------Het schip heeft een even breedte.
-            Ship ship2 = new Ship(4, 4, 4, 0, 1);
+            Ship ship2 = new Ship(4, 4, 4);
             //Wanneer de rechterkant van het schip zwaarder is wordt de container links geplaatst.
             Assert.AreEqual(Algorithm.CheckOptimalPosition(ship2), 2);
 
@@ -122,7 +122,7 @@ namespace UnitTests.Logic
         [TestMethod]
         public void EmptyPositionTests()
         {
-            Ship ship = new Ship(5, 5, 5, 0, 0);
+            Ship ship = new Ship(5, 5, 5);
             Container[,,] containerArray = new Container[5, 5, 5];
             Container c1 = new Container(10000, false, false, true, false);
             containerArray[0, 0, 0] = c1;

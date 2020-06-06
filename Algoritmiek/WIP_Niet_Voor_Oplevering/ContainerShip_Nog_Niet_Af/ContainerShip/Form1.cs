@@ -46,16 +46,16 @@ namespace ContainerShip
                 ship.ContainerList.Add(c);
             }
             //Logic.Container[,,] containerArray = Algorithm.placeContainerArray(ship);
-            Logic.Algorithm2.PlaceContainers(ship);
+            Logic.Container[,,] containerArray = Algorithm.placeContainerArray(ship);
             int j = 0;
-            //foreach (Logic.Container c in containerArray)
-            //{
-            //    if (c != null)
-            //    {
-            //        j++;
-            //    }
-            //}
-            //placedLabel.Text = j.ToString();
+            foreach (Logic.Container c in containerArray)
+            {
+                if (c != null)
+                {
+                    j++;
+                }
+            }
+            placedLabel.Text = j.ToString();
         }
     }
 }

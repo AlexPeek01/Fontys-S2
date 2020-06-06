@@ -1,0 +1,10 @@
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\bin\Debug\PancakeSorter.exe.config
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\bin\Debug\PancakeSorter.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\bin\Debug\PancakeSorter.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\obj\Debug\PancakeSorter.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\obj\Debug\PancakeSorter.Form1.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\obj\Debug\PancakeSorter.Properties.Resources.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\obj\Debug\PancakeSorter.csproj.GenerateResource.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\obj\Debug\PancakeSorter.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\obj\Debug\PancakeSorter.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PancakeSorter\PancakeSorter\obj\Debug\PancakeSorter.pdb

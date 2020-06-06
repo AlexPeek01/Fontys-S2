@@ -6,3 +6,12 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\Logic\bin\Debug\
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\Logic\bin\Debug\netstandard2.0\Logic.pdb
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\Logic\obj\Debug\netstandard2.0\Logic.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\ContainerShip\Logic\obj\Debug\netstandard2.0\Logic.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\bin\Debug\netstandard2.0\Logic.deps.json
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\bin\Debug\netstandard2.0\Logic.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\bin\Debug\netstandard2.0\Logic.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\obj\Debug\netstandard2.0\Logic.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\obj\Debug\netstandard2.0\Logic.AssemblyInfoInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\obj\Debug\netstandard2.0\Logic.AssemblyInfo.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\obj\Debug\netstandard2.0\Logic.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\obj\Debug\netstandard2.0\Logic.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\WIP_Niet_Voor_Oplevering\ContainerShip_Nog_Niet_Af\Logic\obj\Debug\netstandard2.0\Logic.pdb

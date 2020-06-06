@@ -7,7 +7,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
     [TestClass]
     public class WagonTests
     {
-        Wagon wagon;
+        private Wagon wagon;
         [TestInitialize]
         public void Initialize()
         {

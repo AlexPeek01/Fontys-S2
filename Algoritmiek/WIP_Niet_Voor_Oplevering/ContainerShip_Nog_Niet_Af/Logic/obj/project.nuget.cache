@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "3UkLk9zmXUQv8u1W8+eyZi/XzgE+wEUwVoqYMZ+ygpWyDLwgtL5qaxm1sWyuTXzvc/JmfHLulQp2+XmzgPc5sg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Algoritmiek\\WIP_Niet_Voor_Oplevering\\ContainerShip_Nog_Niet_Af\\Logic\\Logic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alex\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

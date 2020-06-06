@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "6C2j/e84q26B9XJcjJvvn3z77dwveRtGjSWuN18GQ/4mEPiXWmNmdWVJZJHf5qbRfd1ULBPEb5UpQ4jTLW2uEg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Algoritmiek\\PolishFlag\\Managers\\Managers.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Alex\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

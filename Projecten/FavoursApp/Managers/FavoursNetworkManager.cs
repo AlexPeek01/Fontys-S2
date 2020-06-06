@@ -1,8 +1,8 @@
 ﻿using AdditionalFiles.Interfaces.IDAL;
-using DAL;
-using DAL.Memory;
-using Managers.Interfaces;
+using AdditionalFiles.Interfaces.IManagers;
+using AdditionalFiles.Interfaces.IRepos;
 using Models;
+using Repos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,26 +11,25 @@ namespace Managers
 {
     public class FavoursNetworkManager : INetworkManager
     {
-        private readonly INetworkDB networkdb;
+        private readonly INetworkRepo networkrepo;
         public FavoursNetworkManager()
         {
-            if (AdditionalFiles.Beans.dataSource == "sql") networkdb = new NetworkDB();
-            else networkdb = new NetworkMemoryContext();
+            networkrepo = new NetworkRepo();
         }
-        public List<string> GetNetworkIDsByUserID(string UserID) => networkdb.GetNetworkIdsByUserID(UserID);
-        public Network GetNetworkData(string networkId) => networkdb.GetNetworkDataByNetworkID(networkId);
-        public void CreateUserNetworkConnection(string UserID, string NetworkID) => networkdb.CreateUserNetworkConnection(UserID, NetworkID);
-        public List<Service> GetServices(string ID) => networkdb.GetServicesByNetworkID(ID);
-        public void RemoveUserNetworkCon(string userId, string networkId) => networkdb.RemoveUserNetworkCon(userId, networkId);
+        public List<string> GetNetworkIDsByUserID(string UserID) => networkrepo.GetNetworkIdsByUserID(UserID);
+        public Network GetNetworkData(string networkId) => networkrepo.GetNetworkDataByNetworkID(networkId);
+        public void CreateUserNetworkConnection(string UserID, string NetworkID) => networkrepo.CreateUserNetworkConnection(UserID, NetworkID);
+        public List<Service> GetServices(string ID) => networkrepo.GetServicesByNetworkID(ID);
+        public void RemoveUserNetworkCon(string userId, string networkId) => networkrepo.RemoveUserNetworkCon(userId, networkId);
         public List<string> GetNetworksCategories(string id)
         {
-            string[] categorieIDs = networkdb.GetCategorieIDs(id);
-            return networkdb.GetCategoryNamesByID(categorieIDs);
+            string[] categorieIDs = networkrepo.GetCategorieIDs(id);
+            return networkrepo.GetCategoryNamesByID(categorieIDs);
         }
         public Network[] GetUsersNetworks(string userID)
         {
             List<string> usersNetworks = GetNetworkIDsByUserID(userID);
-            return networkdb.GetUsersNetworksData(usersNetworks).ToArray();
+            return networkrepo.GetUsersNetworksData(usersNetworks).ToArray();
         }
         public string InsertNewNetworkData(Network network, string UserID)
         {
@@ -44,7 +43,7 @@ namespace Managers
                 UserCount = 1,
                 Visible = network.Visible,
             };
-            networkdb.InsertNewNetworkData(networkWithID);
+            networkrepo.InsertNewNetworkData(networkWithID);
             CreateUserNetworkConnection(UserID, networkWithID.ID);
             return networkWithID.ID;
         }

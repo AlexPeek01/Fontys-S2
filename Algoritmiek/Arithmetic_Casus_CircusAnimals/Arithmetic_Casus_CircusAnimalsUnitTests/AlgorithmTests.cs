@@ -8,9 +8,9 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
     [TestClass]
     public class AlgorithmTests
     {
-        List<Animal> animalList;
-        Train train;
-        Algorithm algorithm;
+        private List<Animal> animalList;
+        private Train train;
+        private Algorithm algorithm;
         [TestInitialize]
         public void Initialize()
         {

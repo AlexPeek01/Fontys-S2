@@ -8,9 +8,9 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
     [TestClass]
     public class WagonSafetyTests
     {
-        List<Animal> animalList;
-        Train testTrain;
-        MainLogic logic;
+        private List<Animal> animalList;
+        private Train testTrain;
+        private MainLogic logic;
         [TestInitialize]
         public void Initialize()
         {

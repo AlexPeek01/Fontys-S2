@@ -10,3 +10,16 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\PolishFlag\PolishFlag\bin\Debug\Managers.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\PolishFlag\PolishFlag\bin\Debug\Managers.pdb
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\PolishFlag\PolishFlag\obj\Debug\PolishFlag.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\bin\Debug\PolishFlag.exe.config
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\bin\Debug\PolishFlag.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\bin\Debug\PolishFlag.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\bin\Debug\Managers.dll
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\bin\Debug\Managers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\obj\Debug\PolishFlag.csprojAssemblyReference.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\obj\Debug\PolishFlag.Form1.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\obj\Debug\PolishFlag.Properties.Resources.resources
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\obj\Debug\PolishFlag.csproj.GenerateResource.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\obj\Debug\PolishFlag.csproj.CoreCompileInputs.cache
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\obj\Debug\PolishFlag.csproj.CopyComplete
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\obj\Debug\PolishFlag.exe
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\PolishFlag\obj\Debug\PolishFlag.pdb

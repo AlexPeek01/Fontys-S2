@@ -1685,9 +1685,9 @@
       "Managers/1.0.0": {
         "dependencies": {
           "AdditionalFiles": "1.0.0",
-          "DAL": "1.0.0",
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.2.0",
-          "Models": "1.0.0"
+          "Models": "1.0.0",
+          "Repos": "1.0.0"
         },
         "runtime": {
           "Managers.dll": {}
@@ -1699,6 +1699,15 @@
         },
         "runtime": {
           "Models.dll": {}
+        }
+      },
+      "Repos/1.0.0": {
+        "dependencies": {
+          "AdditionalFiles": "1.0.0",
+          "DAL": "1.0.0"
+        },
+        "runtime": {
+          "Repos.dll": {}
         }
       }
     }
@@ -2649,6 +2658,11 @@
       "sha512": ""
     },
     "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Repos/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

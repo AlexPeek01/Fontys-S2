@@ -19,7 +19,9 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\AdditionalFiles\AdditionalFiles.csproj" />
     <ProjectReference Include="..\Managers\Managers.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
 

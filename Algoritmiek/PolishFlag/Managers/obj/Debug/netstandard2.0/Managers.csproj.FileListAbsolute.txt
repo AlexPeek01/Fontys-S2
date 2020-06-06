@@ -14,3 +14,4 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\Managers\obj\Debug\
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\Managers\obj\Debug\netstandard2.0\Managers.AssemblyInfo.cs
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\Managers\obj\Debug\netstandard2.0\Managers.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\Managers\obj\Debug\netstandard2.0\Managers.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\PolishFlag\Managers\obj\Debug\netstandard2.0\Managers.csproj.CoreCompileInputs.cache

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AdditionalFiles.Interfaces.IManagers;
+using AdditionalFiles.Interfaces.IRepos;
 using Managers;
-using Managers.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 

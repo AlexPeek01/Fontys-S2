@@ -12,18 +12,13 @@ namespace Repos
 {
     public class UserRepo : IUserRepo
     {
-        private IUserDB usercontext;
+        private readonly IUserDB usercontext;
         public UserRepo()
         {
             if (Beans.dataSource == "sql") usercontext = new UserDB();
-            else usercontext = new UserMemoryContext();
+            else if (Beans.dataSource == "memory") usercontext = new UserMemoryContext();
         }
-
-        public User GetUserDataByUsername(string username, string password)
-        {
-            throw new NotImplementedException();
-        }
-
+        public User GetUserDataByUsername(string username, string password) => usercontext.GetUserDataByUsername(username, password);
         public void InsertNewProfileData(string id, string username, string hashedpassword, string email) => usercontext.InsertNewProfileData(id, username, hashedpassword, email);
     }
 }
