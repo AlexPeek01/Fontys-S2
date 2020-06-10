@@ -19,8 +19,9 @@ namespace Managers
         }
         public List<string> GetNetworkIDsByUserID(string UserID) => networkrepo.GetNetworkIdsByUserID(UserID);
         public Network GetNetworkData(string networkId) => networkrepo.GetNetworkDataByNetworkID(networkId);
+        public bool CheckPermission(string networkid, string userid) => networkrepo.CheckPermission(userid, networkid);
         public void CreateUserNetworkConnection(string UserID, string NetworkID) => networkrepo.CreateUserNetworkConnection(UserID, NetworkID);
-        
+        public string GetHashedPassword(string networkid) => networkrepo.GetHashedPassword(networkid);
         public void RemoveUserNetworkCon(string userId, string networkId) => networkrepo.RemoveUserNetworkCon(userId, networkId);
         public List<string> GetNetworksCategories(string id)
         {
@@ -48,6 +49,5 @@ namespace Managers
             CreateUserNetworkConnection(UserID, networkWithID.ID);
             return networkWithID.ID;
         }
-
     }
 }

@@ -15,5 +15,7 @@ namespace AdditionalFiles.Interfaces.IRepos
         void InsertNewNetworkData(Network network);
         void CreateUserNetworkConnection(string UserID, string NetworkID);
         void RemoveUserNetworkCon(string userId, string networkId);
+        bool CheckPermission(string userid, string networkid);
+        string GetHashedPassword(string networkid);
     }
 }

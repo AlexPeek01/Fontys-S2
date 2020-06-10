@@ -14,5 +14,7 @@ namespace AdditionalFiles.Interfaces.IManagers
         string InsertNewNetworkData(Network network, string UserID);
         void CreateUserNetworkConnection(string UserID, string NetworkID);
         void RemoveUserNetworkCon(string userId, string networkId);
+        bool CheckPermission(string networkid, string userid);
+        string GetHashedPassword(string networkid);
     }
 }

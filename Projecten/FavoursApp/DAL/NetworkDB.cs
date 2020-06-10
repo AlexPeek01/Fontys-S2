@@ -8,7 +8,7 @@ namespace DAL
 {
     public class NetworkDB : INetworkDB
     {
-        // Methods regarding categories
+        // Methods regarding categories 
         public string[] GetCategorieIDs(string id)
         {
             List<string[]> parameters = new List<string[]>()
@@ -16,6 +16,16 @@ namespace DAL
                 new string[] { "@NetworkID", id},
             };
             return SQLConnection.ExecuteSearchQuery($"Select CategoryID From categorynetworkconnection Where NetworkID=@NetworkID", parameters).ToArray();
+        }
+        public bool CheckPermission(string networkid, string userid)
+        {
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@UserID", userid},
+                new string[] { "@NetworkID", networkid }
+            };
+            string[] result = SQLConnection.ExecuteSearchQuery("SELECT * FROM usernetworkconnection WHERE UserID = @UserID AND NetworkID = @NetworkID", parameters).ToArray();
+            return result.Length > 0;
         }
         public List<string> GetCategoryNamesByID(string[] categoryIds)
         {
@@ -113,8 +123,14 @@ namespace DAL
             };
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES(@NetworkID,@UserID)", parameters);
         }
-
-        
+        public string GetHashedPassword(string networkid)
+        {
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@NetworkID", networkid }
+            };
+            return SQLConnection.ExecuteSearchQuery("SELECT Wachtwoord FROM netwerken WHERE NetwerkID = @NetworkID", parameters).ToArray()[0];
+        }
         public void RemoveUserNetworkCon(string userId, string networkId)
         {
             List<string[]> parameters = new List<string[]>()

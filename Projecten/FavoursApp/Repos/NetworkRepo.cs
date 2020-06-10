@@ -16,6 +16,7 @@ namespace Repos
         {
             networkcontext = implementation;
         }
+        public bool CheckPermission(string userid, string networkid) => networkcontext.CheckPermission(networkid, userid);
         public void CreateUserNetworkConnection(string UserID, string NetworkID) => networkcontext.CreateUserNetworkConnection(UserID, NetworkID);
         public string[] GetCategorieIDs(string id) => networkcontext.GetCategorieIDs(id);
         public List<string> GetCategoryNamesByID(string[] categoryIds) => networkcontext.GetCategoryNamesByID(categoryIds);
@@ -24,5 +25,6 @@ namespace Repos
         public List<Network> GetUsersNetworksData(List<string> networkIds) => networkcontext.GetUsersNetworksData(networkIds);
         public void InsertNewNetworkData(Network network) => networkcontext.InsertNewNetworkData(network);
         public void RemoveUserNetworkCon(string userId, string networkId) => networkcontext.RemoveUserNetworkCon(userId, networkId);
+        public string GetHashedPassword(string networkid) => networkcontext.GetHashedPassword(networkid);
     }
 }

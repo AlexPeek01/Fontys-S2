@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using AdditionalFiles.Interfaces.IManagers;
 using AdditionalFiles.Interfaces.IRepos;
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Models;
+using Org.BouncyCastle.Asn1.Cms;
 
 namespace FavoursApp.Controllers
 {
@@ -39,9 +41,33 @@ namespace FavoursApp.Controllers
             return View(networkData);
         }
         [HttpGet]
+        public IActionResult JoinNetwork(string networkid)
+        {
+            Network network = networkManager.GetNetworkData(networkid);
+            return View(network);
+        }
+        [HttpPost]
+        public IActionResult JoinNetwork(JoinNetworkModel joinmodel)
+        {
+            if (joinmodel.Password != null)
+            {
+                string hashedPassword = IdentificationHelper.Encrypt(joinmodel.Password);
+                if(hashedPassword == networkManager.GetHashedPassword(joinmodel.NetworkID))
+                {
+                    networkManager.CreateUserNetworkConnection(HttpContext.Session.GetString("UserData"), joinmodel.NetworkID);
+                    return RedirectToAction("nw", "Network", new { id = joinmodel.NetworkID });
+                }
+            }
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
         public IActionResult nw(string id)
         {
             // Retrieve needed data
+            if(!networkManager.CheckPermission(id, HttpContext.Session.GetString("UserData")))
+            {
+                return RedirectToAction("JoinNetwork", "Network", new { networkid = id });
+            }
             Network network = networkManager.GetNetworkData(id);
             List<Service> services = serviceManager.GetServices(id);
             string[] categories = networkManager.GetNetworksCategories(id).ToArray();

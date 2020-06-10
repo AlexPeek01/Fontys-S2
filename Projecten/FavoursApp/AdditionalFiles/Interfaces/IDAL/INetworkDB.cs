@@ -15,5 +15,7 @@ namespace AdditionalFiles.Interfaces.IDAL
         void InsertNewNetworkData(Network network);
         void CreateUserNetworkConnection(string UserID, string NetworkID);
         void RemoveUserNetworkCon(string userId, string networkId);
+        bool CheckPermission(string networkid, string userid);
+        string GetHashedPassword(string networkid);
     }
 }

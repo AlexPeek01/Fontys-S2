@@ -18,7 +18,10 @@ function changeModalState() {
 function LeaveNetwork() {
     var networkID = $('#networkID').val();
     $.get("/Network/LeaveNetwork?networkID=" + networkID, (data) => {
+
     })
+    modal = $("#confirmModal");
+    changeModalState();
 }
 
 //Click events
@@ -31,11 +34,6 @@ $('#newNetworkBtn').click(() => {
     changeModalState();
 });
 $("#leaveNetworkBtn").click(() => {
-    modal = $("#confirmModal");
-    changeModalState();
-});
-$("#confirmBtn").click(() => {
-    LeaveNetwork();
     modal = $("#confirmModal");
     changeModalState();
 });
