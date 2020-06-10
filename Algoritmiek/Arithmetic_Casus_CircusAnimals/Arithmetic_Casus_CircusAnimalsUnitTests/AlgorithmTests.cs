@@ -24,39 +24,47 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             animalList.Add(new Animal(false, Animal.size.Medium, "MH"));
             animalList.Add(new Animal(false, Animal.size.Large, "LH"));
         }
-        #region ExpectedBehaviour
+        #region PlaceAnimalsInTrain
         [TestMethod]
-        public void PlaceAnimalsInTrain_OneOfEachAnimal()
+        public void PlaceAnimalsInTrain_CorrectInput()
         {
             //Arrange (Initialize)
-            
+            int placedAnimalCount = 0;
+
+            //Act
+            train = algorithm.PlaceAnimalsInTrain(animalList, train);
+            foreach (Wagon wagon in train.wagonsInTrain)
+                foreach (Animal animal in wagon.animalsInWagon)
+                    placedAnimalCount++;
+
+            //Assert
+            Assert.AreEqual(4, train.wagonsInTrain.Count);
+            Assert.AreEqual(6, placedAnimalCount);
+
+        }
+        [TestMethod]
+        public void PlaceAnimalsInTrain_ListIsNull()
+        {
+            //Arrange
+            animalList = null;
+
             //Act
             train = algorithm.PlaceAnimalsInTrain(animalList, train);
 
             //Assert
-            Assert.AreEqual(4, train.wagonsInTrain.Count);
-            Assert.IsTrue(train.wagonsInTrain[0].animalsInWagon[0].carnivore);
-            Assert.IsFalse(train.wagonsInTrain[0].animalsInWagon[1].carnivore);
-            Assert.IsFalse(train.wagonsInTrain[0].animalsInWagon[2].carnivore);
-            Assert.IsTrue(train.wagonsInTrain[1].animalsInWagon[0].carnivore);
-            Assert.IsTrue(train.wagonsInTrain[2].animalsInWagon[0].carnivore);
-            Assert.IsFalse(train.wagonsInTrain[3].animalsInWagon[0].carnivore);
-        }
-        #endregion
-        #region UnexpectedBehaviour
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void PlaceAnimalsInTrain_NullList()
-        {
-            //Act
-            train = algorithm.PlaceAnimalsInTrain(null, train);
+            Assert.AreEqual(0, train.wagonsInTrain.Count);
         }
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void PlaceAnimalsInTrain_NullTrain()
+        public void PlaceAnimalsInTrain_TrainIsNull()
         {
+            //Arrange
+            train = null;
+
             //Act
-            train = algorithm.PlaceAnimalsInTrain(animalList, null);
+            train = algorithm.PlaceAnimalsInTrain(animalList, train);
+
+            //Assert
+            Assert.AreEqual(0, train.wagonsInTrain.Count);
         }
         #endregion
     }

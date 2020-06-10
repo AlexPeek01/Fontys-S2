@@ -6,6 +6,7 @@ using AdditionalFiles.Interfaces.IManagers;
 using AdditionalFiles.Interfaces.IRepos;
 using Managers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Models;
 
 namespace FavoursApp.Controllers
@@ -15,7 +16,8 @@ namespace FavoursApp.Controllers
         private readonly IServiceManager servicemanager;
         public ServiceController()
         {
-            servicemanager = new FavoursServiceManager();
+            Factory factory = new Factory();
+            servicemanager = factory.GetServiceManager(SelectedManager.ManagerSet1);
         }
         public IActionResult Service(string serviceID)
         {

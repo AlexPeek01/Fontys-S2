@@ -9,7 +9,6 @@ namespace AdditionalFiles.Interfaces.IRepos
     {
         List<string> GetCategoryNamesByID(string[] categoryIds);
         List<string> GetNetworkIdsByUserID(string UserID);
-        List<Service> GetServicesByNetworkID(string ID);
         List<Network> GetUsersNetworksData(List<string> networkIds);
         Network GetNetworkDataByNetworkID(string networkId);
         string[] GetCategorieIDs(string id);

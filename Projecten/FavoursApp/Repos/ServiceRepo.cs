@@ -2,7 +2,6 @@
 using AdditionalFiles.Interfaces.IDAL;
 using AdditionalFiles.Interfaces.IRepos;
 using DAL;
-using DAL.Memory;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -13,12 +12,13 @@ namespace Repos
     public class ServiceRepo : IServiceRepo
     {
         private readonly IServiceDB servicecontext;
-        public ServiceRepo()
+        public ServiceRepo(IServiceDB implementation)
         {
-            if (Beans.dataSource == "sql") servicecontext = new ServiceDB();
-            else if (Beans.dataSource == "memory") servicecontext = new ServiceMemoryContext();
+            servicecontext = implementation;
         }
         public Service GetServiceDataById(string serviceID) => servicecontext.GetServiceDataById(serviceID);
         public void InsertNewServiceData(Service service, string datestring) => servicecontext.InsertNewServiceData(service, datestring);
+        public List<Service> GetServicesByNetworkID(string ID) => servicecontext.GetServicesByNetworkID(ID);
+
     }
 }

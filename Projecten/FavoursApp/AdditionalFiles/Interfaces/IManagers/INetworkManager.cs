@@ -9,7 +9,6 @@ namespace AdditionalFiles.Interfaces.IManagers
     {
         List<string> GetNetworksCategories(string id);
         List<string> GetNetworkIDsByUserID(string UserID);
-        List<Service> GetServices(string ID);
         Network[] GetUsersNetworks(string userID);
         Network GetNetworkData(string networkId);
         string InsertNewNetworkData(Network network, string UserID);

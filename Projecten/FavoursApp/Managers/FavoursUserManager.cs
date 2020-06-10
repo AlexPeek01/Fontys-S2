@@ -2,7 +2,6 @@
 using AdditionalFiles.Interfaces.IManagers;
 using AdditionalFiles.Interfaces.IRepos;
 using DAL;
-using DAL.Memory;
 using Models;
 using Repos;
 using System;
@@ -14,9 +13,9 @@ namespace Managers
     public class FavoursUserManager : IUserManager
     {
         private readonly IUserRepo userrepo;
-        public FavoursUserManager()
+        public FavoursUserManager(IUserRepo implementation)
         {
-            userrepo = new UserRepo();
+            userrepo = implementation;
         }
         public void InsertNewProfileData(string id, string username, string hashedpassword, string email)
         {

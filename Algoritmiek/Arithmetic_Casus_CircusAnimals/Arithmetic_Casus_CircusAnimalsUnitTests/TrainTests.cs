@@ -16,19 +16,18 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             wagon = new Wagon(0, 10);
             train.wagonsInTrain.Add(wagon);
         }
-        #region ExpectedBehaviour
         [TestMethod]
         public void CreatingAWagon()
         {
             //Arrange
-            Train train = new Train();
 
             //Act
             train.CreateWagon();
             
             //Assert
-            Assert.AreEqual(train.wagonsInTrain.Count, 1);
+            Assert.AreEqual(1, train.wagonsInTrain.Count);
         }
+        #region FindOptimalWagon
         [TestMethod]
         public void FindingWagonForCarnivore()
         {
@@ -51,8 +50,6 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             //Assert
             Assert.AreEqual(train.FindOptimalWagon(herbivore), train.wagonsInTrain[0]);
         }
-        #endregion
-        #region UnexpectedBehaviour
         [TestMethod]
         public void FindingWagonForNull()
         {

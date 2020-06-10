@@ -114,31 +114,7 @@ namespace DAL
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES(@NetworkID,@UserID)", parameters);
         }
 
-        // Methods regarding the services in a network
-        public List<Service> GetServicesByNetworkID(string ID)
-        {
-            List<string[]> parameters = new List<string[]>()
-            {
-                new string[] { "@NetworkID", ID },
-            };
-            List<string[]> networkData = SQLConnection.ExecuteSearchQueryWithArrayReturn($"SELECT * FROM services WHERE NetworkID=@NetworkID", parameters);
-            List<Service> serviceList = new List<Service>();
-            foreach (string[] data in networkData)
-            {
-                Service service = new Service();
-                service.ServiceID = data[0];
-                service.NetworkID = data[1];
-                service.PostersID = data[2];
-                service.Title = data[3];
-                service.Description = data[4];
-                service.Images = data[5];
-                service.Date = Convert.ToDateTime(data[6]);
-                service.Visibility = data[7] == "0" ? false : true;
-                service.Category = data[8];
-                serviceList.Add(service);
-            }
-            return serviceList;
-        }
+        
         public void RemoveUserNetworkCon(string userId, string networkId)
         {
             List<string[]> parameters = new List<string[]>()

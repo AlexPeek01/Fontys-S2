@@ -6,7 +6,6 @@ namespace AdditionalFiles
 {
     public class Beans
     {
-        //public static string dataSource = "sql";
-        public static string dataSource = "memory";
+        public string dataSource { get; set; }
     }
 }

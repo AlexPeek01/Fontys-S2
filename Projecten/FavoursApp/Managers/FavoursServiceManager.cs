@@ -2,7 +2,6 @@
 using AdditionalFiles.Interfaces.IManagers;
 using AdditionalFiles.Interfaces.IRepos;
 using DAL;
-using DAL.Memory;
 using Models;
 using Repos;
 using System;
@@ -14,9 +13,9 @@ namespace Managers
     public class FavoursServiceManager : IServiceManager
     {
         private readonly IServiceRepo servicerepo;
-        public FavoursServiceManager()
+        public FavoursServiceManager(IServiceRepo implementation)
         {
-            servicerepo = new ServiceRepo();
+            servicerepo = implementation;
         }
         public void InsertNewServiceData(Service service)
         {
@@ -25,5 +24,6 @@ namespace Managers
             servicerepo.InsertNewServiceData(service, datestring);
         }
         public Service GetServiceDataById(string serviceID) => servicerepo.GetServiceDataById(serviceID);
+        public List<Service> GetServices(string ID) => servicerepo.GetServicesByNetworkID(ID);
     }
 }

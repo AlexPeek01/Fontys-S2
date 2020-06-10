@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using Microsoft.Extensions.Options;
 
 namespace FavoursApp
 {
@@ -29,6 +30,8 @@ namespace FavoursApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDistributedMemoryCache();
+
+            services.Configure<AdditionalFiles.Beans>(Configuration);
 
             services.AddSession(options =>
             {

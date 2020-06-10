@@ -10,17 +10,16 @@ using Managers;
 using Microsoft.AspNetCore.Http;
 using Models;
 using AdditionalFiles.Interfaces.IManagers;
+using Microsoft.Extensions.Options;
 
 namespace FavoursApp.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IUserManager favoursusermanager;
-
         public AccountController()
         {
-            AdditionalFiles.Beans.dataSource = "sql";
-            this.favoursusermanager = new FavoursUserManager();
+            this.favoursusermanager = new Factory().GetUserManager(SelectedManager.ManagerSet1);
         }
 
         [HttpGet]
@@ -76,7 +75,7 @@ namespace FavoursApp.Controllers
         public IActionResult Logout()
         {
             // Delete logged in user cookie
-            //HttpContext.Session.Remove("UserData");
+            HttpContext.Session.Remove("UserData");
             return RedirectToAction("Login", "Account");
         }
     }

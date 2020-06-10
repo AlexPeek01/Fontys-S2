@@ -14,7 +14,7 @@ namespace UnitTests
         [TestInitialize]
         public void Initialize()
         {
-            networkmanager = new FavoursNetworkManager();
+            networkmanager = new FavoursNetworkManager("memory");
         }
         #region GetNetworkIDsByUserID
         [TestMethod]
@@ -124,60 +124,7 @@ namespace UnitTests
         #region CreateUserNetworkConnection
         // This method only does a single database call.
         #endregion
-        #region GetServices
-        [TestMethod]
-        public void GetServices_ExistingNetworkID1()
-        {
-            //Arrange
-            string networkid = "networkid1";
 
-            //Act
-            List<Service> service = networkmanager.GetServices(networkid);
-
-            //Assert
-            Assert.AreEqual(service.Count, 2);
-            Assert.AreEqual(service[0].ServiceID, "111");
-            Assert.AreEqual(service[1].ServiceID, "222");
-        }
-        [TestMethod]
-        public void GetServices_ExistingNetworkID2()
-        {
-            //Arrange
-            string networkid = "networkid2";
-
-            //Act
-            List<Service> service = networkmanager.GetServices(networkid);
-
-            //Assert
-            Assert.AreEqual(service.Count, 2);
-            Assert.AreEqual(service[0].ServiceID, "333");
-            Assert.AreEqual(service[1].ServiceID, "444");
-        }
-        [TestMethod]
-        public void GetServices_NonExistingNetworkID()
-        {
-            //Arrange
-            string networkid = "NON_EXISTING";
-
-            //Act
-            List<Service> service = networkmanager.GetServices(networkid);
-
-            //Assert
-            Assert.AreEqual(service.Count, 0);
-        }
-        [TestMethod]
-        public void GetServices_NetworkIDIsNull()
-        {
-            //Arrange
-            string networkid = null;
-
-            //Act
-            List<Service> service = networkmanager.GetServices(networkid);
-
-            //Assert
-            Assert.AreEqual(service.Count, 0);
-        }
-        #endregion
         #region RemoveUserNetworkCon
         // This method only does a single database call.
         #endregion
@@ -213,6 +160,30 @@ namespace UnitTests
             Assert.AreEqual(categoryNames[1], "Naam4");
             Assert.AreEqual(categoryNames[2], "Naam6");
             Assert.AreEqual(categoryNames[3], "Naam8");
+        }
+        [TestMethod]
+        public void GetNetworksCategories_NonExistingNetworkID()
+        {
+            //Arrange
+            string networkid = "-5";
+
+            //Act
+            List<string> categoryNames = networkmanager.GetNetworksCategories(networkid);
+
+            //Assert
+            Assert.AreEqual(categoryNames.Count, 0);
+        }
+        [TestMethod]
+        public void GetNetworksCategories_NetworkIDIsNull()
+        {
+            //Arrange
+            string networkid = null;
+
+            //Act
+            List<string> categoryNames = networkmanager.GetNetworksCategories(networkid);
+
+            //Assert
+            Assert.AreEqual(categoryNames.Count, 0);
         }
         #endregion
     }

@@ -9,5 +9,7 @@ namespace AdditionalFiles.Interfaces.IManagers
     {
         void InsertNewServiceData(Service service);
         Service GetServiceDataById(string serviceID);
+        List<Service> GetServices(string ID);
+
     }
 }

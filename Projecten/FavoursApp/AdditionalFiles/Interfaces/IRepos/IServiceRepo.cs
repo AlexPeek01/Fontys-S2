@@ -9,5 +9,7 @@ namespace AdditionalFiles.Interfaces.IRepos
     {
         void InsertNewServiceData(Service service, string datestring);
         Service GetServiceDataById(string serviceID);
+        List<Service> GetServicesByNetworkID(string ID);
+
     }
 }

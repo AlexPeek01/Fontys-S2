@@ -90,3 +90,4 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimals\bin\Debug\DataAccess.dll
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimals\bin\Debug\LogicLayer.pdb
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimals\bin\Debug\DataAccess.pdb
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Algoritmiek\Arithmetic_Casus_CircusAnimals\Arithmetic_Casus_CircusAnimals\obj\Debug\Arithmetic_Casus_CircusAnimals.csproj.CoreCompileInputs.cache

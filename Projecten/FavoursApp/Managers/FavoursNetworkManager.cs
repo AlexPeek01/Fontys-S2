@@ -1,4 +1,5 @@
-﻿using AdditionalFiles.Interfaces.IDAL;
+﻿using AdditionalFiles;
+using AdditionalFiles.Interfaces.IDAL;
 using AdditionalFiles.Interfaces.IManagers;
 using AdditionalFiles.Interfaces.IRepos;
 using Models;
@@ -12,14 +13,14 @@ namespace Managers
     public class FavoursNetworkManager : INetworkManager
     {
         private readonly INetworkRepo networkrepo;
-        public FavoursNetworkManager()
+        public FavoursNetworkManager(INetworkRepo implementation)
         {
-            networkrepo = new NetworkRepo();
+            networkrepo = implementation;
         }
         public List<string> GetNetworkIDsByUserID(string UserID) => networkrepo.GetNetworkIdsByUserID(UserID);
         public Network GetNetworkData(string networkId) => networkrepo.GetNetworkDataByNetworkID(networkId);
         public void CreateUserNetworkConnection(string UserID, string NetworkID) => networkrepo.CreateUserNetworkConnection(UserID, NetworkID);
-        public List<Service> GetServices(string ID) => networkrepo.GetServicesByNetworkID(ID);
+        
         public void RemoveUserNetworkCon(string userId, string networkId) => networkrepo.RemoveUserNetworkCon(userId, networkId);
         public List<string> GetNetworksCategories(string id)
         {

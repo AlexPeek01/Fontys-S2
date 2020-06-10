@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Models;
 
 namespace FavoursApp.Controllers
@@ -24,8 +25,9 @@ namespace FavoursApp.Controllers
 
         public NetworkController(IHostingEnvironment _hostingEnvironment)
         {
-            if (networkManager == null) networkManager = new FavoursNetworkManager();
-            if (serviceManager == null) serviceManager = new FavoursServiceManager();
+            Factory factory = new Factory();
+            networkManager = factory.GetNetworkManager(SelectedManager.ManagerSet1);
+            serviceManager = factory.GetServiceManager(SelectedManager.ManagerSet1);
             this._hostingEnvironment = _hostingEnvironment;
         }
         #endregion
@@ -41,7 +43,7 @@ namespace FavoursApp.Controllers
         {
             // Retrieve needed data
             Network network = networkManager.GetNetworkData(id);
-            List<Service> services = networkManager.GetServices(id);
+            List<Service> services = serviceManager.GetServices(id);
             string[] categories = networkManager.GetNetworksCategories(id).ToArray();
 
             // Pass data to view
