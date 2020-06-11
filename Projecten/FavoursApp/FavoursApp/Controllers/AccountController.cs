@@ -78,5 +78,18 @@ namespace FavoursApp.Controllers
             HttpContext.Session.Remove("UserData");
             return RedirectToAction("Login", "Account");
         }
+        [HttpGet]
+        public IActionResult Settings()
+        {
+            string userid = HttpContext.Session.GetString("UserData");
+            User user = favoursusermanager.GetUserData(userid);
+            return View(user);
+        }
+        [HttpPost]
+        public IActionResult Settings(User user)
+        {
+            
+            return View(user);
+        }
     }
 }

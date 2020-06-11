@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.Extensions.Options;
+using AdditionalFiles.Interfaces.IManagers;
+using Managers;
 
 namespace FavoursApp
 {

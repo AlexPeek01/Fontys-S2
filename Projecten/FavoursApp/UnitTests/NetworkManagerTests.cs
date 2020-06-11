@@ -14,7 +14,7 @@ namespace UnitTests
         [TestInitialize]
         public void Initialize()
         {
-            networkmanager = new FavoursNetworkManager("memory");
+            //networkmanager = new FavoursNetworkManager("memory");
         }
         #region GetNetworkIDsByUserID
         [TestMethod]

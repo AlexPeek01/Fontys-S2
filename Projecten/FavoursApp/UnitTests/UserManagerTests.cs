@@ -14,7 +14,7 @@ namespace UnitTests
         [TestInitialize]
         public void Initialize()
         {
-            usermanager = new FavoursUserManager("memory");
+            //usermanager = new FavoursUserManager("memory");
         }
 
         [TestMethod]

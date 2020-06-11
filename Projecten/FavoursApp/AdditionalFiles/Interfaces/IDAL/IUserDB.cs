@@ -9,5 +9,6 @@ namespace AdditionalFiles.Interfaces.IDAL
     {
         User GetUserDataByUsername(string username, string HashedPassword);
         void InsertNewProfileData(string id, string username, string hashedpassword, string email);
+        User GetUserData(string userid);
     }
 }

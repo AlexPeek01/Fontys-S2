@@ -49,5 +49,6 @@ namespace Managers
             CreateUserNetworkConnection(UserID, networkWithID.ID);
             return networkWithID.ID;
         }
+        public List<Network> GetPublicNetworks() => networkrepo.GetPublicNetworks();
     }
 }

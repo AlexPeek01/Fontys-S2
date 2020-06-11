@@ -25,5 +25,6 @@ namespace Managers
         {
             return userrepo.GetUserDataByUsername(username, HashedPassword);
         }
+        public User GetUserData(string userid) => userrepo.GetUserData(userid);
     }
 }

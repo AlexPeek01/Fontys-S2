@@ -4724,6 +4724,8 @@ input[type=button].btn-block {
 }
 
 .sb-sidenav-menu {
+    padding-bottom: 1rem !important;
+    padding-top: 1rem !important;
 }
 
 .card-title {
@@ -10746,8 +10748,8 @@ body {
             .sb-sidenav .sb-sidenav-menu .nav .nav-link {
                 display: flex;
                 align-items: center;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
                 position: relative;
             }
 

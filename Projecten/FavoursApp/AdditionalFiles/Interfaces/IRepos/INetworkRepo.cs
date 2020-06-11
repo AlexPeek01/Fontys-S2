@@ -17,5 +17,6 @@ namespace AdditionalFiles.Interfaces.IRepos
         void RemoveUserNetworkCon(string userId, string networkId);
         bool CheckPermission(string userid, string networkid);
         string GetHashedPassword(string networkid);
+        List<Network> GetPublicNetworks();
     }
 }

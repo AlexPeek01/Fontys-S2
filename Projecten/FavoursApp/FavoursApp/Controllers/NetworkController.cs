@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Models;
 using Org.BouncyCastle.Asn1.Cms;
+using Repos;
 
 namespace FavoursApp.Controllers
 {
@@ -24,21 +25,30 @@ namespace FavoursApp.Controllers
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly INetworkManager networkManager;
         private readonly IServiceManager serviceManager;
+        private readonly IImageManager imagemanager;
 
         public NetworkController(IHostingEnvironment _hostingEnvironment)
         {
             Factory factory = new Factory();
             networkManager = factory.GetNetworkManager(SelectedManager.ManagerSet1);
             serviceManager = factory.GetServiceManager(SelectedManager.ManagerSet1);
+            imagemanager = factory.GetImageManager(SelectedManager.ManagerSet1);
             this._hostingEnvironment = _hostingEnvironment;
         }
         #endregion
+
         public async Task<IActionResult> Index()
         {
             // Get a users networks
             string userid = HttpContext.Session.GetString("UserData");
             Network[] networkData = networkManager.GetUsersNetworks(userid);
             return View(networkData);
+        }
+        [HttpGet]
+        public IActionResult Search()
+        {
+            List<Network> publicNetworkList = networkManager.GetPublicNetworks();
+            return View(publicNetworkList);
         }
         [HttpGet]
         public IActionResult JoinNetwork(string networkid)
@@ -52,7 +62,7 @@ namespace FavoursApp.Controllers
             if (joinmodel.Password != null)
             {
                 string hashedPassword = IdentificationHelper.Encrypt(joinmodel.Password);
-                if(hashedPassword == networkManager.GetHashedPassword(joinmodel.NetworkID))
+                if (hashedPassword == networkManager.GetHashedPassword(joinmodel.NetworkID))
                 {
                     networkManager.CreateUserNetworkConnection(HttpContext.Session.GetString("UserData"), joinmodel.NetworkID);
                     return RedirectToAction("nw", "Network", new { id = joinmodel.NetworkID });
@@ -64,7 +74,7 @@ namespace FavoursApp.Controllers
         public IActionResult nw(string id)
         {
             // Retrieve needed data
-            if(!networkManager.CheckPermission(id, HttpContext.Session.GetString("UserData")))
+            if (!networkManager.CheckPermission(id, HttpContext.Session.GetString("UserData")))
             {
                 return RedirectToAction("JoinNetwork", "Network", new { networkid = id });
             }
@@ -80,12 +90,8 @@ namespace FavoursApp.Controllers
         }
         public async Task<IActionResult> CreateService(IFormFile image, Service service)
         {
-            // Handle image file
-            string filename = ImageHelper.GetImageName(image.ContentType.Split('/')[1]);
-            await ImageHelper.SaveImage(image, _hostingEnvironment, filename);
-
             // Set service model data
-            service.Images = filename;
+            service.Images = await SaveImage(image); ;
             service.ServiceID = IdentificationHelper.GetUniqueKey();
             service.PostersID = HttpContext.Session.GetString("UserData");
             // Insert data into datasource
@@ -95,10 +101,8 @@ namespace FavoursApp.Controllers
         public async Task<IActionResult> CreateNetwork(Network model2, IFormFile image)
         {
             // Handle image file
-            string filename = ImageHelper.GetImageName(image.ContentType.Split('/')[1]);
-            await ImageHelper.SaveImage(image, _hostingEnvironment, filename);
-            model2.Image = filename;
-
+            model2.Image = await SaveImage(image);
+            model2.Password = IdentificationHelper.Encrypt(model2.Password);
             if (ModelState.IsValid)
             {
                 // Insert new network into datasource
@@ -112,6 +116,19 @@ namespace FavoursApp.Controllers
         {
             string userid = HttpContext.Session.GetString("UserData");
             networkManager.RemoveUserNetworkCon(userid, networkID);
+        }
+
+        public async Task<string> SaveImage(IFormFile image)
+        {
+            if (image != null)
+            {
+                string filename = imagemanager.GetImageName(image.ContentType.Split('/')[1]);
+                string filepath = imagemanager.GetFilePath(_hostingEnvironment.WebRootPath, filename);
+                using (var fileStream = new FileStream(filepath, FileMode.Create))
+                    await image.CopyToAsync(fileStream);
+                return filename;
+            }
+            return "";
         }
     }
 }

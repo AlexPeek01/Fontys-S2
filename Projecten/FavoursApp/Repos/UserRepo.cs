@@ -18,5 +18,6 @@ namespace Repos
         }
         public User GetUserDataByUsername(string username, string password) => usercontext.GetUserDataByUsername(username, password);
         public void InsertNewProfileData(string id, string username, string hashedpassword, string email) => usercontext.InsertNewProfileData(id, username, hashedpassword, email);
+        public User GetUserData(string userid) => usercontext.GetUserData(userid);
     }
 }

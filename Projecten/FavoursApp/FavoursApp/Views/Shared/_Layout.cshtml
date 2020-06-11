@@ -36,17 +36,21 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark mobile" id="sidenavAccordion">
                 <div class="sb-sidenav-menu mobile">
                     <div class="nav mobile">
-                        <a class="nav-link" href="/Network/Index">
+                        <a class="nav-link" asp-controller="Network" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
-                            <p class="mobile_text">Dashboard</p>
+                            <p class="menu-text">Dashboard</p>
                         </a>
                         <a class="nav-link" asp-controller="Social" asp-action="Messages">
                             <div class="sb-nav-link-icon"><i class="far fa-envelope"></i></div>
-                            <p class="mobile_text">Messages</p>
+                            <p class="menu-text">Messages</p>
                         </a>
-                        <a class="nav-link" href="/Account/Settings">
+                        <a class="nav-link" asp-controller="Account" asp-action="Settings">
                             <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
-                            <p class="mobile_text">Settings</p>
+                            <p class="menu-text">Settings</p>
+                        </a>
+                        <a class="nav-link" asp-controller="Network" asp-action="Search">
+                            <div class="sb-nav-link-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                            <p class="menu-text">Browse</p>
                         </a>
                     </div>
                 </div>

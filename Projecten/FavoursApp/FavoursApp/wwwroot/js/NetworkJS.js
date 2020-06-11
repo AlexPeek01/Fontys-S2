@@ -18,13 +18,24 @@ function changeModalState() {
 function LeaveNetwork() {
     var networkID = $('#networkID').val();
     $.get("/Network/LeaveNetwork?networkID=" + networkID, (data) => {
-
+        window.location.replace(window.location.origin + "/Network/Index");
     })
     modal = $("#confirmModal");
     changeModalState();
 }
-
+$(document).ready(function () {
+    //Filter networks
+    $("#search").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#searchtable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
 //Click events
+$("#search").click(() => {
+    $('#search').val("");
+});
 $("#newServiceBtn").click(() => {
     modal = $("#myModal");
     changeModalState();

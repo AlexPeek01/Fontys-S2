@@ -1,0 +1,70 @@
+﻿@model Models.User
+
+@{
+    ViewData["Title"] = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4 ml-5 mt-5 float-left">
+        <div class="card p-4" style="background-color: #fff">
+            <form asp-action="Settings" method="post">
+                <p class="text-dark">Profilesettings</p>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">FirstName: </span>
+                    </div>
+                    <input asp-for="FirstName" id="firstnamefield" class="form-control" />
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Insertion: </span>
+                    </div>
+                    <input asp-for="Insertion" id="insertionfield" class="form-control" />
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">LastName: </span>
+                    </div>
+                    <input asp-for="LastName" id="lastnamefield" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-dark" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4 ml-5 mt-5 float-right">
+        <div class="card p-4" style="background-color: #fff">
+            <form asp-action="Settings" method="post">
+                <p class="text-dark">Accountsettings</p>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Email: </span>
+                    </div>
+                    <input asp-for="Email" id="emailfield" class="form-control" />
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Username: </span>
+                    </div>
+                    <input asp-for="Username" id="usernamefield" class="form-control" />
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Password: </span>
+                    </div>
+                    <input asp-for="HashedPassword" id="passwordfield" class="form-control" value=""/>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-dark float-left" />
+                    <p class="text-danger float-right ml-5">Not functional</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

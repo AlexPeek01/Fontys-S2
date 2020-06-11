@@ -26,5 +26,6 @@ namespace Repos
         public void InsertNewNetworkData(Network network) => networkcontext.InsertNewNetworkData(network);
         public void RemoveUserNetworkCon(string userId, string networkId) => networkcontext.RemoveUserNetworkCon(userId, networkId);
         public string GetHashedPassword(string networkid) => networkcontext.GetHashedPassword(networkid);
+        public List<Network> GetPublicNetworks() => networkcontext.GetPublicNetworks();
     }
 }

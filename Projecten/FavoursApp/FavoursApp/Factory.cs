@@ -50,5 +50,15 @@ namespace FavoursApp
                     throw new NotSupportedException();
             }
         }
+        public IImageManager GetImageManager(SelectedManager managerset)
+        {
+            switch (managerset)
+            {
+                case SelectedManager.ManagerSet1:
+                    return new ImageManager();
+                default:
+                    throw new NotSupportedException();
+            }
+        }
     }
 }

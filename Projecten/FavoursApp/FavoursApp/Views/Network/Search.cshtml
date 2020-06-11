@@ -1,0 +1,33 @@
+﻿@model List<Models.Network>
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/css/NetworkSearch.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+</head>
+<body>
+    <input class="form-control" type="text" id="search" value="Search.." />
+    <br />
+    <div class="card h-75 float-left w-100">
+        <table id="searchtable" class="table">
+            <tbody>
+                @{
+                    foreach (Models.Network network in Model)
+                    {
+                        <tr class="">
+                            <td class="w-25" id="image"><img class="netwerk-afbeelding" src="~/uploadedimages/@network.Image" /></td>
+                            <td class="w-25 search-networkname" id="title">@network.NetworkName</td>
+                            <td class="w-25 search-networkname" id="desc">@network.Description</td>
+                            <td class="w-25" id="enter-btn"><a class="btn btn-outline-dark bg-white text-dark float-right mr-4" asp-action="nw" asp-controller="Network" asp-route-id="@network.ID">Go to page</a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="~/js/NetworkJS.js"></script>

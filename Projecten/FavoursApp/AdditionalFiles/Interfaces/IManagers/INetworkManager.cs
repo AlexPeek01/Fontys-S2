@@ -16,5 +16,6 @@ namespace AdditionalFiles.Interfaces.IManagers
         void RemoveUserNetworkCon(string userId, string networkId);
         bool CheckPermission(string networkid, string userid);
         string GetHashedPassword(string networkid);
+        List<Network> GetPublicNetworks();
     }
 }

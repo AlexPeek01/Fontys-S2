@@ -9,5 +9,6 @@ namespace AdditionalFiles.Interfaces.IRepos
     {
         User GetUserDataByUsername(string username, string password);
         void InsertNewProfileData(string id, string username, string hashedpassword, string email);
+        User GetUserData(string userid);
     }
 }

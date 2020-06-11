@@ -140,5 +140,25 @@ namespace DAL
             };
             SQLConnection.ExecuteNonSearchQuery("DELETE FROM usernetworkconnection WHERE UserID = @UserID AND NetworkID = @NetworkID", parameters);
         }
+        public List<Network> GetPublicNetworks()
+        {
+            List<string[]> parameters = new List<string[]>();
+            List<string[]> result = SQLConnection.ExecuteSearchQueryWithArrayReturn("SELECT * FROM netwerken WHERE Visible = 1", parameters);
+            List<Network> networkList = new List<Network>();
+            foreach (string[] row in result)
+            {
+                Network network = new Network(row[0])
+                {
+                    NetworkName = row[1],
+                    Image = row[3],
+                    Description = row[4],
+                    Visible = Convert.ToInt32(Convert.ToBoolean(row[5])),
+                    UserCount = Convert.ToInt32(row[6]),
+                    MemberLimit = Convert.ToInt32(row[7]),
+                };
+                networkList.Add(network);
+            }
+            return networkList;
+        }
     }
 }

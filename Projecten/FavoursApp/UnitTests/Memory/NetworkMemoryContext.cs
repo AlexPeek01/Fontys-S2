@@ -6,7 +6,7 @@ using System.Text;
 
 namespace UnitTests.Memory
 {
-    public class NetworkMemoryContext : INetworkDB
+    public class NetworkMemoryContext// : INetworkDB
     {
         public void CreateUserNetworkConnection(string UserID, string NetworkID)
         {

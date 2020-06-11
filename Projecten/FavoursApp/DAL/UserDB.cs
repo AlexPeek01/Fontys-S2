@@ -42,5 +42,28 @@ namespace DAL
             }
             return null;
         }
+        public User GetUserData(string userid)
+        {
+            List<string[]> parameters = new List<string[]>()
+            {
+                new string[] { "@UserID", userid},
+            };
+            string[] userdata = SQLConnection.ExecuteSearchQuery($"SELECT * FROM users WHERE Id = @UserID", parameters).ToArray();
+            if (userdata.Length > 0)
+            {
+                User user = new User(userdata[0])
+                {
+                    Email = userdata[1],
+                    Username = userdata[2],
+                    HashedPassword = userdata[3],
+                    FirstName = userdata[4],
+                    Insertion = userdata[5],
+                    LastName = userdata[6],
+                    Phone = userdata[7]
+                };
+                return user;
+            }
+            return null;
+        }
     }
 }
