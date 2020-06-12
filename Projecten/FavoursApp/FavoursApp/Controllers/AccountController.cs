@@ -11,15 +11,16 @@ using Microsoft.AspNetCore.Http;
 using Models;
 using AdditionalFiles.Interfaces.IManagers;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 
 namespace FavoursApp.Controllers
 {
     public class AccountController : Controller
     {
         private readonly IUserManager favoursusermanager;
-        public AccountController()
+        public AccountController(IConfiguration config)
         {
-            this.favoursusermanager = new Factory().GetUserManager(SelectedManager.ManagerSet1);
+            this.favoursusermanager = new Factory().GetUserManager(config["HandlerType"]);
         }
 
         [HttpGet]

@@ -1,9 +1,11 @@
 ﻿using Managers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
+using Repos;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnitTests.Memory;
 
 namespace UnitTests
 {
@@ -14,7 +16,7 @@ namespace UnitTests
         [TestInitialize]
         public void Initialize()
         {
-            //networkmanager = new FavoursNetworkManager("memory");
+            networkmanager = new FavoursNetworkManager(new NetworkRepo(new NetworkMemoryContext()));
         }
         #region GetNetworkIDsByUserID
         [TestMethod]
@@ -124,7 +126,6 @@ namespace UnitTests
         #region CreateUserNetworkConnection
         // This method only does a single database call.
         #endregion
-
         #region RemoveUserNetworkCon
         // This method only does a single database call.
         #endregion

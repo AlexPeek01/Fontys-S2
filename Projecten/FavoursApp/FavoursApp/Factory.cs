@@ -9,10 +9,6 @@ using System.Text;
 
 namespace FavoursApp
 {
-    public enum SelectedManager
-    {
-        ManagerSet1,
-    }
     public class Factory
     {
         Managers.Factory factory;
@@ -20,41 +16,41 @@ namespace FavoursApp
         {
             factory = new Managers.Factory();
         }
-        public INetworkManager GetNetworkManager(SelectedManager managerset)
+        public INetworkManager GetNetworkManager(string managerset)
         {
             switch (managerset)
             {
-                case SelectedManager.ManagerSet1:
-                    return new FavoursNetworkManager(factory.GetNetworkRepo(SelectedRepo.RepoSet1));
+                case "Release":
+                    return new FavoursNetworkManager(factory.GetNetworkRepo(managerset));
                 default:
                     throw new NotSupportedException();
             }
         }
-        public IServiceManager GetServiceManager(SelectedManager managerset)
+        public IServiceManager GetServiceManager(string managerset)
         {
             switch (managerset)
             {
-                case SelectedManager.ManagerSet1:
-                    return new FavoursServiceManager(factory.GetServiceRepo(SelectedRepo.RepoSet1));
+                case "Release":
+                    return new FavoursServiceManager(factory.GetServiceRepo(managerset));
                 default:
                     throw new NotSupportedException();
             }
         }
-        public IUserManager GetUserManager(SelectedManager managerset)
+        public IUserManager GetUserManager(string managerset)
         {
             switch (managerset)
             {
-                case SelectedManager.ManagerSet1:
-                    return new FavoursUserManager(factory.GetUserRepo(SelectedRepo.RepoSet1));
+                case "Release":
+                    return new FavoursUserManager(factory.GetUserRepo(managerset));
                 default:
                     throw new NotSupportedException();
             }
         }
-        public IImageManager GetImageManager(SelectedManager managerset)
+        public IImageManager GetImageManager(string managerset)
         {
             switch (managerset)
             {
-                case SelectedManager.ManagerSet1:
+                case "Release":
                     return new ImageManager();
                 default:
                     throw new NotSupportedException();

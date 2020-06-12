@@ -8,6 +8,11 @@ namespace UnitTests.Memory
 {
     public class UserMemoryContext : IUserDB
     {
+        public User GetUserData(string userid)
+        {
+            throw new NotImplementedException();
+        }
+
         public User GetUserDataByUsername(string username, string HashedPassword)
         {
             List<User> users = new List<User>()

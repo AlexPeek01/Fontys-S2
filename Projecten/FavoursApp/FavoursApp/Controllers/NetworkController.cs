@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Models;
 using Org.BouncyCastle.Asn1.Cms;
@@ -27,12 +28,12 @@ namespace FavoursApp.Controllers
         private readonly IServiceManager serviceManager;
         private readonly IImageManager imagemanager;
 
-        public NetworkController(IHostingEnvironment _hostingEnvironment)
+        public NetworkController(IHostingEnvironment _hostingEnvironment, IConfiguration config)
         {
             Factory factory = new Factory();
-            networkManager = factory.GetNetworkManager(SelectedManager.ManagerSet1);
-            serviceManager = factory.GetServiceManager(SelectedManager.ManagerSet1);
-            imagemanager = factory.GetImageManager(SelectedManager.ManagerSet1);
+            networkManager = factory.GetNetworkManager(config["HandlerType"]);
+            serviceManager = factory.GetServiceManager(config["HandlerType"]);
+            imagemanager = factory.GetImageManager(config["HandlerType"]);
             this._hostingEnvironment = _hostingEnvironment;
         }
         #endregion

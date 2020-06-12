@@ -23,6 +23,7 @@ namespace FavoursApp
     {
         public Startup(IConfiguration configuration)
         {
+            new SetFactoryType(configuration);
             Configuration = configuration;
         }
 
@@ -32,8 +33,6 @@ namespace FavoursApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDistributedMemoryCache();
-
-            services.Configure<AdditionalFiles.Beans>(Configuration);
 
             services.AddSession(options =>
             {
@@ -88,6 +87,15 @@ namespace FavoursApp
                     pattern: "{controller=Account}/{action=Login}/{id?}");
                 endpoints.MapRazorPages();
             });
+        }
+    }
+
+    internal class SetFactoryType
+    {
+        public enum RunType { Release }
+        public SetFactoryType(IConfiguration config)
+        {
+            config["HandlerType"] = RunType.Release.ToString();
         }
     }
 }

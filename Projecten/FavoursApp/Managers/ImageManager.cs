@@ -13,16 +13,20 @@ namespace Managers
     {
         public string GetFilePath(string path, string filename)
         {
-            var uploads = Path.Combine(path, "uploadedimages");
-            return Path.Combine(uploads, filename);
+            if(!String.IsNullOrEmpty(path) && !String.IsNullOrEmpty(filename))
+            {
+                var uploads = Path.Combine(path, "uploadedimages");
+                return Path.Combine(uploads, filename);
+            }
+            return null;
         }
-        public string GetImageName(string image)
+        public string GetImageName(string imagetype)
         {
             // Set imagename to UniqueKey + the image's filetype
-            if (image != null && image.Length > 0)
+            if (imagetype != null && imagetype.Length > 0)
             {
                 string imageID = IdentificationHelper.GetUniqueKey();
-                string filetype = '.' + image;
+                string filetype = '.' + imagetype;
                 string filename = imageID + filetype;
                 return filename;
             }

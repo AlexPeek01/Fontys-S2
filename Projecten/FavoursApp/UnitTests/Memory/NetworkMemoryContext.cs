@@ -6,8 +6,13 @@ using System.Text;
 
 namespace UnitTests.Memory
 {
-    public class NetworkMemoryContext// : INetworkDB
+    public class NetworkMemoryContext : INetworkDB
     {
+        public bool CheckPermission(string networkid, string userid)
+        {
+            throw new NotImplementedException();
+        }
+
         public void CreateUserNetworkConnection(string UserID, string NetworkID)
         {
             // Not to be tested
@@ -49,6 +54,11 @@ namespace UnitTests.Memory
                     categoryNames.Add("Naam8");
             }
             return categoryNames;
+        }
+
+        public string GetHashedPassword(string networkid)
+        {
+            throw new NotImplementedException();
         }
 
         public Network GetNetworkDataByNetworkID(string networkId)
@@ -94,6 +104,12 @@ namespace UnitTests.Memory
 
             return new List<string>();
         }
+
+        public List<Network> GetPublicNetworks()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Service> GetServicesByNetworkID(string ID)
         {
             Service service1 = new Service()

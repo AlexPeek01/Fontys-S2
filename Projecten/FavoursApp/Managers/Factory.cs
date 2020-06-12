@@ -7,10 +7,6 @@ using System.Text;
 
 namespace Managers
 {
-    public enum SelectedRepo
-    {
-        RepoSet1,
-    }
     public class Factory
     {
         Repos.Factory factory;
@@ -18,32 +14,32 @@ namespace Managers
         {
             factory = new Repos.Factory();
         }
-        public INetworkRepo GetNetworkRepo(SelectedRepo reposet)
+        public INetworkRepo GetNetworkRepo(string reposet)
         {
             switch (reposet)
             {
-                case SelectedRepo.RepoSet1:
-                    return new NetworkRepo(factory.GetNetworkDAL(DataSource.sql));
+                case "Release":
+                    return new NetworkRepo(factory.GetNetworkDAL(reposet));
                 default:
                     throw new NotSupportedException();
             }
         }
-        public IServiceRepo GetServiceRepo(SelectedRepo reposet)
+        public IServiceRepo GetServiceRepo(string reposet)
         {
             switch (reposet)
             {
-                case SelectedRepo.RepoSet1:
-                    return new ServiceRepo(factory.GetServiceDAL(DataSource.sql));
+                case "Release":
+                    return new ServiceRepo(factory.GetServiceDAL(reposet));
                 default:
                     throw new NotSupportedException();
             }
         }
-        public IUserRepo GetUserRepo(SelectedRepo reposet)
+        public IUserRepo GetUserRepo(string reposet)
         {
             switch (reposet)
             {
-                case SelectedRepo.RepoSet1:
-                    return new UserRepo(factory.GetUserDAL(DataSource.sql));
+                case "Release":
+                    return new UserRepo(factory.GetUserDAL(reposet));
                 default:
                     throw new NotSupportedException();
             }
