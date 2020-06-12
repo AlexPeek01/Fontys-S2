@@ -13,9 +13,11 @@ namespace Managers
     public class FavoursNetworkManager : INetworkManager
     {
         private readonly INetworkRepo networkrepo;
-        public FavoursNetworkManager(INetworkRepo implementation)
+        private readonly IIdentificationManager identificationmanager;
+        public FavoursNetworkManager(INetworkRepo implementation, IIdentificationManager imp_identification)
         {
             networkrepo = implementation;
+            identificationmanager = imp_identification;
         }
         public List<string> GetNetworkIDsByUserID(string UserID) => networkrepo.GetNetworkIdsByUserID(UserID);
         public Network GetNetworkData(string networkId) => networkrepo.GetNetworkDataByNetworkID(networkId);
@@ -35,7 +37,7 @@ namespace Managers
         }
         public string InsertNewNetworkData(Network network, string UserID)
         {
-            Network networkWithID = new Network(IdentificationHelper.GetUniqueKey())
+            Network networkWithID = new Network(identificationmanager.GetUniqueKey())
             {
                 NetworkName = network.NetworkName,
                 Description = network.Description,

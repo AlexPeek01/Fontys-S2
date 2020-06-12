@@ -21,7 +21,7 @@ namespace FavoursApp
             switch (managerset)
             {
                 case "Release":
-                    return new FavoursNetworkManager(factory.GetNetworkRepo(managerset));
+                    return new FavoursNetworkManager(factory.GetNetworkRepo(managerset), GetIdentificationManager(managerset));
                 default:
                     throw new NotSupportedException();
             }
@@ -52,6 +52,16 @@ namespace FavoursApp
             {
                 case "Release":
                     return new ImageManager();
+                default:
+                    throw new NotSupportedException();
+            }
+        }
+        public IIdentificationManager GetIdentificationManager(string managerset)
+        {
+            switch (managerset)
+            {
+                case "Release":
+                    return new IdentificationManager();
                 default:
                     throw new NotSupportedException();
             }

@@ -27,6 +27,7 @@ namespace FavoursApp.Controllers
         private readonly INetworkManager networkManager;
         private readonly IServiceManager serviceManager;
         private readonly IImageManager imagemanager;
+        private readonly IIdentificationManager identificationmanager;
 
         public NetworkController(IHostingEnvironment _hostingEnvironment, IConfiguration config)
         {
@@ -34,6 +35,7 @@ namespace FavoursApp.Controllers
             networkManager = factory.GetNetworkManager(config["HandlerType"]);
             serviceManager = factory.GetServiceManager(config["HandlerType"]);
             imagemanager = factory.GetImageManager(config["HandlerType"]);
+            identificationmanager = factory.GetIdentificationManager(config["HandlerType"]);
             this._hostingEnvironment = _hostingEnvironment;
         }
         #endregion
@@ -62,7 +64,7 @@ namespace FavoursApp.Controllers
         {
             if (joinmodel.Password != null)
             {
-                string hashedPassword = IdentificationHelper.Encrypt(joinmodel.Password);
+                string hashedPassword = identificationmanager.Encrypt(joinmodel.Password);
                 if (hashedPassword == networkManager.GetHashedPassword(joinmodel.NetworkID))
                 {
                     networkManager.CreateUserNetworkConnection(HttpContext.Session.GetString("UserData"), joinmodel.NetworkID);
@@ -93,7 +95,7 @@ namespace FavoursApp.Controllers
         {
             // Set service model data
             service.Images = await SaveImage(image); ;
-            service.ServiceID = IdentificationHelper.GetUniqueKey();
+            service.ServiceID = identificationmanager.GetUniqueKey();
             service.PostersID = HttpContext.Session.GetString("UserData");
             // Insert data into datasource
             serviceManager.InsertNewServiceData(service);
@@ -103,7 +105,7 @@ namespace FavoursApp.Controllers
         {
             // Handle image file
             model2.Image = await SaveImage(image);
-            model2.Password = IdentificationHelper.Encrypt(model2.Password);
+            model2.Password = identificationmanager.Encrypt(model2.Password);
             if (ModelState.IsValid)
             {
                 // Insert new network into datasource

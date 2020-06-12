@@ -18,7 +18,7 @@ namespace UnitTests
         {
             usermanager = new FavoursUserManager(new UserRepo(new UserMemoryContext()));
         }
-
+        #region GetUserData
         [TestMethod]
         public void GettingUserData_CorrectCredentials()
         {
@@ -71,5 +71,6 @@ namespace UnitTests
             //Assert
             Assert.AreEqual(testUser, null);
         }
+        #endregion
     }
 }

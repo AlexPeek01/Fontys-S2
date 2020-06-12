@@ -18,9 +18,12 @@ namespace FavoursApp.Controllers
     public class AccountController : Controller
     {
         private readonly IUserManager favoursusermanager;
+        private readonly IIdentificationManager identificationmanager;
         public AccountController(IConfiguration config)
         {
-            this.favoursusermanager = new Factory().GetUserManager(config["HandlerType"]);
+            Factory factory = new Factory();
+            favoursusermanager = factory.GetUserManager(config["HandlerType"]);
+            identificationmanager = factory.GetIdentificationManager(config["HandlerType"]);
         }
 
         [HttpGet]
@@ -34,8 +37,8 @@ namespace FavoursApp.Controllers
             if (ModelState.IsValid)
             {
                 // Handle required data
-                string id = IdentificationHelper.GetUniqueKey();
-                string hashedPassword = IdentificationHelper.Encrypt(model.Password);
+                string id = identificationmanager.GetUniqueKey();
+                string hashedPassword = identificationmanager.Encrypt(model.Password);
 
                 // Insert new user into database
                 favoursusermanager.InsertNewProfileData(id, model.Username, hashedPassword, model.Email);
@@ -57,7 +60,7 @@ namespace FavoursApp.Controllers
             if (ModelState.IsValid)
             {
                 // Hash input password
-                string HashedPassword = IdentificationHelper.Encrypt(model.Password);
+                string HashedPassword = identificationmanager.Encrypt(model.Password);
 
                 // Get userdata by username
                 User user = favoursusermanager.GetUserDataByUsername(model.Username, HashedPassword);

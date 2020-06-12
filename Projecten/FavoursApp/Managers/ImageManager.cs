@@ -25,7 +25,7 @@ namespace Managers
             // Set imagename to UniqueKey + the image's filetype
             if (imagetype != null && imagetype.Length > 0)
             {
-                string imageID = IdentificationHelper.GetUniqueKey();
+                string imageID = new IdentificationManager().GetUniqueKey();
                 string filetype = '.' + imagetype;
                 string filename = imageID + filetype;
                 return filename;

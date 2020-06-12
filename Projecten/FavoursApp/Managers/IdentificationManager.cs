@@ -1,17 +1,18 @@
-﻿using System;
+﻿using AdditionalFiles.Interfaces.IManagers;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace Managers
 {
-    public class IdentificationHelper
+    public class IdentificationManager : IIdentificationManager
     {
         // Set useable characters for keys
         internal static readonly char[] chars =
             "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-_".ToCharArray();
 
-        public static string GetUniqueKey()
+        public string GetUniqueKey()
         {
             byte[] data = new byte[4 * 11];
             using (RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider())
@@ -33,7 +34,7 @@ namespace Managers
             string endResult = dateMs + result.ToString();
             return endResult;
         }
-        public static string Encrypt(string data)
+        public string Encrypt(string data)
         {
             // Encrypt password one way using SHA256
             var crypt = new SHA256Managed();
