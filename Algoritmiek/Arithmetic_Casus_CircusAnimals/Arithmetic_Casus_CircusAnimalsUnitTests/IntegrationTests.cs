@@ -102,7 +102,6 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
         [TestMethod]
         public void WagonSpaceLimit() //Checks if the combined size of the animals doesn't exceed the wagon's spaceAvailable.
         {
-
             foreach (Wagon testWagon in testTrain.wagonsInTrain)
             {
                 int wagonSize = 10;

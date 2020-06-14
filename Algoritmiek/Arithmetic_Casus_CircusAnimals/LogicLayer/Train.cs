@@ -18,8 +18,9 @@ namespace LogicLayer
         public Wagon FindOptimalWagon(Animal animal)
         {
             // Input checks
-            if (animal == null || animal.carnivore) 
-                return null;
+            if (animal == null) throw new ArgumentException("Animal can't be null");
+
+            if (animal.carnivore) return null;
             foreach (Wagon wagon in wagonsInTrain)
             {
                 if (wagon.CanPlaceAnimalChecks(animal))
@@ -35,7 +36,7 @@ namespace LogicLayer
             trainId = MySQLContext.GetTrainCount();
             foreach (Wagon w in wagonsInTrain)
             {
-                foreach(Animal a in w.animalsInWagon)
+                foreach (Animal a in w.animalsInWagon)
                 {
                     MySQLContext.MySqlQuery(w.wagonId, a.animalName, trainId);
                 }

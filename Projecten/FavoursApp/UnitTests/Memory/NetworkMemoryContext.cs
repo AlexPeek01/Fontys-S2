@@ -12,12 +12,9 @@ namespace UnitTests.Memory
         {
             throw new NotImplementedException();
         }
-
         public void CreateUserNetworkConnection(string UserID, string NetworkID)
         {
-            // Not to be tested
         }
-
         public string[] GetCategorieIDs(string id)
         {
             if (id == "1")
@@ -30,7 +27,6 @@ namespace UnitTests.Memory
             }
             else return new string[0];
         }
-
         public List<string> GetCategoryNamesByID(string[] categoryIds)
         {
             List<string> categoryNames = new List<string>();
@@ -55,12 +51,10 @@ namespace UnitTests.Memory
             }
             return categoryNames;
         }
-
         public string GetHashedPassword(string networkid)
         {
             throw new NotImplementedException();
         }
-
         public Network GetNetworkDataByNetworkID(string networkId)
         {
             Network network1 = new Network()
@@ -81,7 +75,6 @@ namespace UnitTests.Memory
             }
             return null;
         }
-
         public List<string> GetNetworkIdsByUserID(string UserID)
         {
             List<string> networkids1 = new List<string>()
@@ -104,12 +97,10 @@ namespace UnitTests.Memory
 
             return new List<string>();
         }
-
         public List<Network> GetPublicNetworks()
         {
             throw new NotImplementedException();
         }
-
         public List<Service> GetServicesByNetworkID(string ID)
         {
             Service service1 = new Service()
@@ -148,16 +139,18 @@ namespace UnitTests.Memory
             }
             return new List<Service>();
         }
-
         public List<Network> GetUsersNetworksData(List<string> networkIds)
         {
             return null;
+        }
+        public List<Network> GetUsersNetworksData(string userid)
+        {
+            throw new NotImplementedException();
         }
         public void InsertNewNetworkData(Network network)
         {
 
         }
-
         public void RemoveUserNetworkCon(string userId, string networkId)
         {
             throw new NotImplementedException();

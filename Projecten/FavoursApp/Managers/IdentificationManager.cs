@@ -36,6 +36,9 @@ namespace Managers
         }
         public string Encrypt(string data)
         {
+            // Input checks
+            if (String.IsNullOrEmpty(data)) throw new ArgumentException("Input string can't be null or empty");
+
             // Encrypt password one way using SHA256
             var crypt = new SHA256Managed();
             string hash = String.Empty;

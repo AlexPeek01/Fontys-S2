@@ -54,13 +54,13 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void FindingWagonForNull()
         {
             //Arrange
-            Animal carnivore = new Animal(true, Animal.size.Small, "SC");
-            
+            Animal animal = null;
+
             //Act
-            wagon.AddAnimalToWagon(carnivore);
-            
+            var ex = Assert.ThrowsException<ArgumentException>(() => train.FindOptimalWagon(animal));
+
             //Assert
-            Assert.AreEqual(train.FindOptimalWagon(null), null);
+            Assert.AreEqual(ex.Message, "Animal can't be null");
         }
         #endregion
     }

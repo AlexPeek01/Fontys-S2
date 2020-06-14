@@ -20,12 +20,14 @@ namespace LogicLayer
             animalsInWagon = new List<Animal>();
         }
         /// <summary>
-        /// Voegt een dier toe aan een wagon en verminderd de ruimte beschikbaar.
+        /// Voegt een dier toe aan een wagon en verminderd de beschikbare ruimte.
         /// </summary>
         /// <param name="animal"></param>
         public void AddAnimalToWagon(Animal animal)
         {
-            if (animal != null && spaceAvailable >= animal.animalSize)
+            if (animal == null) throw new ArgumentException("Animal can't be null");
+
+            if (CanPlaceAnimalChecks(animal))
             {
                 animalsInWagon.Add(animal);
                 spaceAvailable -= animal.animalSize;
@@ -38,7 +40,10 @@ namespace LogicLayer
         /// <returns></returns>
         public bool CanPlaceAnimalChecks(Animal animal)
         {
-            if (animal != null && spaceAvailable >= animal.animalSize)
+            // Input checks
+            if (animal == null) throw new ArgumentException("Animal can't be null");
+            if (animalsInWagon.Count == 0) return true;
+            if (spaceAvailable >= animal.animalSize)
             {
                 if (animalsInWagon[0].carnivore && animalsInWagon[0].animalSize < animal.animalSize)
                     return true;

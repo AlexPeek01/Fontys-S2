@@ -43,28 +43,40 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
 
         }
         [TestMethod]
+        public void PlaceAnimalsInTrain_EmptyList()
+        {
+            //Arrange
+            List<Animal> animalList = new List<Animal>();
+
+            //Act
+            var ex = Assert.ThrowsException<ArgumentException>(() => algorithm.PlaceAnimalsInTrain(animalList, train));
+
+            //Assert
+            Assert.AreEqual(ex.Message, "Animal list can't be null or empty");
+        }
+        [TestMethod]
         public void PlaceAnimalsInTrain_ListIsNull()
         {
             //Arrange
-            animalList = null;
+            List<Animal> animalList = null;
 
             //Act
-            train = algorithm.PlaceAnimalsInTrain(animalList, train);
+            var ex = Assert.ThrowsException<ArgumentException>(() => algorithm.PlaceAnimalsInTrain(animalList, train));
 
             //Assert
-            Assert.AreEqual(0, train.wagonsInTrain.Count);
+            Assert.AreEqual(ex.Message, "Animal list can't be null or empty");
         }
         [TestMethod]
         public void PlaceAnimalsInTrain_TrainIsNull()
         {
             //Arrange
-            train = null;
+            Train train = null;
 
             //Act
-            train = algorithm.PlaceAnimalsInTrain(animalList, train);
+            var ex = Assert.ThrowsException<ArgumentException>(() => algorithm.PlaceAnimalsInTrain(animalList, train));
 
             //Assert
-            Assert.AreEqual(0, train.wagonsInTrain.Count);
+            Assert.AreEqual(ex.Message, "Train can't be null");
         }
         #endregion
     }

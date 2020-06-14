@@ -56,6 +56,30 @@ namespace UnitTests
             //Assert
             Assert.AreNotEqual(string1, string2);
         }
+        [TestMethod]
+        public void Encrypt_EmptyStrings()
+        {
+            //Arrange
+            string inputstring1 = "";
+
+            //Act
+            var ex = Assert.ThrowsException<ArgumentException>(() => identificationmanager.Encrypt(inputstring1));
+
+            //Assert
+            Assert.AreEqual(ex.Message, "Input string can't be null or empty");
+        }
+        [TestMethod]
+        public void Encrypt_NullStrings()
+        {
+            //Arrange
+            string inputstring1 = null;
+
+            //Act
+            var ex = Assert.ThrowsException<ArgumentException>(() => identificationmanager.Encrypt(inputstring1));
+
+            //Assert
+            Assert.AreEqual(ex.Message, "Input string can't be null or empty");
+        }
         #endregion
     }
 }

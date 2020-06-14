@@ -19,7 +19,7 @@ namespace UnitTests
             networkmanager = new FavoursNetworkManager(new NetworkRepo(new NetworkMemoryContext()), new IdentificationManager());
         }
         #region GetNetworkIDsByUserID
-        [TestMethod]
+        /*[TestMethod]
         public void TestGetNetworkIDs_UserIDExists1()
         {
             //Arrange
@@ -71,7 +71,7 @@ namespace UnitTests
 
             //Assert
             Assert.AreEqual(networkids.Count, 0);
-        }
+        }*/
         #endregion
         #region GetNetworkData
         [TestMethod]
@@ -122,12 +122,6 @@ namespace UnitTests
             //Assert
             Assert.AreEqual(network, null);
         }
-        #endregion
-        #region CreateUserNetworkConnection
-        // This method only does a single database call.
-        #endregion
-        #region RemoveUserNetworkCon
-        // This method only does a single database call.
         #endregion
         #region GetNetworkCategories
         [TestMethod]

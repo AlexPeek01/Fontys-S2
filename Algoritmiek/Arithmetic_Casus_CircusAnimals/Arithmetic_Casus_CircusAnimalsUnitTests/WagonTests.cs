@@ -13,16 +13,16 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         {
             wagon = new Wagon(0, 10);
         }
-        #region ExpectedBehaviour
+        #region AddAnimalToWagon
         [TestMethod]
         public void AddingOneLargeAnimalToWagon()
         {
             //Arrange
             Animal largeHerbivore = new Animal(false, Animal.size.Large, "LH");
-            
+
             //Act
             wagon.AddAnimalToWagon(largeHerbivore);
-            
+
             //Assert
             Assert.AreEqual(wagon.animalsInWagon.Count, 1);
             Assert.AreEqual(wagon.spaceAvailable, 5);
@@ -33,7 +33,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             //Arrange
             Animal largeHerbivore1 = new Animal(false, Animal.size.Large, "LH");
             Animal largeHerbivore2 = new Animal(false, Animal.size.Large, "LH");
-        
+
             //Act
             wagon.AddAnimalToWagon(largeHerbivore1);
             wagon.AddAnimalToWagon(largeHerbivore2);
@@ -76,23 +76,34 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             Assert.AreEqual(wagon.animalsInWagon.Count, 3);
             Assert.AreEqual(wagon.spaceAvailable, 1);
         }
-        /// <summary>
-        /// De eerste twee dieren moeten false teruggeven, voor het laatste dier is het niet veilig meer dus deze moet true teruggeven.
-        /// </summary>
         [TestMethod]
-        public void CheckLargeHerbivoreWithCarnivore()
+        public void AddAnimalToWagon_NullAnimal()
+        {
+            //Arrange
+            Animal animal = null;
+
+            //Act
+            var ex = Assert.ThrowsException<ArgumentException>(() => wagon.AddAnimalToWagon(animal));
+
+            //Assert
+            Assert.AreEqual(ex.Message, "Animal can't be null");
+        }
+        #endregion
+        #region CanPlaceAnimalChecks
+        [TestMethod]
+        public void CanPlaceAnimalChecks_PossiblePlacement1()
         {
             //Arrange
             Animal smallCarnivore = new Animal(true, Animal.size.Small, "SC");
             Animal largeHerbivore = new Animal(false, Animal.size.Large, "LH");
-            
+
             //Act
             wagon.AddAnimalToWagon(smallCarnivore);
 
             //Assert
             Assert.IsTrue(wagon.CanPlaceAnimalChecks(largeHerbivore));
         }
-        public void CheckMediumHerbivoreWithCarnivore()
+        public void CanPlaceAnimalChecks_PossiblePlacement2()
         {
             //Arrange
             Animal smallCarnivore = new Animal(true, Animal.size.Small, "SC");
@@ -104,23 +115,20 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             //Assert
             Assert.IsTrue(wagon.CanPlaceAnimalChecks(mediumHerbivore));
         }
-        public void CheckSmallHerbivoreWithCarnivore()
+        public void CanPlaceAnimalChecks_DangerousPlacement()
         {
             //Arrange
             Animal smallCarnivore = new Animal(true, Animal.size.Small, "SC");
             Animal smallHerbivore = new Animal(false, Animal.size.Small, "SH");
-            
+
             //Act
             wagon.AddAnimalToWagon(smallCarnivore);
-            
+
             //Assert
             Assert.IsTrue(wagon.CanPlaceAnimalChecks(smallHerbivore));
         }
-        /// <summary>
-        /// Beide dieren moeten true teruggeven aangezien ze beide geplaatst kunnen worden.
-        /// </summary>
         [TestMethod]
-        public void CheckSeveralAnimalsWithHerbivore()
+        public void CanPlaceAnimalChecks_PossiblePlacement3()
         {
             //Arrange
             Animal largeHerbivore = new Animal(false, Animal.size.Large, "LH");
@@ -135,20 +143,18 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             Assert.IsFalse(wagon.CanPlaceAnimalChecks(mediumHerbivore));
             Assert.IsTrue(wagon.CanPlaceAnimalChecks(smallHerbivore));
         }
-        #endregion
-        #region UnexpectedBehaviour
-        [TestMethod]
-        public void AddAnimalToWagon_NullAnimal()
-        {
-            wagon.AddAnimalToWagon(null);
-            Assert.AreEqual(wagon.animalsInWagon.Count, 0);
-            Assert.AreEqual(wagon.spaceAvailable, 10);
-        }
+
         [TestMethod]
         public void CanPlaceAnimalChecks_NullAnimal()
         {
             //Assert
-            Assert.IsFalse(wagon.CanPlaceAnimalChecks(null));
+            Animal animal = null;
+
+            //Act
+            var ex = Assert.ThrowsException<ArgumentException>(() => wagon.CanPlaceAnimalChecks(animal));
+
+            //Assert
+            Assert.AreEqual(ex.Message, "Animal can't be null");
         }
         #endregion
     }
