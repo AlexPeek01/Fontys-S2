@@ -22,8 +22,8 @@ namespace UnitTests
             string key2 = identificationmanager.GetUniqueKey();
 
             //Assert
-            Assert.AreEqual(20, key1.Length);
-            Assert.AreEqual(20, key2.Length);
+            Assert.AreEqual(16, key1.Length);
+            Assert.AreEqual(16, key2.Length);
             Assert.AreNotEqual(key1, key2);
         }
         #endregion

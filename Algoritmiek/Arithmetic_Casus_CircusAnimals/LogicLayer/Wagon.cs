@@ -44,11 +44,9 @@ namespace LogicLayer
                     return true;
                 else if (!animalsInWagon[0].carnivore)
                     return true;
-                else
-                    return false;
-            }
-            else
                 return false;
+            }
+            return false;
         }
     }
 }

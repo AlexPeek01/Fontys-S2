@@ -19,7 +19,6 @@ namespace Managers
             networkrepo = implementation;
             identificationmanager = imp_identification;
         }
-        public List<string> GetNetworkIDsByUserID(string UserID) => networkrepo.GetNetworkIdsByUserID(UserID);
         public Network GetNetworkData(string networkId) => networkrepo.GetNetworkDataByNetworkID(networkId);
         public bool CheckPermission(string networkid, string userid) => networkrepo.CheckPermission(userid, networkid);
         public void CreateUserNetworkConnection(string UserID, string NetworkID) => networkrepo.CreateUserNetworkConnection(UserID, NetworkID);
@@ -30,11 +29,7 @@ namespace Managers
             string[] categorieIDs = networkrepo.GetCategorieIDs(id);
             return networkrepo.GetCategoryNamesByID(categorieIDs);
         }
-        public Network[] GetUsersNetworks(string userID)
-        {
-            List<string> usersNetworks = GetNetworkIDsByUserID(userID);
-            return networkrepo.GetUsersNetworksData(usersNetworks).ToArray();
-        }
+        public Network[] GetUsersNetworks(string userID) => networkrepo.GetUsersNetworksData(userID).ToArray();
         public string InsertNewNetworkData(Network network, string UserID)
         {
             Network networkWithID = new Network(identificationmanager.GetUniqueKey())

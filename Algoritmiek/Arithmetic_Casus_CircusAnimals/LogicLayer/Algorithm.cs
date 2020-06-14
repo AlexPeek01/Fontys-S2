@@ -20,7 +20,7 @@ namespace LogicLayer
             if (animalList == null) animalList = new List<Animal>();
             if (train == null) return new Train();
 
-            // Algorithm
+            // Place each animal
             foreach (Animal animal in animalList)
             {
                 Wagon optimalWagon = train.FindOptimalWagon(animal);

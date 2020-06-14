@@ -22,10 +22,10 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             //Arrange
 
             //Act
-            train.CreateWagon();
+            train.CreateWagon(); 
             
             //Assert
-            Assert.AreEqual(1, train.wagonsInTrain.Count);
+            Assert.AreEqual(2, train.wagonsInTrain.Count); // When a train is created it creates one wagon by default.
         }
         #region FindOptimalWagon
         [TestMethod]

@@ -30,7 +30,7 @@ namespace Managers
 
             // Add date in milliseconds to the key
             string dateMs = DateTime.Now.Subtract(DateTime.MinValue.AddYears(1969)).TotalMilliseconds.ToString();
-            dateMs = dateMs.Substring(4, dateMs.Length-9);
+            dateMs = dateMs.Substring(4, 5);
             string endResult = dateMs + result.ToString();
             return endResult;
         }

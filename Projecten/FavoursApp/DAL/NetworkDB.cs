@@ -42,40 +42,25 @@ namespace DAL
         }
 
         // Methods regarding Networks
-        public List<string> GetNetworkIdsByUserID(string UserID)
+        public List<Network> GetUsersNetworksData(string userid)
         {
             List<string[]> parameters = new List<string[]>()
             {
-                new string[] { "@UserID", UserID}
+                new string[] {"@UserID", userid },
             };
-            return SQLConnection.ExecuteSearchQuery($"Select NetworkID From UserNetworkConnection Where UserID=@UserID", parameters);
-        }
-        public List<Network> GetUsersNetworksData(List<string> networkIds)
-        {
-            List<string[]> parameters = new List<string[]>();
-            string query = $"Select * From Netwerken Where NetwerkID=";
-            List<string[]> networkData;
+            string query = $"Select netwerken.* From netwerken INNER JOIN usernetworkconnection ON netwerken.NetwerkID = usernetworkconnection.NetworkID WHERE usernetworkconnection.UserID = @UserID";
+            List<string[]> networkData = SQLConnection.ExecuteSearchQueryWithArrayReturn(query, parameters);
             List<Network> networks = new List<Network>();
-            if (networkIds.Count > 0)
+            foreach (string[] data in networkData)
             {
-                for (int i = 0; i < networkIds.Count; i++)
-                {
-                    parameters.Add(new string[] { "@" + i.ToString(), networkIds[i] });
-                    query += "@" + i.ToString() + " OR NetwerkID=";
-                }
-                query = query.Substring(0, query.Length - 14);
-                networkData = SQLConnection.ExecuteSearchQueryWithArrayReturn(query, parameters);
-                foreach (string[] data in networkData)
-                {
-                    Network network = new Network(data[0]);
-                    network.NetworkName = data[1];
-                    network.ImageID = data[3];
-                    network.Description = data[4];
-                    network.Visible = data[5] == "0" ? 0 : 1;
-                    network.UserCount = Convert.ToInt32(data[6]);
-                    network.MemberLimit = Convert.ToInt32(data[7]);
-                    networks.Add(network);
-                }
+                Network network = new Network(data[0]);
+                network.NetworkName = data[1];
+                network.ImageID = data[3];
+                network.Description = data[4];
+                network.Visible = data[5] == "0" ? 0 : 1;
+                network.UserCount = Convert.ToInt32(data[6]);
+                network.MemberLimit = Convert.ToInt32(data[7]);
+                networks.Add(network);
             }
             return networks;
         }
@@ -122,6 +107,7 @@ namespace DAL
                 new string[] { "@UserID", UserID }
             };
             SQLConnection.ExecuteNonSearchQuery($"INSERT INTO UserNetworkConnection (NetworkID,UserID) VALUES(@NetworkID,@UserID)", parameters);
+            SQLConnection.ExecuteNonSearchQuery("UPDATE netwerken SET UserCount = UserCount + 1 WHERE NetwerkID = @NetworkID", parameters);
         }
         public string GetHashedPassword(string networkid)
         {
@@ -139,6 +125,7 @@ namespace DAL
                 new string[] { "@NetworkID", networkId }
             };
             SQLConnection.ExecuteNonSearchQuery("DELETE FROM usernetworkconnection WHERE UserID = @UserID AND NetworkID = @NetworkID", parameters);
+            SQLConnection.ExecuteNonSearchQuery("UPDATE netwerken SET UserCount = UserCount - 1 WHERE NetwerkID = @NetworkID", parameters);
         }
         public List<Network> GetPublicNetworks()
         {

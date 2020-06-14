@@ -21,8 +21,7 @@ namespace Repos
         public string[] GetCategorieIDs(string id) => networkcontext.GetCategorieIDs(id);
         public List<string> GetCategoryNamesByID(string[] categoryIds) => networkcontext.GetCategoryNamesByID(categoryIds);
         public Network GetNetworkDataByNetworkID(string networkId) => networkcontext.GetNetworkDataByNetworkID(networkId);
-        public List<string> GetNetworkIdsByUserID(string UserID) => networkcontext.GetNetworkIdsByUserID(UserID);
-        public List<Network> GetUsersNetworksData(List<string> networkIds) => networkcontext.GetUsersNetworksData(networkIds);
+        public List<Network> GetUsersNetworksData(string userid) => networkcontext.GetUsersNetworksData(userid);
         public void InsertNewNetworkData(Network network) => networkcontext.InsertNewNetworkData(network);
         public void RemoveUserNetworkCon(string userId, string networkId) => networkcontext.RemoveUserNetworkCon(userId, networkId);
         public string GetHashedPassword(string networkid) => networkcontext.GetHashedPassword(networkid);

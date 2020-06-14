@@ -17,7 +17,8 @@ namespace LogicLayer
         }
         public Wagon FindOptimalWagon(Animal animal)
         {
-            if (animal == null || animal.carnivore)
+            // Input checks
+            if (animal == null || animal.carnivore) 
                 return null;
             foreach (Wagon wagon in wagonsInTrain)
             {
