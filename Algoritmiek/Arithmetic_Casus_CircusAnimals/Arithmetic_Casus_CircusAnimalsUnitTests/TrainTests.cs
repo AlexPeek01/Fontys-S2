@@ -32,7 +32,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void FindingWagonForCarnivore()
         {
             //Arrange
-            Animal carnivore = new Animal(true, Animal.size.Large, "LC");
+            Animal carnivore = new Animal(LogicLayer.Type.Carnivore, Size.Large, "LC");
             
             //Assert
             Assert.AreEqual(train.FindOptimalWagon(carnivore), null);
@@ -41,8 +41,8 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void FindingWagonForHerbivore()
         {
             //Arrange
-            Animal carnivore = new Animal(true, Animal.size.Small, "SC");
-            Animal herbivore = new Animal(false, Animal.size.Large, "LH");
+            Animal carnivore = new Animal(LogicLayer.Type.Carnivore, Size.Small, "SC");
+            Animal herbivore = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
 
             //Act
             wagon.animalsInWagon.Add(carnivore);

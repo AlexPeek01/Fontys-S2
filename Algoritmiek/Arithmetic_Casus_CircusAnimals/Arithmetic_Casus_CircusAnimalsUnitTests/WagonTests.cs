@@ -18,7 +18,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void AddingOneLargeAnimalToWagon()
         {
             //Arrange
-            Animal largeHerbivore = new Animal(false, Animal.size.Large, "LH");
+            Animal largeHerbivore = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
 
             //Act
             wagon.AddAnimalToWagon(largeHerbivore);
@@ -31,8 +31,8 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void AddingTwoLargeAnimalsToWagon()
         {
             //Arrange
-            Animal largeHerbivore1 = new Animal(false, Animal.size.Large, "LH");
-            Animal largeHerbivore2 = new Animal(false, Animal.size.Large, "LH");
+            Animal largeHerbivore1 = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
+            Animal largeHerbivore2 = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
 
             //Act
             wagon.AddAnimalToWagon(largeHerbivore1);
@@ -46,9 +46,9 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void AddingThreeLargeAnimalsToWagon()
         {
             //Arrange
-            Animal largeHerbivore1 = new Animal(false, Animal.size.Large, "LH");
-            Animal largeHerbivore2 = new Animal(false, Animal.size.Large, "LH");
-            Animal largeHerbivore3 = new Animal(false, Animal.size.Large, "LH");
+            Animal largeHerbivore1 = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
+            Animal largeHerbivore2 = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
+            Animal largeHerbivore3 = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
 
             //Act
             wagon.AddAnimalToWagon(largeHerbivore1);
@@ -63,9 +63,9 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void AddThreeMediumAnimalsToWagon()
         {
             //Arrange
-            Animal mediumHerbivore1 = new Animal(false, Animal.size.Medium, "MH");
-            Animal mediumHerbivore2 = new Animal(false, Animal.size.Medium, "MH");
-            Animal mediumHerbivore3 = new Animal(false, Animal.size.Medium, "MH");
+            Animal mediumHerbivore1 = new Animal(LogicLayer.Type.Herbivore, Size.Medium, "MH");
+            Animal mediumHerbivore2 = new Animal(LogicLayer.Type.Herbivore, Size.Medium, "MH");
+            Animal mediumHerbivore3 = new Animal(LogicLayer.Type.Herbivore, Size.Medium, "MH");
 
             //Act
             wagon.AddAnimalToWagon(mediumHerbivore1);
@@ -94,8 +94,8 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void CanPlaceAnimalChecks_PossiblePlacement1()
         {
             //Arrange
-            Animal smallCarnivore = new Animal(true, Animal.size.Small, "SC");
-            Animal largeHerbivore = new Animal(false, Animal.size.Large, "LH");
+            Animal smallCarnivore = new Animal(LogicLayer.Type.Carnivore, Size.Small, "SC");
+            Animal largeHerbivore = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
 
             //Act
             wagon.AddAnimalToWagon(smallCarnivore);
@@ -106,8 +106,8 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void CanPlaceAnimalChecks_PossiblePlacement2()
         {
             //Arrange
-            Animal smallCarnivore = new Animal(true, Animal.size.Small, "SC");
-            Animal mediumHerbivore = new Animal(false, Animal.size.Medium, "MH");
+            Animal smallCarnivore = new Animal(LogicLayer.Type.Carnivore, Size.Small, "SC");
+            Animal mediumHerbivore = new Animal(LogicLayer.Type.Herbivore, Size.Medium, "MH");
 
             //Act
             wagon.AddAnimalToWagon(smallCarnivore);
@@ -118,8 +118,8 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void CanPlaceAnimalChecks_DangerousPlacement()
         {
             //Arrange
-            Animal smallCarnivore = new Animal(true, Animal.size.Small, "SC");
-            Animal smallHerbivore = new Animal(false, Animal.size.Small, "SH");
+            Animal smallCarnivore = new Animal(LogicLayer.Type.Carnivore, Size.Small, "SC");
+            Animal smallHerbivore = new Animal(LogicLayer.Type.Herbivore, Size.Small, "SH");
 
             //Act
             wagon.AddAnimalToWagon(smallCarnivore);
@@ -131,9 +131,9 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
         public void CanPlaceAnimalChecks_PossiblePlacement3()
         {
             //Arrange
-            Animal largeHerbivore = new Animal(false, Animal.size.Large, "LH");
-            Animal mediumHerbivore = new Animal(false, Animal.size.Medium, "MH");
-            Animal smallHerbivore = new Animal(false, Animal.size.Small, "SH");
+            Animal largeHerbivore = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
+            Animal mediumHerbivore = new Animal(LogicLayer.Type.Herbivore, Size.Medium, "MH");
+            Animal smallHerbivore = new Animal(LogicLayer.Type.Herbivore, Size.Small, "SH");
 
             //Act
             wagon.AddAnimalToWagon(largeHerbivore);

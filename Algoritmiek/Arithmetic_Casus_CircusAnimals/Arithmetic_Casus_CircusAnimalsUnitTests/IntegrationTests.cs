@@ -20,32 +20,32 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
             #region CreateAnimals
             for (int i = 0; i < random.Next(0, 25); i++)
             {
-                Animal animal = new Animal(true, Animal.size.Large, "LC");
+                Animal animal = new Animal(LogicLayer.Type.Carnivore, Size.Large, "LC");
                 animalList.Add(animal);
             }
             for (int i = 0; i < random.Next(0, 25); i++)
             {
-                Animal animal = new Animal(true, Animal.size.Medium, "MC");
+                Animal animal = new Animal(LogicLayer.Type.Carnivore, Size.Medium, "MC");
                 animalList.Add(animal);
             }
             for (int i = 0; i < random.Next(0, 25); i++)
             {
-                Animal animal = new Animal(true, Animal.size.Small, "SC");
+                Animal animal = new Animal(LogicLayer.Type.Carnivore, Size.Small, "SC");
                 animalList.Add(animal);
             }
             for (int i = 0; i < random.Next(0, 25); i++)
             {
-                Animal animal = new Animal(false, Animal.size.Large, "LH");
+                Animal animal = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
                 animalList.Add(animal);
             }
             for (int i = 0; i < random.Next(0, 25); i++)
             {
-                Animal animal = new Animal(false, Animal.size.Medium, "MH");
+                Animal animal = new Animal(LogicLayer.Type.Herbivore, Size.Medium, "MH");
                 animalList.Add(animal);
             }
             for (int i = 0; i < random.Next(0, 25); i++)
             {
-                Animal animal = new Animal(false, Animal.size.Small, "SH");
+                Animal animal = new Animal(LogicLayer.Type.Herbivore, Size.Small, "SH");
                 animalList.Add(animal);
             }
             #endregion
@@ -60,7 +60,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
                 int i = 0;
                 foreach (Animal testAnimal in testWagon.animalsInWagon)
                 {
-                    if (testAnimal.carnivore)  //Counts how many carnivores are in each wagon.
+                    if (testAnimal.animalType == LogicLayer.Type.Carnivore)  //Counts how many carnivores are in each wagon.
                     {
                         i++;
                     }
@@ -71,17 +71,19 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
         [TestMethod]
         public void CarnivoreSmallerThanHerbivores() //Checks if all herbivores are larger than the carnivore.
         {
-            
+
             foreach (Wagon testWagon in testTrain.wagonsInTrain)
             {
-                if (testWagon.animalsInWagon[0].carnivore)
+                Animal animal = testWagon.animalsInWagon.Find(a => a.animalType == LogicLayer.Type.Carnivore);
+                if (animal != null)
                 {
-                    int carnivoreSize = testWagon.animalsInWagon[0].animalSize; //Sets the carnivores size.
+                    int carnivoreSize = (int)animal.animalSize; //Sets the carnivores size.
                     bool animalIsInDanger = false;
-                    for (int i = 1; i < testWagon.animalsInWagon.Count; i++)
+                    for (int i = 0; i < testWagon.animalsInWagon.Count; i++)
                     {
                         Animal testAnimal = testWagon.animalsInWagon[i];
-                        if (testAnimal.animalSize <= carnivoreSize)  //Checks the herbivores size.
+                        if (testAnimal == animal) continue;
+                        if ((int)testAnimal.animalSize <= (int)carnivoreSize)  //Checks the herbivores size.
                         {
                             animalIsInDanger = true;
                         }
@@ -93,7 +95,7 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
         [TestMethod]
         public void AnimalLimitCheck() //Checks if the number of animals in a wagon doesn't exceed 10.
         {
-            
+
             foreach (Wagon testWagon in testTrain.wagonsInTrain)
             {
                 Assert.IsTrue(testWagon.animalsInWagon.Count <= 10);
@@ -106,9 +108,9 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
             {
                 int wagonSize = 10;
                 int usedSpace = 0;
-                foreach(Animal testAnimal in testWagon.animalsInWagon)
+                foreach (Animal testAnimal in testWagon.animalsInWagon)
                 {
-                    usedSpace += testAnimal.animalSize;
+                    usedSpace += (int)testAnimal.animalSize;
                 }
                 Assert.IsTrue(usedSpace <= wagonSize);
             }
@@ -119,12 +121,12 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests.Logic
             //Arrange sets up the animalList.
             #region Arrange
             List<Animal> animalList = new List<Animal>();
-            Animal testAnimal1 = new Animal(true, Animal.size.Large, "LC");
-            Animal testAnimal2 = new Animal(true, Animal.size.Medium, "MC");
-            Animal testAnimal3 = new Animal(true, Animal.size.Small, "SC");
-            Animal testAnimal4 = new Animal(false, Animal.size.Large, "LH");
-            Animal testAnimal5 = new Animal(false, Animal.size.Medium, "MH");
-            Animal testAnimal6 = new Animal(false, Animal.size.Small, "SH");
+            Animal testAnimal1 = new Animal(LogicLayer.Type.Carnivore, Size.Large, "LC");
+            Animal testAnimal2 = new Animal(LogicLayer.Type.Carnivore, Size.Medium, "MC");
+            Animal testAnimal3 = new Animal(LogicLayer.Type.Carnivore, Size.Small, "SC");
+            Animal testAnimal4 = new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH");
+            Animal testAnimal5 = new Animal(LogicLayer.Type.Herbivore, Size.Medium, "MH");
+            Animal testAnimal6 = new Animal(LogicLayer.Type.Herbivore, Size.Small, "SH");
             animalList.Add(testAnimal1);
             animalList.Add(testAnimal2);
             animalList.Add(testAnimal3);

@@ -5,31 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Arithmetic_Casus_CircusAnimals"
         mc:Ignorable="d"
-        Title="MainWindow" Height="365.934" Width="478.141">
+        Title="MainWindow" Height="308.601" Width="478.141">
     <Grid Background="#FF003751">
         <Grid.RowDefinitions>
-            <RowDefinition Height="156*"/>
-            <RowDefinition Height="179*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="131*"/>
-            <ColumnDefinition Width="451*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="Lion" Content="Large Carnivore" HorizontalAlignment="Left" Margin="8,21,0,0" VerticalAlignment="Top" Width="121" Height="43" Foreground="White"/>
-        <Label x:Name="Elephant" Content="Large Herbivore" HorizontalAlignment="Left" Margin="8,69,0,0" VerticalAlignment="Top" Width="111" Height="43" Foreground="White"/>
-        <Label x:Name="Monkey" Content="Medium Carnivore" HorizontalAlignment="Left" Margin="8,121,0,0" VerticalAlignment="Top" Width="131" Height="43" Grid.ColumnSpan="2" Grid.RowSpan="2" Foreground="White"/>
-        <Label x:Name="Tiger" Content="Medium Herbivore" HorizontalAlignment="Left" Margin="8,21,0,0" VerticalAlignment="Top" Width="131" Height="42" Grid.ColumnSpan="2" Grid.Row="1" Foreground="White"/>
-        <Label x:Name="Zebra" Content="Small Carnivore" HorizontalAlignment="Left" Margin="8,72,0,0" VerticalAlignment="Top" Width="121" Height="43" Grid.Row="1" Foreground="White"/>
-        <Label x:Name="Llama" Content="Small Herbivore" HorizontalAlignment="Left" Margin="8,124,0,0" VerticalAlignment="Top" Width="121" Height="43" Grid.Row="1" Foreground="White"/>
-        <Button x:Name="OrderBTN" Content="Order animals" HorizontalAlignment="Left" Margin="248,95,0,0" VerticalAlignment="Top" Width="114" Height="83" Click="OrderBTN_Click" Background="White" Grid.Column="1" Grid.Row="1"/>
-        <TextBox x:Name="DisplayBox" HorizontalAlignment="Left" Height="336" Margin="13,0,0,-1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Background="White" Grid.RowSpan="2" Grid.Column="1"/>
-        <Label x:Name="efficiencyLabel" Content="Efficiency: " HorizontalAlignment="Left" Margin="248,0,0,0" VerticalAlignment="Top" Background="White" Width="114" Grid.Column="1"/>
-        <Button x:Name="SaveBTN" Content="Save train" HorizontalAlignment="Left" Margin="248,102,0,0" VerticalAlignment="Top" Width="114" Height="83" Background="White" Click="SaveBTN_Click" Grid.Column="1" Grid.RowSpan="2"/>
-        <TextBox x:Name="LCTextBox" HorizontalAlignment="Left" Height="23" Margin="8,50,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="69"/>
-        <TextBox x:Name="LHTextBox" HorizontalAlignment="Left" Height="23" Margin="8,102,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="69"/>
-        <TextBox x:Name="MCTextBox" HorizontalAlignment="Left" Height="23" Margin="8,150,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="69" Grid.RowSpan="2"/>
-        <TextBox x:Name="MHTextBox" HorizontalAlignment="Left" Height="23" Margin="8,51,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="69" Grid.Row="1"/>
-        <TextBox x:Name="SCTextBox" HorizontalAlignment="Left" Height="23" Margin="8,103,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="69" Grid.Row="1"/>
-        <TextBox x:Name="SHTextBox" HorizontalAlignment="Left" Height="23" Margin="8,153,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="69" Grid.Row="1"/>
+        <Label x:Name="Lion" Content="Large Carnivore" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="121" Height="43" Foreground="White"/>
+        <Label x:Name="Elephant" Content="Large Herbivore" HorizontalAlignment="Left" Margin="351,71,0,0" VerticalAlignment="Top" Width="111" Height="43" Foreground="White"/>
+        <Label x:Name="Monkey" Content="Medium Carnivore" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" Width="129" Height="43" Foreground="White"/>
+        <Label x:Name="Tiger" Content="Medium Herbivore" HorizontalAlignment="Left" Margin="351,118,-12,0" VerticalAlignment="Top" Width="131" Height="42" Foreground="White"/>
+        <Label x:Name="Zebra" Content="Small Carnivore" HorizontalAlignment="Left" Margin="0,166,0,0" VerticalAlignment="Top" Width="121" Height="43" Foreground="White"/>
+        <Label x:Name="Llama" Content="Small Herbivore" HorizontalAlignment="Left" Margin="351,166,0,0" VerticalAlignment="Top" Width="109" Height="43" Foreground="White"/>
+        <Button x:Name="OrderBTN" Content="Order animals" HorizontalAlignment="Left" Margin="119,232,0,0" VerticalAlignment="Top" Width="114" Height="35" Click="OrderBTN_Click" Background="White"/>
+        <TextBox x:Name="DisplayBox" HorizontalAlignment="Left" Height="193" Margin="119,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Background="White"/>
+        <Label x:Name="efficiencyLabel" Content="Efficiency: " HorizontalAlignment="Left" Margin="119,3,0,0" VerticalAlignment="Top" Background="White" Width="232"/>
+        <Button x:Name="SaveBTN" Content="Save train" HorizontalAlignment="Left" Margin="238,232,0,0" VerticalAlignment="Top" Width="114" Height="35" Background="White" Click="SaveBTN_Click"/>
+        <TextBox x:Name="LCTextBox" HorizontalAlignment="Left" Height="23" Margin="6,91,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="LHTextBox" HorizontalAlignment="Left" Height="23" Margin="356,91,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="MCTextBox" HorizontalAlignment="Left" Height="23" Margin="6,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="MHTextBox" HorizontalAlignment="Left" Height="23" Margin="356,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="104"/>
+        <TextBox x:Name="SCTextBox" HorizontalAlignment="Left" Height="23" Margin="6,186,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="SHTextBox" HorizontalAlignment="Left" Height="23" Margin="356,186,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="104"/>
     </Grid>
 </Window>

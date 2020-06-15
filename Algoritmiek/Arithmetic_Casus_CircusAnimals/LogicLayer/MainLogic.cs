@@ -45,32 +45,32 @@ namespace LogicLayer
             List<Animal> animalList = new List<Animal>();
             for (int i = 0; i < animalCountPerType[0]; i++)
             {
-                Animal animal = new Animal(true, Animal.size.Small, "Small_Carnivore");
+                Animal animal = new Animal(Type.Carnivore, Size.Small, "Small_Carnivore");
                 animalList.Add(animal);
             }
             for (int i = 0; i < animalCountPerType[1]; i++)
             {
-                Animal animal = new Animal(true, Animal.size.Medium, "Medium_Carnivore");
+                Animal animal = new Animal(Type.Carnivore, Size.Medium, "Medium_Carnivore");
                 animalList.Add(animal);
             }
             for (int i = 0; i < animalCountPerType[2]; i++)
             {
-                Animal animal = new Animal(true, Animal.size.Large, "Large_Carnivore");
+                Animal animal = new Animal(Type.Carnivore, Size.Large, "Large_Carnivore");
                 animalList.Add(animal);
             }
             for (int i = 0; i < animalCountPerType[3]; i++)
             {
-                Animal animal = new Animal(false, Animal.size.Small, "Small_Herbivore");
+                Animal animal = new Animal(Type.Herbivore, Size.Small, "Small_Herbivore");
                 animalList.Add(animal);
             }
             for (int i = 0; i < animalCountPerType[4]; i++)
             {
-                Animal animal = new Animal(false, Animal.size.Medium, "Medium_Herbivore");
+                Animal animal = new Animal(Type.Herbivore, Size.Medium, "Medium_Herbivore");
                 animalList.Add(animal);
             }
             for (int i = 0; i < animalCountPerType[5]; i++)
             {
-                Animal animal = new Animal(false, Animal.size.Large, "Large_Herbivore");
+                Animal animal = new Animal(Type.Herbivore, Size.Large, "Large_Herbivore");
                 animalList.Add(animal);
             }
             #endregion

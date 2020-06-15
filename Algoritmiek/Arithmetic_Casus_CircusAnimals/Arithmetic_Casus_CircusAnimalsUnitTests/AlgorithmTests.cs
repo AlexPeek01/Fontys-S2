@@ -17,12 +17,12 @@ namespace Arithmetic_Casus_CircusAnimalsUnitTests
             train = new Train();
             algorithm = new Algorithm();
             animalList = new List<Animal>();
-            animalList.Add(new Animal(true, Animal.size.Small, "SC"));
-            animalList.Add(new Animal(true, Animal.size.Medium, "MC"));
-            animalList.Add(new Animal(true, Animal.size.Large, "LC"));
-            animalList.Add(new Animal(false, Animal.size.Small, "SH"));
-            animalList.Add(new Animal(false, Animal.size.Medium, "MH"));
-            animalList.Add(new Animal(false, Animal.size.Large, "LH"));
+            animalList.Add(new Animal(LogicLayer.Type.Carnivore, Size.Small, "SC"));
+            animalList.Add(new Animal(LogicLayer.Type.Carnivore, Size.Medium, "MC"));
+            animalList.Add(new Animal(LogicLayer.Type.Carnivore, Size.Large, "LC"));
+            animalList.Add(new Animal(LogicLayer.Type.Herbivore, Size.Small, "SH"));
+            animalList.Add(new Animal(LogicLayer.Type.Herbivore, Size.Medium, "MH"));
+            animalList.Add(new Animal(LogicLayer.Type.Herbivore, Size.Large, "LH"));
         }
         #region PlaceAnimalsInTrain
         [TestMethod]

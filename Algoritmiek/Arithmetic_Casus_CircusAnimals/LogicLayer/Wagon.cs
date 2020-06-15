@@ -30,7 +30,7 @@ namespace LogicLayer
             if (CanPlaceAnimalChecks(animal))
             {
                 animalsInWagon.Add(animal);
-                spaceAvailable -= animal.animalSize;
+                spaceAvailable -= (int)animal.animalSize;
             }
         }
         /// <summary>
@@ -42,12 +42,13 @@ namespace LogicLayer
         {
             // Input checks
             if (animal == null) throw new ArgumentException("Animal can't be null");
+
             if (animalsInWagon.Count == 0) return true;
-            if (spaceAvailable >= animal.animalSize)
+            if (spaceAvailable >= (int)animal.animalSize)
             {
-                if (animalsInWagon[0].carnivore && animalsInWagon[0].animalSize < animal.animalSize)
+                if (animalsInWagon.Find(a => a.animalType == Type.Carnivore) != null && animalsInWagon[0].animalSize < animal.animalSize)
                     return true;
-                else if (!animalsInWagon[0].carnivore)
+                else if (animalsInWagon.Find(a => a.animalType == Type.Carnivore) == null)
                     return true;
                 return false;
             }

@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 
 namespace LogicLayer
 {
+    public enum Size : ushort
+    {
+        Large = 5,
+        Medium = 3,
+        Small = 1
+    }
+    public enum Type : ushort
+    {
+        Carnivore,
+        Herbivore,
+    }
     public class Animal
     {
-        public enum size : ushort
-        {
-            Large = 5,
-            Medium = 3,
-            Small = 1
-        }
-        public int animalSize { get; private set; }
-        public bool carnivore { get; private set; }
+        public Size animalSize { get; private set; }
+        public Type animalType { get; private set; }
         public string animalName { get; private set; }
-        public Animal(bool _carnivore, size _size, string _animalName)
+        public Animal(Type _carnivore, Size _size, string _animalName)
         {
-            this.carnivore = _carnivore;
-            this.animalSize = Convert.ToInt32(_size);
+            this.animalType = _carnivore;
+            this.animalSize = _size;
             this.animalName = _animalName;
         }
     }
