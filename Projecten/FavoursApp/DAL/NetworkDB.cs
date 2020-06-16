@@ -17,7 +17,7 @@ namespace DAL
             };
             return SQLConnection.ExecuteSearchQuery($"Select CategoryID From categorynetworkconnection Where NetworkID=@NetworkID", parameters).ToArray();
         }
-        public bool CheckPermission(string networkid, string userid)
+        public bool CheckPermission(string userid, string networkid)
         {
             List<string[]> parameters = new List<string[]>()
             {

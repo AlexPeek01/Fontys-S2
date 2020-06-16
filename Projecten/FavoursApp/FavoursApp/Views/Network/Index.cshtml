@@ -56,13 +56,13 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Network name: </span>
                     </div>
-                    <input asp-for="@model2.NetworkName" id="titleField" class="form-control" />
+                    <input asp-for="@model2.NetworkName" id="titleField" class="form-control" minlength="1" maxlength="30"/>
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Description: </span>
                     </div>
-                    <input asp-for="@model2.Description" id="descriptionField" class="form-control" />
+                    <input asp-for="@model2.Description" id="descriptionField" minlength="1" maxlength="100" class="form-control" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -80,7 +80,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Member limit: </span>
                     </div>
-                    <input asp-for="@model2.MemberLimit" type="number" id="memberlimitField" class="form-control" />
+                    <input asp-for="@model2.MemberLimit" type="number" min="1" max="1000" value="50" id="memberlimitField" class="form-control" />
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">

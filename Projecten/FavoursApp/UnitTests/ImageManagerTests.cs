@@ -43,29 +43,16 @@ namespace UnitTests
             Assert.IsTrue(result.Length > 4);
         }
         [TestMethod]
-        public void GetImageName_CorrectInput()
-        {
-            //Arrange
-            string filetype = "png";
-
-            //Act
-            string result = imagemanager.GetImageName(filetype);
-
-            //Assert
-            Assert.AreEqual(".png", result.Substring(result.Length - 4, 4));
-            Assert.IsTrue(result.Length > 4);
-        }
-        [TestMethod]
         public void GetImageName_EmptyInput()
         {
             //Arrange
             string filetype = "";
 
             //Act
-            string result = imagemanager.GetImageName(filetype);
+            var ex = Assert.ThrowsException<ArgumentException>(() => imagemanager.GetImageName(filetype));
 
             //Assert
-            Assert.AreEqual(result, null);
+            Assert.AreEqual(ex.Message, "Imagetype can't be null or empty");
         }
         [TestMethod]
         public void GetImageName_NullInput()
@@ -74,10 +61,10 @@ namespace UnitTests
             string filetype = null;
 
             //Act
-            string result = imagemanager.GetImageName(filetype);
+            var ex = Assert.ThrowsException<ArgumentException>(() => imagemanager.GetImageName(filetype));
 
             //Assert
-            Assert.AreEqual(result, null);
+            Assert.AreEqual(ex.Message, "Imagetype can't be null or empty");
         }
         #endregion
         #region GetFilePath
@@ -115,10 +102,10 @@ namespace UnitTests
             string filename = "Item3";
 
             //Act
-            string result = imagemanager.GetFilePath(path, filename);
+            var ex = Assert.ThrowsException<ArgumentException>(() => imagemanager.GetFilePath(path, filename));
 
             //Assert
-            Assert.AreEqual(null, result);
+            Assert.AreEqual(ex.Message, "Path can't be null or empty");
         }
         [TestMethod]
         public void GetFilePath_EmptyFilenameInput()
@@ -128,10 +115,10 @@ namespace UnitTests
             string filename = "";
 
             //Act
-            string result = imagemanager.GetFilePath(path, filename);
+            var ex = Assert.ThrowsException<ArgumentException>(() => imagemanager.GetFilePath(path, filename));
 
             //Assert
-            Assert.AreEqual(null, result);
+            Assert.AreEqual(ex.Message, "Filename can't be null or empty");
         }
         [TestMethod]
         public void GetFilePath_AllEmptyInput()
@@ -141,10 +128,10 @@ namespace UnitTests
             string filename = "";
 
             //Act
-            string result = imagemanager.GetFilePath(path, filename);
+            var ex = Assert.ThrowsException<ArgumentException>(() => imagemanager.GetFilePath(path, filename));
 
             //Assert
-            Assert.AreEqual(null, result);
+            Assert.AreEqual(ex.Message, "Path can't be null or empty");
         }
         [TestMethod]
         public void GetFilePath_PathNullInput()
@@ -154,10 +141,10 @@ namespace UnitTests
             string filename = "nulltest";
 
             //Act
-            string result = imagemanager.GetFilePath(path, filename);
+            var ex = Assert.ThrowsException<ArgumentException>(() => imagemanager.GetFilePath(path, filename));
 
             //Assert
-            Assert.AreEqual(null, result);
+            Assert.AreEqual(ex.Message, "Path can't be null or empty");
         }
         [TestMethod]
         public void GetFilePath_FilenameNullInput()
@@ -167,10 +154,10 @@ namespace UnitTests
             string filename = null;
 
             //Act
-            string result = imagemanager.GetFilePath(path, filename);
+            var ex = Assert.ThrowsException<ArgumentException>(() => imagemanager.GetFilePath(path, filename));
 
             //Assert
-            Assert.AreEqual(null, result);
+            Assert.AreEqual(ex.Message, "Filename can't be null or empty");
         }
         [TestMethod]
         public void GetFilePath_BothNullInput()
@@ -180,10 +167,10 @@ namespace UnitTests
             string filename = null;
 
             //Act
-            string result = imagemanager.GetFilePath(path, filename);
+            var ex = Assert.ThrowsException<ArgumentException>(() => imagemanager.GetFilePath(path, filename));
 
             //Assert
-            Assert.AreEqual(null, result);
+            Assert.AreEqual(ex.Message, "Path can't be null or empty");
         }
         #endregion
     }

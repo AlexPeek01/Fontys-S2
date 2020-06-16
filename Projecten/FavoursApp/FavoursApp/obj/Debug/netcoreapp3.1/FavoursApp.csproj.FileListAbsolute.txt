@@ -191,8 +191,7 @@ C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\Razor\Views\Service\Service.cshtml.g.cs
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\FavoursApp.csproj.CoreCompileInputs.cache
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\FavoursApp.genruntimeconfig.cache
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Repos.dll
-C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\bin\Debug\netcoreapp3.1\Repos.pdb
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\Razor\Views\Network\JoinNetwork.cshtml.g.cs
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\Razor\Views\Network\Search.cshtml.g.cs
 C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Settings.cshtml.g.cs
+C:\Users\Alex\Desktop\FHICT\Fontys-S2\Projecten\FavoursApp\FavoursApp\obj\Debug\netcoreapp3.1\Razor\Views\Error\Error500.cshtml.g.cs

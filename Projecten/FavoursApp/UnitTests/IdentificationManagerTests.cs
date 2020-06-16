@@ -10,7 +10,7 @@ namespace UnitTests
     [TestClass]
     public class IdentificationManagerTests
     {
-        private IdentificationManager identificationmanager =  new IdentificationManager();
+        private readonly IdentificationManager identificationmanager =  new IdentificationManager();
         #region GetUniqueKey
         [TestMethod]
         public void GetUniqueKey_Expected()

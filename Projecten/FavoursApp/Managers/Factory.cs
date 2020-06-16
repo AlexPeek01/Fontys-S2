@@ -1,6 +1,6 @@
 ﻿using AdditionalFiles.Interfaces.IDAL;
 using AdditionalFiles.Interfaces.IRepos;
-using Repos;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,37 +9,32 @@ namespace Managers
 {
     public class Factory
     {
-        Repos.Factory factory;
-        public Factory()
+        public INetworkDB GetNetworkDAL(string source)
         {
-            factory = new Repos.Factory();
-        }
-        public INetworkRepo GetNetworkRepo(string reposet)
-        {
-            switch (reposet)
+            switch (source)
             {
                 case "Release":
-                    return new NetworkRepo(factory.GetNetworkDAL(reposet));
+                    return new NetworkDB();
                 default:
                     throw new NotSupportedException();
             }
         }
-        public IServiceRepo GetServiceRepo(string reposet)
+        public IServiceDB GetServiceDAL(string source)
         {
-            switch (reposet)
+            switch (source)
             {
                 case "Release":
-                    return new ServiceRepo(factory.GetServiceDAL(reposet));
+                    return new ServiceDB();
                 default:
                     throw new NotSupportedException();
             }
         }
-        public IUserRepo GetUserRepo(string reposet)
+        public IUserDB GetUserDAL(string source)
         {
-            switch (reposet)
+            switch (source)
             {
                 case "Release":
-                    return new UserRepo(factory.GetUserDAL(reposet));
+                    return new UserDB();
                 default:
                     throw new NotSupportedException();
             }

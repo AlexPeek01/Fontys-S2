@@ -2,7 +2,6 @@
 using AdditionalFiles.Interfaces.IManagers;
 using AdditionalFiles.Interfaces.IRepos;
 using Managers;
-using Repos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,7 +20,7 @@ namespace FavoursApp
             switch (managerset)
             {
                 case "Release":
-                    return new FavoursNetworkManager(factory.GetNetworkRepo(managerset), GetIdentificationManager(managerset));
+                    return new FavoursNetworkManager(factory.GetNetworkDAL(managerset), GetIdentificationManager(managerset));
                 default:
                     throw new NotSupportedException();
             }
@@ -31,7 +30,7 @@ namespace FavoursApp
             switch (managerset)
             {
                 case "Release":
-                    return new FavoursServiceManager(factory.GetServiceRepo(managerset));
+                    return new FavoursServiceManager(factory.GetServiceDAL(managerset));
                 default:
                     throw new NotSupportedException();
             }
@@ -41,7 +40,7 @@ namespace FavoursApp
             switch (managerset)
             {
                 case "Release":
-                    return new FavoursUserManager(factory.GetUserRepo(managerset));
+                    return new FavoursUserManager(factory.GetUserDAL(managerset));
                 default:
                     throw new NotSupportedException();
             }

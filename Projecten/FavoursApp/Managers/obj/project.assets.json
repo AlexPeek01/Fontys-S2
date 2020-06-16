@@ -1812,20 +1812,6 @@
         "runtime": {
           "bin/placeholder/Models.dll": {}
         }
-      },
-      "Repos/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "AdditionalFiles": "1.0.0",
-          "DAL": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Repos.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Repos.dll": {}
-        }
       }
     }
   },
@@ -6154,19 +6140,14 @@
       "type": "project",
       "path": "../Models/Models.csproj",
       "msbuildProject": "../Models/Models.csproj"
-    },
-    "Repos/1.0.0": {
-      "type": "project",
-      "path": "../Repos/Repos.csproj",
-      "msbuildProject": "../Repos/Repos.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AdditionalFiles >= 1.0.0",
+      "DAL >= 1.0.0",
       "Microsoft.AspNetCore.Hosting.Abstractions >= 2.2.0",
-      "Models >= 1.0.0",
-      "Repos >= 1.0.0"
+      "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6198,11 +6179,11 @@
             "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\AdditionalFiles\\AdditionalFiles.csproj": {
               "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\AdditionalFiles\\AdditionalFiles.csproj"
             },
+            "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\DAL\\DAL.csproj"
+            },
             "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Models\\Models.csproj": {
               "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Models\\Models.csproj"
-            },
-            "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Repos\\Repos.csproj": {
-              "projectPath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Repos\\Repos.csproj"
             }
           }
         }

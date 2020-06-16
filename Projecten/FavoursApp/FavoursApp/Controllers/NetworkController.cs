@@ -16,7 +16,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using Models;
 using Org.BouncyCastle.Asn1.Cms;
-using Repos;
 
 namespace FavoursApp.Controllers
 {
@@ -40,7 +39,7 @@ namespace FavoursApp.Controllers
         }
         #endregion
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             // Get a users networks
             string userid = HttpContext.Session.GetString("UserData");
@@ -103,15 +102,17 @@ namespace FavoursApp.Controllers
         }
         public async Task<IActionResult> CreateNetwork(Network model2, IFormFile image)
         {
-            // Handle image file
-            model2.Image = await SaveImage(image);
-            model2.Password = identificationmanager.Encrypt(model2.Password);
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && !string.IsNullOrEmpty(model2.Password))
             {
+                // Handle image file
+                model2.Image = await SaveImage(image);
+                model2.Password = identificationmanager.Encrypt(model2.Password);
+
                 // Insert new network into datasource
                 string userId = HttpContext.Session.GetString("UserData");
                 string networkID = networkManager.InsertNewNetworkData(model2, userId);
                 return RedirectToAction("nw", "Network", new { id = networkID });
+
             }
             return RedirectToAction("Index");
         }

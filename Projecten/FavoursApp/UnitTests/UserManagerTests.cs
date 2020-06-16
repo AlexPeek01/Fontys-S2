@@ -1,7 +1,6 @@
 ﻿using Managers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
-using Repos;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +15,7 @@ namespace UnitTests
         [TestInitialize]
         public void Initialize()
         {
-            usermanager = new FavoursUserManager(new UserRepo(new UserMemoryContext()));
+            usermanager = new FavoursUserManager(new UserMemoryContext());
         }
         #region GetUserData
         [TestMethod]
