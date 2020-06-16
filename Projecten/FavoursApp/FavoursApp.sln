@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdditionalFiles", "Addition
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A48A2F00-E61F-40D7-9AD0-0FE397A16123}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repos", "Repos\Repos.csproj", "{4A1A4DCC-E0AD-4E59-8D86-79C9F078EBEA}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{A48A2F00-E61F-40D7-9AD0-0FE397A16123}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A48A2F00-E61F-40D7-9AD0-0FE397A16123}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A48A2F00-E61F-40D7-9AD0-0FE397A16123}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A1A4DCC-E0AD-4E59-8D86-79C9F078EBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A1A4DCC-E0AD-4E59-8D86-79C9F078EBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A1A4DCC-E0AD-4E59-8D86-79C9F078EBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A1A4DCC-E0AD-4E59-8D86-79C9F078EBEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
