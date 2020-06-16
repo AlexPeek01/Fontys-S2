@@ -9,7 +9,7 @@
     <div class="card-header bg-dark text-white">Message</div>
     <div class="card-body p-4" style="background-color: #fff; flex-direction: row !important">
         <div class="float-left w-100 h-50">
-            <form asp-action="Message" asp-controller="Service" asp-route-email="@Model.user.Email">
+            <form asp-action="Message" asp-controller="Service" asp-route-email="@Model.user.Email" asp-route-name="@Model.user.FirstName">
                 <textarea name="message" autofocus type="text" class="textbox"></textarea>
                 <input type="submit" class="btn btn-dark" value="Send">
             </form>

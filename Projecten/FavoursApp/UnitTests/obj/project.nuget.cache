@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zdbUZ1liIMaT06r+3tLqJdwV5b+07aEk1d1oE6U85Utd4O5odtCaf3TA2gPv2YkLusJG3Y9hcptacD48pLhMxw==",
+  "dgSpecHash": "t/yrBQbrNbTkQYcjblflqKJlW0+C+Da8NqC9B8D0PedIz0hm9icMlshDojuXXOzRuV0kQtWVQfqQnWQEBCcXQA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\UnitTests\\UnitTests.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "C:\\Users\\Alex\\.nuget\\packages\\mysql.data\\8.0.19\\mysql.data.8.0.19.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\restsharp\\106.11.4\\restsharp.106.11.4.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

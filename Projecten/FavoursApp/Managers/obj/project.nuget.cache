@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PfZHWpqcI3jDecvto548HREfIAV3987V3QeGDDi6ZROcfPERGT7dsQ/xQjOp6ulp9IKPumUcIRC4rnzpwOzsAQ==",
+  "dgSpecHash": "5NfdexBs51tdOg0mi3PZptCjWOICsLfVoqArJwspQ5TY6nS72fD02JcyzynSP+4/M/1Q/p3K0phtVwiqCQQ3ow==",
   "success": true,
   "projectFilePath": "C:\\Users\\Alex\\Desktop\\FHICT\\Fontys-S2\\Projecten\\FavoursApp\\Managers\\Managers.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\Alex\\.nuget\\packages\\microsoft.win32.systemevents\\4.6.0\\microsoft.win32.systemevents.4.6.0.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\mysql.data\\8.0.19\\mysql.data.8.0.19.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
+    "C:\\Users\\Alex\\.nuget\\packages\\restsharp\\106.11.4\\restsharp.106.11.4.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\Alex\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
