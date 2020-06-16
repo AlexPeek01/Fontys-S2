@@ -1,0 +1,20 @@
+﻿@model ServiceWithUser
+
+@{
+    ViewData["Title"] = "Service";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/NetworkPage.css" rel="stylesheet" />
+<div class="card bg-dark w-50 ml-5 mt-5 mr-5">
+    <div class="card-header bg-dark text-white">Message</div>
+    <div class="card-body p-4" style="background-color: #fff; flex-direction: row !important">
+        <div class="float-left w-100 h-50">
+            <form asp-action="Message" asp-controller="Service" asp-route-email="@Model.user.Email">
+                <textarea name="message" autofocus type="text" class="textbox"></textarea>
+                <input type="submit" class="btn btn-dark" value="Send">
+            </form>
+        </div>
+    </div>
+</div>
+
+

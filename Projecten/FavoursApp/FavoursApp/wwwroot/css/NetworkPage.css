@@ -89,6 +89,7 @@
     margin-right: 15px;
     float: left;
     font-size: calc(6pt + 0.5vw) !important;
+    color: black;
 }
 
 .service-list-description-box {
@@ -97,6 +98,7 @@
     width: 35vw;
     float: left;
     font-size: calc(6pt + 0.4vw) !important;
+    color: black;
 }
 .service-list-item {
     color: black !important;
@@ -134,7 +136,11 @@
     font-family: Calibri;
     color: #212529;
 }
-
+.textbox{
+    width: 100%;
+    margin-bottom: 5px;
+    min-height: 30vh !important;
+}
 https://localhost:44361/Account/Settings
 .netwerk-afbeelding {
     width: 100% !important;

@@ -1,39 +1,41 @@
-﻿@model Models.Service
+﻿@model ServiceWithUser
 
 @{
     ViewData["Title"] = "Service";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>@Model.Title</h1>
-
-<div>
-    <div class="card">
-        <div class="card-header bg-dark text-white">
-            @Html.DisplayNameFor(model => model.Title)
+<div class="row-md-4 ml-5 mt-5 mr-5 float-left">
+    <div class="card p-4 w-100" style="background-color: #fff; flex-direction: row !important">
+        <div class="float-left w-50">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Poster: </span>
+                </div>
+                <input id="posterfield" disabled class="form-control" value="@Model.user.FirstName" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Title: </span>
+                </div>
+                <input id="titlefield" disabled class="form-control" value="@Model.service.Title" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Description: </span>
+                </div>
+                <input disabled id="descriptionfield" class="form-control" value="@Model.service.Description" />
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">Category: </span>
+                </div>
+                <input disabled id="categoryfield" class="form-control" value="@Model.service.Category" />
+            </div>
+            <a asp-action="Message" asp-controller="Service" asp-route-posterid="@Model.user.UserId" asp-route-serviceid="@Model.service.ServiceID" class="btn btn-outline-dark bg-white text-dark">Message</a>
         </div>
-        <div class="card-body bg-white text-dark">
-            @Html.DisplayFor(model => model.Title)
+        <div class="float-left w-50 h-50">
+            <img class="d-block ml-2 w-25 h-auto border border-dark" src="~/uploadedimages/@Model.service.Images" alt="Service Image" />
         </div>
     </div>
-    <div class="card">
-        <div class="card-header bg-dark text-white">
-            @Html.DisplayNameFor(model => model.Description)
-        </div>
-        <div class="card-body bg-white text-dark">
-            @Html.DisplayFor(model => model.Description)
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header bg-dark text-white">
-            @Html.DisplayNameFor(model => model.Category)
-        </div>
-        <div class="card-body bg-white text-dark">
-            @Html.DisplayFor(model => model.Category)
-        </div>
-    </div>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
 </div>
